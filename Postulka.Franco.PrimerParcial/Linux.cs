@@ -20,6 +20,21 @@ namespace Postulka.Franco.PrimerParcial
             this.interfazGrafica = interfaz;
         }
 
+        public override string DevolverInformacionEspecifica()
+        {
+            string interfaz = "No";
+            if(this.InterfazGrafica == true)
+            {
+                interfaz = "Si";
+            }
+
+            return $"El SO {this.Nombre} tiene las siguientes caracteristicas:\n" +
+                $"Distribucion: {this.Distribucion}\n" +
+                $"Version: {this.Version}\n" +
+                $"Ocupa: {this.EspacioGB} GB\n" +
+                $"Soporte acutual: {this.Soporte}\n" +
+                $"Tinene interfaz de usuario: {interfaz}\n"; 
+        }
         //public override bool ComprobarAlmacenamientoNecesario()
         //{
         //    bool retorno = false;

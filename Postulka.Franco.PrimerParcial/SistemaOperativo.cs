@@ -21,8 +21,6 @@ namespace Postulka.Franco.PrimerParcial
             this.EspacioGB = espacio;
             this.estadoSoporte = soporte;
         }
-       //public abstract bool ComprobarAlmacenamientoNecesario();
-
-        //public abstract string Instalar();
+        public abstract string DevolverInformacionEspecifica();
     }
 }

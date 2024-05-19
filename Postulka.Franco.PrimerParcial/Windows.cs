@@ -19,5 +19,21 @@ namespace Postulka.Franco.PrimerParcial
             this.edicion = edicion;
             this.virtualizacionPermitida = virtualizacion;
         }
+
+        public override string DevolverInformacionEspecifica()
+        {
+            string aceptavirtualizacion = "No";
+            if (this.VirtualizacionPermitida)
+            {
+                aceptavirtualizacion = "si";
+            }
+
+            return $"El SO {this.Nombre} tiene las siguientes caracteristicas:\n" +
+                $"Version: {this.Version}\n" +
+                $"Edicion: {this.Edicion}\n" +
+                $"Soporte: {this.Soporte}\n" +
+                $"Ocupa:{this.EspacioGB}" +
+                $"Permite virtualizacion: {aceptavirtualizacion}";
+        }
     }
 }
