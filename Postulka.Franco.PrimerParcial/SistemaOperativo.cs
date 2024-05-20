@@ -22,5 +22,15 @@ namespace Postulka.Franco.PrimerParcial
             this.estadoSoporte = soporte;
         }
         public abstract string DevolverInformacionEspecifica();
+
+        public virtual string Descargar()
+        {
+            return $"Sistema operativo {this.Nombre}{this.Version} instalado";
+        }
+
+        public override string ToString()
+        {
+            return this.DevolverInformacionEspecifica();
+        }
     }
 }

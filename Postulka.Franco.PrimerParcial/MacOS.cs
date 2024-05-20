@@ -14,11 +14,40 @@ namespace Postulka.Franco.PrimerParcial
         public bool IntegracionIcloud { get;}
         public bool CompatibleConProcesadorApple {  get;}
 
-        public MacOS(string nombre, string version, double espacio, EstadoSoporte soporte,bool integracionIcloud,bool compatibleApple):base(nombre,version,espacio,soporte)
+        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EstadoSoporte soporte,bool integracionIcloud):base(nombre,version,espacio,soporte)
         {
+            /// <summary>
+            /// constructor con todos los parametros
+            /// </summary>
             this.integracionIcloud = integracionIcloud;
             this.compatibleConProcesadorApple = compatibleApple;
         }
+        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EstadoSoporte soporte) : base(nombre, version, espacio, soporte)
+        {
+            /// <summary>
+            /// constructor sin el parametro integracionIcloud (se asigna true)
+            /// </summary>
+            this.integracionIcloud = true;
+            this.compatibleConProcesadorApple = compatibleApple;
+        }
+        public MacOS(string nombre, string version, double espacio, EstadoSoporte soporte, bool integracionIcloud) : base(nombre, version, espacio, soporte)
+        {
+            /// <summary>
+            /// constructor sin el parametro compatibleApple (se asigna true )
+            /// </summary>
+            this.integracionIcloud = integracionIcloud;
+            this.compatibleConProcesadorApple = true;
+        }
+
+        public MacOS(string nombre, string version, double espacio,EstadoSoporte soporte) : base(nombre, version, espacio, soporte)
+        {
+            /// <summary>
+            /// constructor sin los parametros compatibleApple e integracionIcloud (se asigna true  y true)
+            /// </summary>
+            this.integracionIcloud = true;
+            this.compatibleConProcesadorApple = true;
+        }
+
 
         public override string DevolverInformacionEspecifica()
         {
@@ -40,7 +69,36 @@ namespace Postulka.Franco.PrimerParcial
                 $"Soporte actual {this.Soporte}\n" +
                 $"Marca de procesado compatible:{procesador} \n" +
                 $"Posee integracion con Icloud: {tienICloud}";
+        }
 
+        public override string Descargar()
+        {
+            return $"Sistema operativo MacOS {this.Nombre} instalado";
+        }
+
+        public override string ToString()
+        {
+            return this.DevolverInformacionEspecifica();
+        }
+        public static bool operator ==(MacOS unMac, MacOS otroMac)
+        {
+            return (unMac.Nombre == otroMac.Nombre && unMac.Version == otroMac.Version);
+        }
+        public static bool operator !=(MacOS unMac, MacOS otroMac)
+        {
+            return !(unMac == otroMac);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+            else
+            {
+                return (this == (MacOS)obj);
+            }
         }
     }
 }
