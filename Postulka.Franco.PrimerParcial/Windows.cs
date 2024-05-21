@@ -22,30 +22,23 @@ namespace Postulka.Franco.PrimerParcial
             this.edicion = edicion;
             this.virtualizacionPermitida = virtualizacion;
         }
-
-        public Windows( string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion, bool virtualizacion) : base("Windows", version, espacio, soporte)
+        public Windows( string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion, bool virtualizacion) : this("Windows", version, espacio, soporte, edicion, virtualizacion)
         {
             /// <summary>
             /// constructor sin nombre como parametro (se asigna como Windows)
             /// </summary>
-            this.edicion = edicion;
-            this.virtualizacionPermitida = virtualizacion;
         }
-        public Windows(string nombre, string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion) : base(nombre, version, espacio, soporte)
+        public Windows(string nombre, string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion) : this(nombre, version, espacio, soporte, edicion, true)
         {
             /// <summary>
             /// constructor sin virtualizacion como parametro (lo asigna como true)
             /// </summary>
-            this.edicion = edicion;
-            this.virtualizacionPermitida = true;
         }
-        public Windows( string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion) : base("Windows", version, espacio, soporte)
+        public Windows( string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion) : this("Windows", version, espacio, soporte, edicion, true)
         {
             /// <summary>
-            /// constructor sin virtualizacion y sin nombre como parametro (lo asigna como true y Windows)
+            /// constructor sin nombre y sin virtualizacion como parametro (lo asigna como true y Windows)
             /// </summary>
-            this.edicion = edicion;
-            this.virtualizacionPermitida = true;
         }
 
         public override string DevolverInformacionEspecifica()
