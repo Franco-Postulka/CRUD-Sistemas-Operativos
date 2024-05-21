@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Postulka.Franco.PrimerParcial
 {
-    internal enum DistribucionLinux
+    public enum DistribucionLinux
     {
         RedHat,
         CentOS,
