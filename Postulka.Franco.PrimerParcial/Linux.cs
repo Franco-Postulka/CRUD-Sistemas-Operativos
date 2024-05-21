@@ -23,29 +23,23 @@ namespace Postulka.Franco.PrimerParcial
             this.interfazGrafica = interfaz;
         }
 
-        public Linux(string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion, bool interfaz) : base("Linux", version, espacioGB, soporte)
+        public Linux(string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion, bool interfaz) : this("Linux", version, espacioGB, soporte, distribucion, interfaz)
         {
             /// <summary>
             /// constructor sin nombre de parametro (se asigna como Linux)
             /// </summary>
-            this.distribucion = distribucion;
-            this.interfazGrafica = interfaz;
         }
-        public Linux(string nombre, string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion) : base(nombre, version, espacioGB, soporte)
+        public Linux(string nombre, string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion) : this(nombre, version, espacioGB, soporte, distribucion,true)
         {
             /// <summary>
             /// constructor sin interfaz como parametro (se asigna como true)
             /// </summary>
-            this.distribucion = distribucion;
-            this.interfazGrafica = true;
         }
-        public Linux(string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion) : base("Linux", version, espacioGB, soporte)
+        public Linux(string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion) : this("Linux", version, espacioGB, soporte, distribucion, true)
         {
             /// <summary>
-            /// constructor sin interfaz como parametro y sin nombre (se asigna como true y Linux)
+            /// constructor sin nombre como parametro y sin interfaz (se asigna como Linux y true)
             /// </summary>
-            this.distribucion = distribucion;
-            this.interfazGrafica = true;
         }
 
         public override string DevolverInformacionEspecifica()
