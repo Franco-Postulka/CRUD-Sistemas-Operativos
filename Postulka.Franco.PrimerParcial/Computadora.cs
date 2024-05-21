@@ -69,6 +69,7 @@ namespace Postulka.Franco.PrimerParcial
                     }
                 }
             }
+            this.sistemasOperativos = lista;
         }
 
         public void OrdenarListaPorGBDescendenete()
@@ -86,7 +87,46 @@ namespace Postulka.Franco.PrimerParcial
                     }
                 }
             }
+            this.sistemasOperativos = lista;
         }
 
+        public void OrdenarListaAlfabeticamenteAscendente()
+        {
+            List<SistemaOperativo> lista = this.ListaSistemasOperativos;
+            for (int i = 0; i < lista.Count - 1; i++)
+            {
+                for (int j = i + 1; j < lista.Count; j++)
+                {
+                    int comparacion = String.Compare(lista[i].Nombre, lista[j].Nombre);
+                    if (comparacion>0) //el primer string va despues alfabeticamente
+                    {
+                        SistemaOperativo sistemai = lista[i];
+                        lista[i] = lista[j];
+                        lista[j] = sistemai;
+                    }
+                }
+            }
+            this.sistemasOperativos = lista;
+        }
+
+        public void OrdenarListaPorNombreDescendente()
+        {
+
+            List<SistemaOperativo> lista = this.ListaSistemasOperativos;
+            for (int i = 0; i < lista.Count - 1; i++)
+            {
+                for (int j = i + 1; j < lista.Count; j++)
+                {
+                    int comparacion = String.Compare(lista[i].Nombre, lista[j].Nombre);
+                    if (comparacion < 0) //el primer string va antes alfabeticamente
+                    {
+                        SistemaOperativo sistemai = lista[i];
+                        lista[i] = lista[j];
+                        lista[j] = sistemai;
+                    }
+                }
+            }
+            this.sistemasOperativos = lista;
+        }
     }
 }
