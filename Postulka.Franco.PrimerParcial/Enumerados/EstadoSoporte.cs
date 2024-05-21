@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Postulka.Franco.PrimerParcial
 {
-    public enum EstadoSoporte
+    public enum EEstadoSoporte
     {
         SoporteCompleto,
         SoporteLimitado,

@@ -14,7 +14,8 @@ namespace Postulka.Franco.PrimerParcial
         public bool IntegracionIcloud { get;}
         public bool CompatibleConProcesadorApple {  get;}
 
-        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EstadoSoporte soporte,bool integracionIcloud):base(nombre,version,espacio,soporte)
+        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte,bool integracionIcloud)
+            :base(nombre,version,espacio,soporte)
         {
             /// <summary>
             /// constructor con todos los parametros
@@ -22,20 +23,23 @@ namespace Postulka.Franco.PrimerParcial
             this.integracionIcloud = integracionIcloud;
             this.compatibleConProcesadorApple = compatibleApple;
         }
-        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EstadoSoporte soporte) : this(nombre, version, espacio, compatibleApple,soporte,true)
+        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte) 
+            : this(nombre, version, espacio, compatibleApple,soporte,true)
         {
             /// <summary>
             /// constructor sin el parametro integracionIcloud (se asigna true)
             /// </summary>
         }
-        public MacOS(string nombre, string version, double espacio, EstadoSoporte soporte, bool integracionIcloud) : this(nombre, version, espacio, true, soporte, integracionIcloud)
+        public MacOS(string nombre, string version, double espacio, EEstadoSoporte soporte, bool integracionIcloud) 
+            : this(nombre, version, espacio, true, soporte, integracionIcloud)
         {
             /// <summary>
             /// constructor sin el parametro compatibleApple (se asigna true )
             /// </summary>
         }
 
-        public MacOS(string nombre, string version, double espacio,EstadoSoporte soporte) : this(nombre, version, espacio, true, soporte, true)
+        public MacOS(string nombre, string version, double espacio,EEstadoSoporte soporte) 
+            : this(nombre, version, espacio, true, soporte, true)
         {
             /// <summary>
             /// constructor sin los parametros compatibleApple e integracionIcloud (se asigna true  y true)

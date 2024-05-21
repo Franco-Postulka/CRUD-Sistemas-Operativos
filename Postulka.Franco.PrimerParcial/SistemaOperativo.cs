@@ -7,14 +7,14 @@ namespace Postulka.Franco.PrimerParcial
         private string nombre;
         private string version;
         private double espacioGB;
-        private EstadoSoporte estadoSoporte;
+        private EEstadoSoporte estadoSoporte;
 
         public string Nombre { get;}
         public string Version { get;}
         public double EspacioGB { get;}
         public double Soporte { get; } 
 
-        public SistemaOperativo(string nombre, string version, double espacio,EstadoSoporte soporte)
+        public SistemaOperativo(string nombre, string version, double espacio,EEstadoSoporte soporte)
         {
             this.nombre = nombre;
             this.version = version;

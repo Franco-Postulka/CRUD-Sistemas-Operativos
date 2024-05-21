@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Postulka.Franco.PrimerParcial
 {
-    public enum EdicionWindows
+    public enum EEdicionWindows
     {
         Home,
         Pro,

@@ -8,13 +8,14 @@ namespace Postulka.Franco.PrimerParcial
 {
     internal class Linux : SistemaOperativo
     {
-        private DistribucionLinux distribucion;
+        private EDistribucionLinux distribucion;
         private bool interfazGrafica;
 
-        public DistribucionLinux Distribucion { get; }
+        public EDistribucionLinux Distribucion { get; }
         public bool InterfazGrafica { get; }
 
-        public Linux(string nombre, string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion, bool interfaz) : base(nombre, version, espacioGB, soporte)
+        public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion, bool interfaz) 
+            : base(nombre, version, espacioGB, soporte)
         {
             /// <summary>
             /// constructor con todos los parametros
@@ -23,19 +24,22 @@ namespace Postulka.Franco.PrimerParcial
             this.interfazGrafica = interfaz;
         }
 
-        public Linux(string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion, bool interfaz) : this("Linux", version, espacioGB, soporte, distribucion, interfaz)
+        public Linux(string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion, bool interfaz)
+            : this("Linux", version, espacioGB, soporte, distribucion, interfaz)
         {
             /// <summary>
             /// constructor sin nombre de parametro (se asigna como Linux)
             /// </summary>
         }
-        public Linux(string nombre, string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion) : this(nombre, version, espacioGB, soporte, distribucion,true)
+        public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion) 
+            : this(nombre, version, espacioGB, soporte, distribucion,true)
         {
             /// <summary>
             /// constructor sin interfaz como parametro (se asigna como true)
             /// </summary>
         }
-        public Linux(string version, double espacioGB, EstadoSoporte soporte, DistribucionLinux distribucion) : this("Linux", version, espacioGB, soporte, distribucion, true)
+        public Linux(string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion) 
+            : this("Linux", version, espacioGB, soporte, distribucion, true)
         {
             /// <summary>
             /// constructor sin nombre como parametro y sin interfaz (se asigna como Linux y true)

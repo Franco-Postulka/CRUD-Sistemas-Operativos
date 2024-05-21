@@ -8,13 +8,14 @@ namespace Postulka.Franco.PrimerParcial
 {
     internal class Windows : SistemaOperativo
     {
-        private EdicionWindows edicion;
+        private EEdicionWindows edicion;
         private bool virtualizacionPermitida;
 
-        public EdicionWindows Edicion { get; }
+        public EEdicionWindows Edicion { get; }
         public bool VirtualizacionPermitida { get; }
 
-        public Windows(string nombre, string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion, bool virtualizacion):base(nombre,version,espacio,soporte)
+        public Windows(string nombre, string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion, bool virtualizacion)
+            :base(nombre,version,espacio,soporte)
         {
             /// <summary>
             /// constructor con todos los parametros
@@ -22,19 +23,22 @@ namespace Postulka.Franco.PrimerParcial
             this.edicion = edicion;
             this.virtualizacionPermitida = virtualizacion;
         }
-        public Windows( string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion, bool virtualizacion) : this("Windows", version, espacio, soporte, edicion, virtualizacion)
+        public Windows( string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion, bool virtualizacion)
+            : this("Windows", version, espacio, soporte, edicion, virtualizacion)
         {
             /// <summary>
             /// constructor sin nombre como parametro (se asigna como Windows)
             /// </summary>
         }
-        public Windows(string nombre, string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion) : this(nombre, version, espacio, soporte, edicion, true)
+        public Windows(string nombre, string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion)
+            : this(nombre, version, espacio, soporte, edicion, true)
         {
             /// <summary>
             /// constructor sin virtualizacion como parametro (lo asigna como true)
             /// </summary>
         }
-        public Windows( string version, double espacio, EstadoSoporte soporte, EdicionWindows edicion) : this("Windows", version, espacio, soporte, edicion, true)
+        public Windows( string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion) 
+            : this("Windows", version, espacio, soporte, edicion, true)
         {
             /// <summary>
             /// constructor sin nombre y sin virtualizacion como parametro (lo asigna como true y Windows)
