@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Postulka.Franco.PrimerParcial
+namespace Entidades
 {
     internal class MacOS:SistemaOperativo
     {

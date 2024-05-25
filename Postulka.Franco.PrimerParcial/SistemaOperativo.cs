@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace Postulka.Franco.PrimerParcial
+namespace Entidades
 {
     public abstract class SistemaOperativo
     {

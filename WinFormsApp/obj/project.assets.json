@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "Entidades/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Entidades.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entidades.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Entidades/1.0.0": {
+      "type": "project",
+      "path": "../Postulka.Franco.PrimerParcial/Entidades.csproj",
+      "msbuildProject": "../Postulka.Franco.PrimerParcial/Entidades.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "Entidades >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Franco\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.PrimerParcial\\Postulka.Franco.PrimerParcial\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.PrimerParcial\\Postulka.Franco.PrimerParcial\\Entidades.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

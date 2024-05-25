@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Postulka.Franco.PrimerParcial\Entidades.csproj" />
+  </ItemGroup>
+
 </Project>
