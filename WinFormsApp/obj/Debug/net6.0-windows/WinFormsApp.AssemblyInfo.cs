@@ -11,13 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Postulka.Franco.PrimerParcial")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("WinFormsApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+afaa47a59e8b8bd580ad2ce89e810fa72d01bd13")]
-[assembly: System.Reflection.AssemblyProductAttribute("Postulka.Franco.PrimerParcial")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Postulka.Franco.PrimerParcial")]
+[assembly: System.Reflection.AssemblyProductAttribute("WinFormsApp")]
+[assembly: System.Reflection.AssemblyTitleAttribute("WinFormsApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
+[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 

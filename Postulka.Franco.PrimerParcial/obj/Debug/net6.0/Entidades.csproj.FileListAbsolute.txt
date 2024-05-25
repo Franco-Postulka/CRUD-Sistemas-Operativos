@@ -1,0 +1,12 @@
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\bin\Debug\net6.0\Entidades.deps.json
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\bin\Debug\net6.0\Entidades.dll
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\bin\Debug\net6.0\Entidades.pdb
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\Entidades.AssemblyInfoInputs.cache
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\Entidades.AssemblyInfo.cs
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\Entidades.sourcelink.json
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\Entidades.dll
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\refint\Entidades.dll
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\Entidades.pdb
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\Postulka.Franco.PrimerParcial\obj\Debug\net6.0\ref\Entidades.dll
