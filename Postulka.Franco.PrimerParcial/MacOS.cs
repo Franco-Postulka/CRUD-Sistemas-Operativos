@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class MacOS:SistemaOperativo
+    public class MacOS:SistemaOperativo
     {
         private bool integracionIcloud;
         private bool compatibleConProcesadorApple;
 
-        public bool IntegracionIcloud { get;}
-        public bool CompatibleConProcesadorApple {  get;}
+        public bool IntegracionIcloud { get; set; }
+        public bool CompatibleConProcesadorApple { get; set; }
 
+        public MacOS()
+        {
+
+        }
         public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte,bool integracionIcloud)
             :base(nombre,version,espacio,soporte)
         {
@@ -76,7 +80,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return this.DevolverInformacionEspecifica();
+            return $"MacOS {this.Nombre} {this.Version}";
         }
         public static bool operator ==(MacOS unMac, MacOS otroMac)
         {

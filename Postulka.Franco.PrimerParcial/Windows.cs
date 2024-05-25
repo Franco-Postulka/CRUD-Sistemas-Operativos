@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Windows : SistemaOperativo
+    public class Windows : SistemaOperativo
     {
         private EEdicionWindows edicion;
         private bool virtualizacionPermitida;
 
-        public EEdicionWindows Edicion { get; }
-        public bool VirtualizacionPermitida { get; }
+        public EEdicionWindows Edicion { get; set; }
+        public bool VirtualizacionPermitida { get; set; }
 
+        public Windows()
+        {
+
+        }
         public Windows(string nombre, string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion, bool virtualizacion)
             :base(nombre,version,espacio,soporte)
         {
@@ -62,7 +66,7 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return this.DevolverInformacionEspecifica();
+            return base.ToString();
         }
 
         public static bool operator ==(Windows unwindows, Windows otrowindows)

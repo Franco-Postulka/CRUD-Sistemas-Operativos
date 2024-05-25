@@ -1,7 +1,11 @@
 ﻿using System.Xml;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Windows))]
+    [XmlInclude(typeof(Linux))]
+    [XmlInclude(typeof(MacOS))]
     public abstract class SistemaOperativo
     {
         private string nombre;
@@ -9,11 +13,16 @@ namespace Entidades
         private double espacioGB;
         private EEstadoSoporte estadoSoporte;
 
-        public string Nombre { get;}
-        public string Version { get;}
-        public double EspacioGB { get;}
-        public double Soporte { get; } 
+        public string Nombre { get; set; }
+        public string Version { get; set; }
+        public double EspacioGB { get; set; }
+        public double Soporte { get; set; }
 
+        
+        public SistemaOperativo()
+        {
+
+        }
         public SistemaOperativo(string nombre, string version, double espacio,EEstadoSoporte soporte)
         {
             this.nombre = nombre;
@@ -30,7 +39,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return this.DevolverInformacionEspecifica();
+            return $"Sistema operativo {this.Nombre} {this.Version}";
         }
     }
 }

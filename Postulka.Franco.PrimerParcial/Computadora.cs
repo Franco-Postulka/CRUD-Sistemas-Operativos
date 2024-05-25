@@ -8,11 +8,15 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Computadora
+    public class Computadora
     {
         private List<SistemaOperativo> sistemasOperativos;
 
-        public List<SistemaOperativo> ListaSistemasOperativos { get { return this.sistemasOperativos; } }
+        public List<SistemaOperativo> ListaSistemasOperativos
+        { 
+            get { return this.sistemasOperativos; }
+            set { this.sistemasOperativos = value; }
+        }
 
         public Computadora()
         {

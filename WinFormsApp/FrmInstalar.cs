@@ -11,17 +11,27 @@ using Entidades;
 
 namespace WinFormsApp
 {
-    public partial class FrmInstalar : Form
+    public abstract partial class FrmInstalar : Form
     {
-        public FrmInstalar()
+        protected string xmlpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
+        protected List<SistemaOperativo> sistemasOperativos;
+        public List<SistemaOperativo> ListaSistemasOperativos
+        {
+            get { return this.sistemasOperativos; }
+            set { this.sistemasOperativos = value; }
+        }
+        public FrmInstalar(List<SistemaOperativo> lista)
         {
             InitializeComponent();
-            foreach (EEstadoSoporte rango in Enum.GetValues(typeof(ERangos)))
+            foreach (EEstadoSoporte estado in Enum.GetValues(typeof(EEstadoSoporte)))
             {
-                this.cboRango.Items.Add(rango);
+                this.cboEstado.Items.Add(estado);
             }
-            this.cboRango.SelectedItem = ERangos.Cliente;
+            this.cboEstado.SelectedItem = EEstadoSoporte.SoporteCompleto;
 
+            this.sistemasOperativos = lista;
         }
+
+        protected abstract void btnInstalar_Click(object sender, EventArgs e);
     }
 }

@@ -4,6 +4,9 @@
     <Compile Update="FrmInstalar.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmInstalarWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

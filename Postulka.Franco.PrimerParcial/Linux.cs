@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Linux : SistemaOperativo
+    public class Linux : SistemaOperativo
     {
         private EDistribucionLinux distribucion;
         private bool interfazGrafica;
 
-        public EDistribucionLinux Distribucion { get; }
-        public bool InterfazGrafica { get; }
+        public EDistribucionLinux Distribucion { get; set; }
+        public bool InterfazGrafica { get; set; }
 
+        public Linux()
+        {
+
+        }
         public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion, bool interfaz) 
             : base(nombre, version, espacioGB, soporte)
         {
@@ -68,7 +72,7 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return this.DevolverInformacionEspecifica();
+            return $"{this.Nombre} distribucion {this.Distribucion} {this.Version}";
         }
 
         public static bool operator ==(Linux unlinux, Linux otrolinux)
