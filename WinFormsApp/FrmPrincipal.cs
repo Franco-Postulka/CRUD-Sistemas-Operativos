@@ -6,5 +6,10 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
+
+        private void instalarWindowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

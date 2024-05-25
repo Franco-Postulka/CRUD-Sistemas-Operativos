@@ -28,12 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            menuStrip = new MenuStrip();
+            instalarSsitemaOperativoToolStripMenuItem = new ToolStripMenuItem();
+            instalarWindowsToolStripMenuItem = new ToolStripMenuItem();
+            instalarMacOSToolStripMenuItem = new ToolStripMenuItem();
+            instalarLinuxToolStripMenuItem = new ToolStripMenuItem();
+            modificarSistemaOperativoToolStripMenuItem = new ToolStripMenuItem();
+            modificarMacOToolStripMenuItem = new ToolStripMenuItem();
+            modificarMacOSToolStripMenuItem = new ToolStripMenuItem();
+            modificarLinuxToolStripMenuItem = new ToolStripMenuItem();
+            eliminarSistemOperativoToolStripMenuItem = new ToolStripMenuItem();
+            lstBox = new ListBox();
+            menuStrip.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip
+            // 
+            menuStrip.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            menuStrip.Dock = DockStyle.None;
+            menuStrip.ImageScalingSize = new Size(24, 24);
+            menuStrip.Items.AddRange(new ToolStripItem[] { instalarSsitemaOperativoToolStripMenuItem, modificarSistemaOperativoToolStripMenuItem, eliminarSistemOperativoToolStripMenuItem });
+            menuStrip.Location = new Point(27, 9);
+            menuStrip.Name = "menuStrip";
+            menuStrip.Size = new Size(709, 33);
+            menuStrip.TabIndex = 0;
+            menuStrip.Text = "menuStrip1";
+            // 
+            // instalarSsitemaOperativoToolStripMenuItem
+            // 
+            instalarSsitemaOperativoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { instalarWindowsToolStripMenuItem, instalarMacOSToolStripMenuItem, instalarLinuxToolStripMenuItem });
+            instalarSsitemaOperativoToolStripMenuItem.Name = "instalarSsitemaOperativoToolStripMenuItem";
+            instalarSsitemaOperativoToolStripMenuItem.Size = new Size(220, 29);
+            instalarSsitemaOperativoToolStripMenuItem.Text = "Instalar sitema sperativo";
+            // 
+            // instalarWindowsToolStripMenuItem
+            // 
+            instalarWindowsToolStripMenuItem.Name = "instalarWindowsToolStripMenuItem";
+            instalarWindowsToolStripMenuItem.Size = new Size(270, 34);
+            instalarWindowsToolStripMenuItem.Text = "Instalar Windows";
+            instalarWindowsToolStripMenuItem.Click += instalarWindowsToolStripMenuItem_Click;
+            // 
+            // instalarMacOSToolStripMenuItem
+            // 
+            instalarMacOSToolStripMenuItem.Name = "instalarMacOSToolStripMenuItem";
+            instalarMacOSToolStripMenuItem.Size = new Size(270, 34);
+            instalarMacOSToolStripMenuItem.Text = "Instalar MacOS";
+            // 
+            // instalarLinuxToolStripMenuItem
+            // 
+            instalarLinuxToolStripMenuItem.Name = "instalarLinuxToolStripMenuItem";
+            instalarLinuxToolStripMenuItem.Size = new Size(270, 34);
+            instalarLinuxToolStripMenuItem.Text = "Instalar Linux";
+            // 
+            // modificarSistemaOperativoToolStripMenuItem
+            // 
+            modificarSistemaOperativoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { modificarMacOToolStripMenuItem, modificarMacOSToolStripMenuItem, modificarLinuxToolStripMenuItem });
+            modificarSistemaOperativoToolStripMenuItem.Name = "modificarSistemaOperativoToolStripMenuItem";
+            modificarSistemaOperativoToolStripMenuItem.Size = new Size(249, 29);
+            modificarSistemaOperativoToolStripMenuItem.Text = "Modificar sistema operativo";
+            // 
+            // modificarMacOToolStripMenuItem
+            // 
+            modificarMacOToolStripMenuItem.Name = "modificarMacOToolStripMenuItem";
+            modificarMacOToolStripMenuItem.Size = new Size(268, 34);
+            modificarMacOToolStripMenuItem.Text = "Modificar Windows";
+            // 
+            // modificarMacOSToolStripMenuItem
+            // 
+            modificarMacOSToolStripMenuItem.Name = "modificarMacOSToolStripMenuItem";
+            modificarMacOSToolStripMenuItem.Size = new Size(268, 34);
+            modificarMacOSToolStripMenuItem.Text = "Modificar MacOS";
+            // 
+            // modificarLinuxToolStripMenuItem
+            // 
+            modificarLinuxToolStripMenuItem.Name = "modificarLinuxToolStripMenuItem";
+            modificarLinuxToolStripMenuItem.Size = new Size(268, 34);
+            modificarLinuxToolStripMenuItem.Text = "Modificar Linux";
+            // 
+            // eliminarSistemOperativoToolStripMenuItem
+            // 
+            eliminarSistemOperativoToolStripMenuItem.Name = "eliminarSistemOperativoToolStripMenuItem";
+            eliminarSistemOperativoToolStripMenuItem.Size = new Size(232, 29);
+            eliminarSistemOperativoToolStripMenuItem.Text = "Eliminar Sistem Operativo";
+            // 
+            // lstBox
+            // 
+            lstBox.FormattingEnabled = true;
+            lstBox.ItemHeight = 25;
+            lstBox.Location = new Point(48, 71);
+            lstBox.Name = "lstBox";
+            lstBox.Size = new Size(695, 304);
+            lstBox.TabIndex = 1;
+            // 
+            // FrmPrincipal
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Controls.Add(lstBox);
+            Controls.Add(menuStrip);
+            MainMenuStrip = menuStrip;
+            Name = "FrmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Sistemas Operativos";
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip;
+        private ToolStripMenuItem instalarSsitemaOperativoToolStripMenuItem;
+        private ToolStripMenuItem instalarWindowsToolStripMenuItem;
+        private ToolStripMenuItem instalarMacOSToolStripMenuItem;
+        private ToolStripMenuItem instalarLinuxToolStripMenuItem;
+        private ToolStripMenuItem modificarSistemaOperativoToolStripMenuItem;
+        private ToolStripMenuItem modificarMacOToolStripMenuItem;
+        private ToolStripMenuItem modificarMacOSToolStripMenuItem;
+        private ToolStripMenuItem modificarLinuxToolStripMenuItem;
+        private ToolStripMenuItem eliminarSistemOperativoToolStripMenuItem;
+        private ListBox lstBox;
     }
 }
