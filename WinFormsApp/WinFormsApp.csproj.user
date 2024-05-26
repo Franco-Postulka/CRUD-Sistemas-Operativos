@@ -4,6 +4,9 @@
     <Compile Update="FrmInstalar.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmInstalarLinux.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmInstalarMac.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -72,7 +72,7 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return $"Sistema operativo {this.Nombre} distribucion {this.Distribucion} {this.Version}";
+            return $"Sistema operativo {this.Nombre} {this.Distribucion} {this.Version}";
         }
 
         public static bool operator ==(Linux unlinux, Linux otrolinux)

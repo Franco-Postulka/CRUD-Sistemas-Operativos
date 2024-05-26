@@ -94,9 +94,21 @@ namespace WinFormsApp
         {
             FrmInstalarMac instalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
             instalarMac.ShowDialog(this);
-            if(instalarMac.DialogResult  == DialogResult.OK)
+            if (instalarMac.DialogResult == DialogResult.OK)
             {
                 this.computadora.ListaSistemasOperativos = instalarMac.ListaSistemasOperativos;
+                this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                this.ActualizarVisor();
+            }
+        }
+
+        private void instalarLinuxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInstalarLinux instalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
+            instalarLinux.ShowDialog(this);
+            if (instalarLinux.DialogResult == DialogResult.OK)
+            {
+                this.computadora.ListaSistemasOperativos = instalarLinux.ListaSistemasOperativos;
                 this.SerializarLista(this.computadora.ListaSistemasOperativos);
                 this.ActualizarVisor();
             }

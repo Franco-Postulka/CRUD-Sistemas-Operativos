@@ -80,6 +80,7 @@
             instalarLinuxToolStripMenuItem.Name = "instalarLinuxToolStripMenuItem";
             instalarLinuxToolStripMenuItem.Size = new Size(270, 34);
             instalarLinuxToolStripMenuItem.Text = "Instalar Linux";
+            instalarLinuxToolStripMenuItem.Click += instalarLinuxToolStripMenuItem_Click;
             // 
             // modificarSistemaOperativoToolStripMenuItem
             // 
