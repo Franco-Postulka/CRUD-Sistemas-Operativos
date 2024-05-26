@@ -64,20 +64,20 @@
             // instalarWindowsToolStripMenuItem
             // 
             instalarWindowsToolStripMenuItem.Name = "instalarWindowsToolStripMenuItem";
-            instalarWindowsToolStripMenuItem.Size = new Size(270, 34);
+            instalarWindowsToolStripMenuItem.Size = new Size(250, 34);
             instalarWindowsToolStripMenuItem.Text = "Instalar Windows";
             instalarWindowsToolStripMenuItem.Click += instalarWindowsToolStripMenuItem_Click;
             // 
             // instalarMacOSToolStripMenuItem
             // 
             instalarMacOSToolStripMenuItem.Name = "instalarMacOSToolStripMenuItem";
-            instalarMacOSToolStripMenuItem.Size = new Size(270, 34);
+            instalarMacOSToolStripMenuItem.Size = new Size(250, 34);
             instalarMacOSToolStripMenuItem.Text = "Instalar MacOS";
             // 
             // instalarLinuxToolStripMenuItem
             // 
             instalarLinuxToolStripMenuItem.Name = "instalarLinuxToolStripMenuItem";
-            instalarLinuxToolStripMenuItem.Size = new Size(270, 34);
+            instalarLinuxToolStripMenuItem.Size = new Size(250, 34);
             instalarLinuxToolStripMenuItem.Text = "Instalar Linux";
             // 
             // modificarSistemaOperativoToolStripMenuItem
@@ -110,6 +110,7 @@
             eliminarSistemOperativoToolStripMenuItem.Name = "eliminarSistemOperativoToolStripMenuItem";
             eliminarSistemOperativoToolStripMenuItem.Size = new Size(232, 29);
             eliminarSistemOperativoToolStripMenuItem.Text = "Eliminar Sistem Operativo";
+            eliminarSistemOperativoToolStripMenuItem.Click += eliminarSistemOperativoToolStripMenuItem_Click;
             // 
             // lstBox
             // 
