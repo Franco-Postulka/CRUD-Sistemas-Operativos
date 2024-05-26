@@ -38,10 +38,27 @@ namespace WinFormsApp
             if (validacion_espacio)
             {
                 Windows windows = new Windows(nombre, version, espacio, soporte, edicion, virtualizacion);
-                this.ListaSistemasOperativos.Add(windows);
-                MessageBox.Show(windows.Descargar());
-                this.DialogResult =DialogResult.OK;
-                this.Close();
+                bool existe = false; 
+                foreach (SistemaOperativo sistema in this.ListaSistemasOperativos)
+                {
+                    if (windows.Equals(sistema))
+                    {
+                        existe = true;
+                    }
+                }
+                if (existe)
+                {
+                    MessageBox.Show("El sistema que desea instalar ya existe.");
+                    this.DialogResult = DialogResult.Cancel;
+                    this.Close();
+                }
+                else
+                {
+                    this.ListaSistemasOperativos.Add(windows);
+                    MessageBox.Show(windows.Descargar());
+                    this.DialogResult =DialogResult.OK;
+                    this.Close();
+                }
             }
             else
             {
