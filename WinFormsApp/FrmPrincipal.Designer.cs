@@ -64,20 +64,21 @@
             // instalarWindowsToolStripMenuItem
             // 
             instalarWindowsToolStripMenuItem.Name = "instalarWindowsToolStripMenuItem";
-            instalarWindowsToolStripMenuItem.Size = new Size(250, 34);
+            instalarWindowsToolStripMenuItem.Size = new Size(270, 34);
             instalarWindowsToolStripMenuItem.Text = "Instalar Windows";
             instalarWindowsToolStripMenuItem.Click += instalarWindowsToolStripMenuItem_Click;
             // 
             // instalarMacOSToolStripMenuItem
             // 
             instalarMacOSToolStripMenuItem.Name = "instalarMacOSToolStripMenuItem";
-            instalarMacOSToolStripMenuItem.Size = new Size(250, 34);
+            instalarMacOSToolStripMenuItem.Size = new Size(270, 34);
             instalarMacOSToolStripMenuItem.Text = "Instalar MacOS";
+            instalarMacOSToolStripMenuItem.Click += instalarMacOSToolStripMenuItem_Click;
             // 
             // instalarLinuxToolStripMenuItem
             // 
             instalarLinuxToolStripMenuItem.Name = "instalarLinuxToolStripMenuItem";
-            instalarLinuxToolStripMenuItem.Size = new Size(250, 34);
+            instalarLinuxToolStripMenuItem.Size = new Size(270, 34);
             instalarLinuxToolStripMenuItem.Text = "Instalar Linux";
             // 
             // modificarSistemaOperativoToolStripMenuItem

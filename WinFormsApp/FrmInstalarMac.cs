@@ -4,31 +4,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
+using System.Globalization;
 
 namespace WinFormsApp
 {
-    public partial class FrmInstalarWindows : FrmInstalar
+    public partial class FrmInstalarMac : FrmInstalar
     {
-        public FrmInstalarWindows()
+        public FrmInstalarMac()
         {
             InitializeComponent();
         }
-        public FrmInstalarWindows(List<SistemaOperativo> lista) : base(lista)
+        public FrmInstalarMac(List<SistemaOperativo> lista) :base(lista) 
         {
             InitializeComponent();
-            foreach (EEdicionWindows edicion in Enum.GetValues(typeof(EEdicionWindows)))
-            {
-                this.cboEdicion.Items.Add(edicion);
-            }
-            this.cboEdicion.SelectedItem = EEdicionWindows.Home;
-            this.txtNombre.Text = "Windows";
         }
 
         protected override void btnInstalar_Click(object sender, EventArgs e)
@@ -36,18 +28,19 @@ namespace WinFormsApp
             string nombre = this.txtNombre.Text;
             string version = this.txtVersion.Text;
             double espacio;
+
             string txtEspacio = this.txtEspacio.Text.Replace(',', '.');
             bool validacion_espacio = double.TryParse(txtEspacio, NumberStyles.Any, CultureInfo.InvariantCulture, out espacio);
+            bool compatible_Apple = this.checkCompatibleApple.Checked;
             EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
-            EEdicionWindows edicion = (EEdicionWindows)this.cboEdicion.SelectedItem;
-            bool virtualizacion = this.checkVirtualizacion.Checked;
+            bool integracionIcloud = this.checkIntegracion.Checked;
             if (validacion_espacio)
             {
-                Windows windows = new Windows(nombre, version, espacio, soporte, edicion, virtualizacion);
-                bool existe = false; 
+                MacOS mac = new MacOS(nombre,version,espacio,compatible_Apple,soporte,integracionIcloud);
+                bool existe = false;
                 foreach (SistemaOperativo sistema in this.ListaSistemasOperativos)
                 {
-                    if (windows.Equals(sistema))
+                    if (mac.Equals(sistema))
                     {
                         existe = true;
                     }
@@ -60,9 +53,9 @@ namespace WinFormsApp
                 }
                 else
                 {
-                    this.ListaSistemasOperativos.Add(windows);
-                    MessageBox.Show(windows.Descargar());
-                    this.DialogResult =DialogResult.OK;
+                    this.ListaSistemasOperativos.Add(mac);
+                    MessageBox.Show(mac.Descargar());
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
             }
@@ -71,5 +64,6 @@ namespace WinFormsApp
                 MessageBox.Show("Error al ingresar la cantidad de GB de espacio.");
             }
         }
+
     }
 }

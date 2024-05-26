@@ -11,7 +11,7 @@ using Entidades;
 
 namespace WinFormsApp
 {
-    public abstract partial class FrmInstalar : Form
+    public partial class FrmInstalar : Form
     {
         protected string xmlpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
         protected List<SistemaOperativo> sistemasOperativos;
@@ -20,9 +20,12 @@ namespace WinFormsApp
             get { return this.sistemasOperativos; }
             set { this.sistemasOperativos = value; }
         }
-        public FrmInstalar(List<SistemaOperativo> lista)
+        public FrmInstalar()
         {
             InitializeComponent();
+        }
+        public FrmInstalar(List<SistemaOperativo> lista):this()
+        {
             foreach (EEstadoSoporte estado in Enum.GetValues(typeof(EEstadoSoporte)))
             {
                 this.cboEstado.Items.Add(estado);
@@ -32,6 +35,9 @@ namespace WinFormsApp
             this.sistemasOperativos = lista;
         }
 
-        protected abstract void btnInstalar_Click(object sender, EventArgs e);
+        protected virtual void btnInstalar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -22,3 +22,4 @@ C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParc
 C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\bin\Debug\net6.0-windows\Entidades.pdb
 C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\obj\Debug\net6.0-windows\WinForms.79E25943.Up2Date
 C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\obj\Debug\net6.0-windows\WinFormsApp.FrmInstalarWindows.resources
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\obj\Debug\net6.0-windows\WinFormsApp.FrmInstalarMac.resources

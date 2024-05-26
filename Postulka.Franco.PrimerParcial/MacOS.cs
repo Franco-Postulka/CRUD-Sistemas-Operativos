@@ -80,7 +80,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return $"MacOS {this.Nombre} {this.Version}";
+            return $"Sistema operativo MacOS {this.Nombre} {this.Version}";
         }
         public static bool operator ==(MacOS unMac, MacOS otroMac)
         {

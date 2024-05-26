@@ -34,7 +34,7 @@ namespace Entidades
 
         public virtual string Descargar()
         {
-            return $"Sistema operativo {this.Nombre}{this.Version} instalado";
+            return $"Sistema operativo {this.Nombre} {this.Version} instalado";
         }
 
         public override string ToString()

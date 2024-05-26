@@ -25,17 +25,6 @@ namespace WinFormsApp
             ActualizarVisor();
         }
 
-        private void instalarWindowsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmInstalarWindows instalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
-            instalarWindows.ShowDialog(this);
-            if (instalarWindows.DialogResult == DialogResult.OK)
-            {
-                this.computadora.ListaSistemasOperativos = instalarWindows.ListaSistemasOperativos;
-                this.SerializarLista(this.computadora.ListaSistemasOperativos);
-                this.ActualizarVisor();
-            }
-        }
 
         private void ActualizarVisor()
         {
@@ -78,7 +67,7 @@ namespace WinFormsApp
 
         private void eliminarSistemOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(this.lstBox.SelectedIndex == -1)
+            if (this.lstBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un SO para poder eliminar.");
             }
@@ -87,6 +76,29 @@ namespace WinFormsApp
                 this.Computadora.ListaSistemasOperativos.RemoveAt(this.lstBox.SelectedIndex);
                 SerializarLista(this.Computadora.ListaSistemasOperativos);
                 ActualizarVisor();
+            }
+        }
+        private void instalarWindowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInstalarWindows instalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
+            instalarWindows.ShowDialog(this);
+            if (instalarWindows.DialogResult == DialogResult.OK)
+            {
+                this.computadora.ListaSistemasOperativos = instalarWindows.ListaSistemasOperativos;
+                this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                this.ActualizarVisor();
+            }
+        }
+
+        private void instalarMacOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInstalarMac instalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
+            instalarMac.ShowDialog(this);
+            if(instalarMac.DialogResult  == DialogResult.OK)
+            {
+                this.computadora.ListaSistemasOperativos = instalarMac.ListaSistemasOperativos;
+                this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                this.ActualizarVisor();
             }
         }
     }
