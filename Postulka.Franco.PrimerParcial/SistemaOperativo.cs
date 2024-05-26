@@ -13,10 +13,10 @@ namespace Entidades
         private double espacioGB;
         private EEstadoSoporte estadoSoporte;
 
-        public string Nombre { get; set; }
-        public string Version { get; set; }
-        public double EspacioGB { get; set; }
-        public double Soporte { get; set; }
+        public string Nombre { get { return this.nombre; } set { this.nombre = value; } }
+        public string Version { get { return this.version; } set { this.version = value; } }
+        public double EspacioGB { get { return this.espacioGB; } set { this.espacioGB = value; } }
+        public EEstadoSoporte Soporte { get { return this.estadoSoporte; } set { this.estadoSoporte = value; } }
 
         
         public SistemaOperativo()

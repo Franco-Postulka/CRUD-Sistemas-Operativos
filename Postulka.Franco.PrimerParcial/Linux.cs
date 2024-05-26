@@ -11,8 +11,8 @@ namespace Entidades
         private EDistribucionLinux distribucion;
         private bool interfazGrafica;
 
-        public EDistribucionLinux Distribucion { get; set; }
-        public bool InterfazGrafica { get; set; }
+        public EDistribucionLinux Distribucion { get { return this.distribucion; } set { this.distribucion = value; } }
+        public bool InterfazGrafica { get { return this.interfazGrafica; } set { this.interfazGrafica = value; } }
 
         public Linux()
         {

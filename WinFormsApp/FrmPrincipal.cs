@@ -44,15 +44,17 @@ namespace WinFormsApp
         private void ActualizarVisor()
         {
             this.lstBox.Items.Clear();
-
-            using (XmlTextReader reader = new XmlTextReader(this.xmlpath))
+            if(File.Exists(this.xmlpath))
             {
-                XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
-                this.computadora.ListaSistemasOperativos = (List<SistemaOperativo>)ser.Deserialize(reader);
-            }
-            foreach (SistemaOperativo sistema in this.computadora.ListaSistemasOperativos)
-            {
-                this.lstBox.Items.Add(sistema.ToString());
+                using (XmlTextReader reader = new XmlTextReader(this.xmlpath))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
+                    this.computadora.ListaSistemasOperativos = (List<SistemaOperativo>)ser.Deserialize(reader);
+                }
+                foreach (SistemaOperativo sistema in this.computadora.ListaSistemasOperativos)
+                {
+                    this.lstBox.Items.Add(sistema.ToString());
+                }
             }
         }
     }

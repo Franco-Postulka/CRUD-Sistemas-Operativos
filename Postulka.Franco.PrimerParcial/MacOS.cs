@@ -11,8 +11,8 @@ namespace Entidades
         private bool integracionIcloud;
         private bool compatibleConProcesadorApple;
 
-        public bool IntegracionIcloud { get; set; }
-        public bool CompatibleConProcesadorApple { get; set; }
+        public bool IntegracionIcloud { get { return this.integracionIcloud; } set { this.integracionIcloud = value; } }
+        public bool CompatibleConProcesadorApple { get { return this.compatibleConProcesadorApple; } set { this.compatibleConProcesadorApple = value; } }
 
         public MacOS()
         {

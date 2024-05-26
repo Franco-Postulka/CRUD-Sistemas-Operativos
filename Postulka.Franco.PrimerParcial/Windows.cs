@@ -11,8 +11,8 @@ namespace Entidades
         private EEdicionWindows edicion;
         private bool virtualizacionPermitida;
 
-        public EEdicionWindows Edicion { get; set; }
-        public bool VirtualizacionPermitida { get; set; }
+        public EEdicionWindows Edicion { get { return this.edicion; } set { this.edicion = value; } }
+        public bool VirtualizacionPermitida { get { return this.virtualizacionPermitida; } set { this.virtualizacionPermitida = value; } }
 
         public Windows()
         {
@@ -66,7 +66,7 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return base.ToString();
+            return $"Sistema operativo {this.Nombre} {this.Version} {this.Edicion}" ;
         }
 
         public static bool operator ==(Windows unwindows, Windows otrowindows)

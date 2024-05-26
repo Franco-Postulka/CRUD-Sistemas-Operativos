@@ -20,7 +20,7 @@ namespace Entidades
 
         public Computadora()
         {
-            sistemasOperativos = new List<SistemaOperativo>();
+            this.sistemasOperativos = new List<SistemaOperativo>();
         }
 
         public static bool operator ==(Computadora computadora, SistemaOperativo unsistema)

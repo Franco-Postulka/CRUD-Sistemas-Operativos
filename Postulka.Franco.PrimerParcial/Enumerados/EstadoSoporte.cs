@@ -8,8 +8,8 @@ namespace Entidades
 {
     public enum EEstadoSoporte
     {
-        SoporteCompleto,
-        SoporteLimitado,
-        SinSoporte
+        SoporteCompleto = 0,
+        SoporteLimitado = 1,
+        SinSoporte = 2
     }
 }
