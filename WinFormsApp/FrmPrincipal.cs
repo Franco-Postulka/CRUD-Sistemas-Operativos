@@ -160,16 +160,11 @@ namespace WinFormsApp
                     Windows windows = (Windows)sistema;
                     FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
                     ConfigurarFormularioModificacion(windows, frmInstalarWindows);
+                    
                     frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
                     frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion;
 
-                    frmInstalarWindows.ShowDialog();
-                    if (frmInstalarWindows.DialogResult == DialogResult.OK)
-                    {
-                        this.computadora.ListaSistemasOperativos[indice] = frmInstalarWindows.SistemaOperativo;
-                        this.SerializarLista(this.computadora.ListaSistemasOperativos);
-                        this.ActualizarVisor();
-                    }
+                    ModificarSistema(frmInstalarWindows,indice);
                 }
                 else if (sistema.GetType() == typeof(MacOS))
                 {
@@ -179,13 +174,7 @@ namespace WinFormsApp
                     frmInstalarMac.CheckIntegracionIcloud.Checked = mac.IntegracionIcloud;
                     frmInstalarMac.CheckCompatibleApple.Checked = mac.CompatibleConProcesadorApple;
 
-                    frmInstalarMac.ShowDialog();
-                    if (frmInstalarMac.DialogResult == DialogResult.OK)
-                    {
-                        this.computadora.ListaSistemasOperativos[indice] = frmInstalarMac.SistemaOperativo;
-                        this.SerializarLista(this.computadora.ListaSistemasOperativos);
-                        this.ActualizarVisor();
-                    }
+                    ModificarSistema(frmInstalarMac, indice);
                 }
                 else if (sistema.GetType() == typeof(Linux))
                 {
@@ -195,18 +184,22 @@ namespace WinFormsApp
                     frmInstalarLinux.CheckInterfazGrafica.Checked = linux.InterfazGrafica;
                     frmInstalarLinux.CboDistribucion.SelectedItem = linux.Distribucion;
 
-                    frmInstalarLinux.ShowDialog();
-                    if (frmInstalarLinux.DialogResult == DialogResult.OK)
-                    {
-                        this.computadora.ListaSistemasOperativos[indice] = frmInstalarLinux.SistemaOperativo;
-                        this.SerializarLista(this.computadora.ListaSistemasOperativos);
-                        this.ActualizarVisor();
-                    }
+                    ModificarSistema(frmInstalarLinux, indice);
                 }
             }
 
         }
 
+        private void ModificarSistema(FrmInstalar frmInstalar, int indice)
+        {
+            frmInstalar.ShowDialog();
+            if (frmInstalar.DialogResult == DialogResult.OK)
+            {
+                this.computadora.ListaSistemasOperativos[indice] = frmInstalar.SistemaOperativo;
+                this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                this.ActualizarVisor();
+            }
+        }
         private void ConfigurarFormularioModificacion(SistemaOperativo sistema, FrmInstalar frmInstalar)
         {
             string nombre = sistema.Nombre;

@@ -49,13 +49,13 @@
             // 
             // menuStrip
             // 
-            menuStrip.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            menuStrip.Anchor = AnchorStyles.Top;
             menuStrip.Dock = DockStyle.None;
             menuStrip.ImageScalingSize = new Size(24, 24);
             menuStrip.Items.AddRange(new ToolStripItem[] { instalarSsitemaOperativoToolStripMenuItem, modificarSistemaOperativoToolStripMenuItem, eliminarSistemOperativoToolStripMenuItem });
             menuStrip.Location = new Point(27, 9);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(709, 33);
+            menuStrip.Size = new Size(889, 33);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip1";
             // 
@@ -165,7 +165,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(764, 450);
             Controls.Add(lstBox);
             Controls.Add(menuStrip);
             Controls.Add(menuOrdenar);
