@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Computadora
     {
         private List<SistemaOperativo> sistemasOperativos;
 
         public List<SistemaOperativo> ListaSistemasOperativos
-        { 
+        {
             get { return this.sistemasOperativos; }
             set { this.sistemasOperativos = value; }
         }
@@ -60,10 +52,10 @@ namespace Entidades
 
         public void OrdenarListaPorGBAscendente()
         {
-            List<SistemaOperativo> lista = this.ListaSistemasOperativos; 
-            for (int i = 0; i < lista.Count -1 ; i++)
+            List<SistemaOperativo> lista = this.ListaSistemasOperativos;
+            for (int i = 0; i < lista.Count - 1; i++)
             {
-                for (int j = i+1; j < lista.Count; j++)
+                for (int j = i + 1; j < lista.Count; j++)
                 {
                     if (lista[i].EspacioGB > lista[j].EspacioGB)
                     {
@@ -102,7 +94,7 @@ namespace Entidades
                 for (int j = i + 1; j < lista.Count; j++)
                 {
                     int comparacion = String.Compare(lista[i].Nombre, lista[j].Nombre);
-                    if (comparacion>0) //el primer string va despues alfabeticamente
+                    if (comparacion > 0) //el primer string va despues alfabeticamente
                     {
                         SistemaOperativo sistemai = lista[i];
                         lista[i] = lista[j];

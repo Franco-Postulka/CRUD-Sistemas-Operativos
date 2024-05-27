@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Windows : SistemaOperativo
     {
@@ -19,7 +13,7 @@ namespace Entidades
 
         }
         public Windows(string nombre, string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion, bool virtualizacion)
-            :base(nombre,version,espacio,soporte)
+            : base(nombre, version, espacio, soporte)
         {
             /// <summary>
             /// constructor con todos los parametros
@@ -27,7 +21,7 @@ namespace Entidades
             this.edicion = edicion;
             this.virtualizacionPermitida = virtualizacion;
         }
-        public Windows( string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion, bool virtualizacion)
+        public Windows(string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion, bool virtualizacion)
             : this("Windows", version, espacio, soporte, edicion, virtualizacion)
         {
             /// <summary>
@@ -41,7 +35,7 @@ namespace Entidades
             /// constructor sin virtualizacion como parametro (lo asigna como true)
             /// </summary>
         }
-        public Windows( string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion) 
+        public Windows(string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion)
             : this("Windows", version, espacio, soporte, edicion, true)
         {
             /// <summary>
@@ -66,7 +60,7 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return $"Sistema operativo {this.Nombre} {this.Version} {this.Edicion}" ;
+            return $"Sistema operativo {this.Nombre} {this.Version} {this.Edicion}";
         }
 
         public static bool operator ==(Windows unwindows, Windows otrowindows)

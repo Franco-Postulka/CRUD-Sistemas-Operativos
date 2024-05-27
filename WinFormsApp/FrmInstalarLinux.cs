@@ -1,14 +1,5 @@
 ﻿using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WinFormsApp
 {
@@ -38,12 +29,12 @@ namespace WinFormsApp
             string txtEspacio = this.txtEspacio.Text.Replace(',', '.');
             bool validacion_espacio = double.TryParse(txtEspacio, NumberStyles.Any, CultureInfo.InvariantCulture, out espacio);
             EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
-            
+
             EDistribucionLinux distribucionLinux = (EDistribucionLinux)this.cboDistribucion.SelectedItem;
             bool interfaz = this.checkInterfaz.Checked;
             if (validacion_espacio)
             {
-                Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux,interfaz);
+                Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux, interfaz);
                 this.sistemaOperativo = linux;
                 this.DialogResult = DialogResult.OK;
                 this.Close();

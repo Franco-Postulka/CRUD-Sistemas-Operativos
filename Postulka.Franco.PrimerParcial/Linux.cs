@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Linux : SistemaOperativo
     {
@@ -18,7 +12,7 @@ namespace Entidades
         {
 
         }
-        public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion, bool interfaz) 
+        public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion, bool interfaz)
             : base(nombre, version, espacioGB, soporte)
         {
             /// <summary>
@@ -35,14 +29,14 @@ namespace Entidades
             /// constructor sin nombre de parametro (se asigna como Linux)
             /// </summary>
         }
-        public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion) 
-            : this(nombre, version, espacioGB, soporte, distribucion,true)
+        public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion)
+            : this(nombre, version, espacioGB, soporte, distribucion, true)
         {
             /// <summary>
             /// constructor sin interfaz como parametro (se asigna como true)
             /// </summary>
         }
-        public Linux(string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion) 
+        public Linux(string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion)
             : this("Linux", version, espacioGB, soporte, distribucion, true)
         {
             /// <summary>
@@ -82,7 +76,7 @@ namespace Entidades
 
         public static bool operator !=(Linux unlinux, Linux otrolinux)
         {
-            return !(unlinux ==  otrolinux);
+            return !(unlinux == otrolinux);
         }
 
         public override bool Equals(object? obj)

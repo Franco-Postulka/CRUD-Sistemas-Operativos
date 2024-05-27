@@ -1,8 +1,7 @@
 using Entidades;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text;
-using System.Xml.Serialization;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace WinFormsApp
 {
@@ -97,8 +96,8 @@ namespace WinFormsApp
         /// <param name="frmInstalar"></param>
         private void ManejarFormularioInstalacion(FrmInstalar frmInstalar)
         {
-            if (frmInstalar.DialogResult == DialogResult.OK) 
-            { 
+            if (frmInstalar.DialogResult == DialogResult.OK)
+            {
                 bool existe = false;
                 foreach (SistemaOperativo sistema in this.Computadora.ListaSistemasOperativos)
                 {
@@ -140,7 +139,7 @@ namespace WinFormsApp
             ManejarFormularioInstalacion(instalarLinux);
         }
 
-        
+
 
         private void modificarSistemaOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -152,16 +151,13 @@ namespace WinFormsApp
             else
             {
                 SistemaOperativo sistema = computadora.ListaSistemasOperativos[indice];
-                string nombre = sistema.Nombre;
-                string version = sistema.Version;
-                double espacio = sistema.EspacioGB;
-                EEstadoSoporte soporte = sistema.Soporte;
                 if (sistema.GetType() == typeof(Windows))
                 {
+                    Windows windows = (Windows)sistema;
                     FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
-                    frmInstalarWindows.Text = "Modificar Windows";
-                    frmInstalarWindows.TxtNombre.Text = nombre;
-                    frmInstalarWindows.TxtVersion.Text = version;
+                    ConfigurarFormularioModificacion(windows, frmInstalarWindows);
+                    frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
+                    frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion; 
                     frmInstalarWindows.ShowDialog();
                     if (frmInstalarWindows.DialogResult == DialogResult.OK)
                     {
@@ -169,7 +165,6 @@ namespace WinFormsApp
                         this.SerializarLista(this.computadora.ListaSistemasOperativos);
                         this.ActualizarVisor();
                     }
-
                 }
                 else if (sistema.GetType() == typeof(MacOS))
                 {
@@ -181,6 +176,19 @@ namespace WinFormsApp
                 }
             }
 
+        }
+
+        private void ConfigurarFormularioModificacion(SistemaOperativo sistema, FrmInstalar frmInstalar)
+        {
+            string nombre = sistema.Nombre;
+            string version = sistema.Version;
+            double espacio = sistema.EspacioGB;
+            EEstadoSoporte soporte = sistema.Soporte;
+            frmInstalar.Text = "Modificar Windows";
+            frmInstalar.TxtNombre.Text = nombre;
+            frmInstalar.TxtVersion.Text = version;
+            frmInstalar.TxtEspacio.Text = espacio.ToString();
+            frmInstalar.CboEstadoSoporte.SelectedItem = soporte;
         }
     }
 }

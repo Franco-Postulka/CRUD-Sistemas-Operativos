@@ -1,16 +1,5 @@
 ﻿using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace WinFormsApp
 {
@@ -19,6 +8,16 @@ namespace WinFormsApp
         public FrmInstalarWindows()
         {
             InitializeComponent();
+        }
+        public CheckBox CkeckVirtualizacionPermitida
+        {
+            get { return this.checkVirtualizacion; }
+            set {  this.checkVirtualizacion = value;}
+        }
+        public ComboBox CboEdicionWindows
+        {
+            get { return this.cboEdicion;  }
+            set { this.cboEdicion = value; }
         }
         public FrmInstalarWindows(List<SistemaOperativo> sistema) : base(sistema)
         {

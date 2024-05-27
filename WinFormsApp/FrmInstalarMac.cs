@@ -1,13 +1,4 @@
 ﻿using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Globalization;
 
 namespace WinFormsApp
@@ -18,7 +9,7 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
-        public FrmInstalarMac(List<SistemaOperativo> lista) :base(lista) 
+        public FrmInstalarMac(List<SistemaOperativo> lista) : base(lista)
         {
             InitializeComponent();
         }
@@ -36,7 +27,7 @@ namespace WinFormsApp
             bool integracionIcloud = this.checkIntegracion.Checked;
             if (validacion_espacio)
             {
-                MacOS mac = new MacOS(nombre,version,espacio,compatible_Apple,soporte,integracionIcloud);
+                MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte, integracionIcloud);
                 this.sistemaOperativo = mac;
                 this.DialogResult = DialogResult.OK;
                 this.Close();

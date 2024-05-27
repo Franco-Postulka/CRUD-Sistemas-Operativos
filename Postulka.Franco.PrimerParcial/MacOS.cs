@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
-    public class MacOS:SistemaOperativo
+    public class MacOS : SistemaOperativo
     {
         private bool integracionIcloud;
         private bool compatibleConProcesadorApple;
@@ -18,8 +12,8 @@ namespace Entidades
         {
 
         }
-        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte,bool integracionIcloud)
-            :base(nombre,version,espacio,soporte)
+        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte, bool integracionIcloud)
+            : base(nombre, version, espacio, soporte)
         {
             /// <summary>
             /// constructor con todos los parametros
@@ -27,14 +21,14 @@ namespace Entidades
             this.integracionIcloud = integracionIcloud;
             this.compatibleConProcesadorApple = compatibleApple;
         }
-        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte) 
-            : this(nombre, version, espacio, compatibleApple,soporte,true)
+        public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte)
+            : this(nombre, version, espacio, compatibleApple, soporte, true)
         {
             /// <summary>
             /// constructor sin el parametro integracionIcloud (se asigna true)
             /// </summary>
         }
-        public MacOS(string nombre, string version, double espacio, EEstadoSoporte soporte, bool integracionIcloud) 
+        public MacOS(string nombre, string version, double espacio, EEstadoSoporte soporte, bool integracionIcloud)
             : this(nombre, version, espacio, true, soporte, integracionIcloud)
         {
             /// <summary>
@@ -42,7 +36,7 @@ namespace Entidades
             /// </summary>
         }
 
-        public MacOS(string nombre, string version, double espacio,EEstadoSoporte soporte) 
+        public MacOS(string nombre, string version, double espacio, EEstadoSoporte soporte)
             : this(nombre, version, espacio, true, soporte, true)
         {
             /// <summary>
@@ -54,7 +48,7 @@ namespace Entidades
         public override string DevolverInformacionEspecifica()
         {
             string procesador = "Intel";
-            if(this.CompatibleConProcesadorApple)
+            if (this.CompatibleConProcesadorApple)
             {
                 procesador = "Apple";
             }

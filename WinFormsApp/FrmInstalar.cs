@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Entidades;
+﻿using Entidades;
 
 namespace WinFormsApp
 {
@@ -27,7 +18,7 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
-        public TextBox TxtNombre 
+        public TextBox TxtNombre
         {
             get { return this.txtNombre; }
             set { this.txtNombre = value; }
@@ -36,6 +27,16 @@ namespace WinFormsApp
         {
             get { return this.txtVersion; }
             set { this.txtVersion = value; }
+        }
+        public TextBox TxtEspacio
+        {
+            get { return this.txtEspacio; }
+            set { this.txtEspacio = value; }
+        }
+        public ComboBox CboEstadoSoporte
+        {
+            get { return this.cboEstado; }
+            set { this.cboEstado = value; }
         }
         public FrmInstalar(List<SistemaOperativo> lista)
         {

@@ -1,5 +1,4 @@
-﻿using System.Xml;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace Entidades
 {
@@ -18,12 +17,12 @@ namespace Entidades
         public double EspacioGB { get { return this.espacioGB; } set { this.espacioGB = value; } }
         public EEstadoSoporte Soporte { get { return this.estadoSoporte; } set { this.estadoSoporte = value; } }
 
-        
+
         public SistemaOperativo()
         {
 
         }
-        public SistemaOperativo(string nombre, string version, double espacio,EEstadoSoporte soporte)
+        public SistemaOperativo(string nombre, string version, double espacio, EEstadoSoporte soporte)
         {
             this.nombre = nombre;
             this.version = version;
