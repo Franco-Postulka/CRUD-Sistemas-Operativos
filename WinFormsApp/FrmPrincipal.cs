@@ -90,16 +90,19 @@ namespace WinFormsApp
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
         }
-        private void instalarWindowsToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Recibe fomulario de instalacion, si el objeto SistemaOperativo del formulario esta en la lsita 
+        /// de SO de la computadora, avisa al usuario, si no esta lo agrega con el metodo ActualizarListas
+        /// </summary>
+        /// <param name="frmInstalar"></param>
+        private void ManejarFormularioInstalacion(FrmInstalar frmInstalar)
         {
-            FrmInstalarWindows instalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
-            instalarWindows.ShowDialog(this);
-            if (instalarWindows.DialogResult == DialogResult.OK) 
+            if (frmInstalar.DialogResult == DialogResult.OK) 
             { 
                 bool existe = false;
                 foreach (SistemaOperativo sistema in this.Computadora.ListaSistemasOperativos)
                 {
-                    if (instalarWindows.SistemaOperativo.Equals(sistema))
+                    if (frmInstalar.SistemaOperativo.Equals(sistema))
                     {
                         existe = true;
                     }
@@ -107,18 +110,20 @@ namespace WinFormsApp
                 if (existe)
                 {
                     MessageBox.Show("El sistema que desea instalar ya existe.");
-                    //this.DialogResult = DialogResult.Cancel;
-                    //this.Close();
                 }
                 else
                 {
-                    //this.sistemaOperativo = windows;
-                    MessageBox.Show(instalarWindows.SistemaOperativo.Descargar());
-                    //this.DialogResult = DialogResult.OK;
-                    //this.Close();
-                    ActualizarListas(instalarWindows);
+                    MessageBox.Show(frmInstalar.SistemaOperativo.Descargar());
+                    ActualizarListas(frmInstalar);
                 }
             }
+
+        }
+        private void instalarWindowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInstalarWindows instalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
+            instalarWindows.ShowDialog(this);
+            ManejarFormularioInstalacion(instalarWindows);
         }
 
         private void instalarMacOSToolStripMenuItem_Click(object sender, EventArgs e)
