@@ -103,13 +103,7 @@ namespace WinFormsApp
             if (frmInstalar.DialogResult == DialogResult.OK)
             {
                 bool existe = false;
-                foreach (SistemaOperativo sistema in this.Computadora.ListaSistemasOperativos)
-                {
-                    if (frmInstalar.SistemaOperativo.Equals(sistema))
-                    {
-                        existe = true;
-                    }
-                }
+                existe = this.computadora == frmInstalar.SistemaOperativo;
                 if (existe)
                 {
                     MessageBox.Show("El sistema que desea instalar ya existe.");
