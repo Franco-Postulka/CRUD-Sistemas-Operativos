@@ -67,13 +67,16 @@ namespace WinFormsApp
 
         private void eliminarSistemOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.lstBox.SelectedIndex == -1)
+            int indice = this.lstBox.SelectedIndex;
+            if (indice == -1)
             {
                 MessageBox.Show("Debe seleccionar un SO para poder eliminar.");
             }
             else
             {
-                this.Computadora.ListaSistemasOperativos.RemoveAt(this.lstBox.SelectedIndex);
+                //this.Computadora.ListaSistemasOperativos.RemoveAt(this.lstBox.SelectedIndex);
+                SistemaOperativo sistemaOperativo = this.computadora.ListaSistemasOperativos[indice];
+                this.computadora -= sistemaOperativo;
                 SerializarLista(this.Computadora.ListaSistemasOperativos);
                 ActualizarVisor();
             }
@@ -86,7 +89,7 @@ namespace WinFormsApp
         /// <param name="frmInstalar"></param>
         private void ActualizarListas(FrmInstalar frmInstalar)
         {
-            this.computadora.ListaSistemasOperativos.Add(frmInstalar.SistemaOperativo);
+            this.computadora += frmInstalar.SistemaOperativo;
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
         }
@@ -158,7 +161,7 @@ namespace WinFormsApp
                     FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
                     ConfigurarFormularioModificacion(windows, frmInstalarWindows);
                     frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
-                    frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion; 
+                    frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion;
 
                     frmInstalarWindows.ShowDialog();
                     if (frmInstalarWindows.DialogResult == DialogResult.OK)
@@ -172,7 +175,7 @@ namespace WinFormsApp
                 {
                     MacOS mac = (MacOS)sistema;
                     FrmInstalarMac frmInstalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
-                    ConfigurarFormularioModificacion(mac,frmInstalarMac);
+                    ConfigurarFormularioModificacion(mac, frmInstalarMac);
                     frmInstalarMac.CheckIntegracionIcloud.Checked = mac.IntegracionIcloud;
                     frmInstalarMac.CheckCompatibleApple.Checked = mac.CompatibleConProcesadorApple;
 
@@ -217,5 +220,12 @@ namespace WinFormsApp
             frmInstalar.CboEstadoSoporte.SelectedItem = soporte;
             frmInstalar.BtnInstalar.Text = "Modificar";
         }
+
+        private void descendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

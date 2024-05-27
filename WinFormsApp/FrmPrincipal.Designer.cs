@@ -36,7 +36,15 @@
             modificarSistemaOperativoToolStripMenuItem = new ToolStripMenuItem();
             eliminarSistemOperativoToolStripMenuItem = new ToolStripMenuItem();
             lstBox = new ListBox();
+            menuOrdenar = new MenuStrip();
+            ordenarToolStripMenuItem = new ToolStripMenuItem();
+            descendenteToolStripMenuItem = new ToolStripMenuItem();
+            ascendenteToolStripMenuItem = new ToolStripMenuItem();
+            ordenarPorGBToolStripMenuItem = new ToolStripMenuItem();
+            ascendeteToolStripMenuItem = new ToolStripMenuItem();
+            descendenteToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
+            menuOrdenar.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
@@ -97,10 +105,61 @@
             // 
             lstBox.FormattingEnabled = true;
             lstBox.ItemHeight = 25;
-            lstBox.Location = new Point(48, 71);
+            lstBox.Location = new Point(27, 73);
             lstBox.Name = "lstBox";
-            lstBox.Size = new Size(695, 304);
+            lstBox.Size = new Size(709, 304);
             lstBox.TabIndex = 1;
+            // 
+            // menuOrdenar
+            // 
+            menuOrdenar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            menuOrdenar.Dock = DockStyle.None;
+            menuOrdenar.ImageScalingSize = new Size(24, 24);
+            menuOrdenar.Items.AddRange(new ToolStripItem[] { ordenarToolStripMenuItem, ordenarPorGBToolStripMenuItem });
+            menuOrdenar.Location = new Point(27, 389);
+            menuOrdenar.Name = "menuOrdenar";
+            menuOrdenar.Size = new Size(384, 33);
+            menuOrdenar.TabIndex = 2;
+            menuOrdenar.Text = "menuStrip1";
+            // 
+            // ordenarToolStripMenuItem
+            // 
+            ordenarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { descendenteToolStripMenuItem, ascendenteToolStripMenuItem });
+            ordenarToolStripMenuItem.Name = "ordenarToolStripMenuItem";
+            ordenarToolStripMenuItem.Size = new Size(223, 29);
+            ordenarToolStripMenuItem.Text = "Ordenar alfabéticamente";
+            // 
+            // descendenteToolStripMenuItem
+            // 
+            descendenteToolStripMenuItem.Name = "descendenteToolStripMenuItem";
+            descendenteToolStripMenuItem.Size = new Size(216, 34);
+            descendenteToolStripMenuItem.Text = "Ascendente";
+            descendenteToolStripMenuItem.Click += descendenteToolStripMenuItem_Click;
+            // 
+            // ascendenteToolStripMenuItem
+            // 
+            ascendenteToolStripMenuItem.Name = "ascendenteToolStripMenuItem";
+            ascendenteToolStripMenuItem.Size = new Size(216, 34);
+            ascendenteToolStripMenuItem.Text = "Descendente";
+            // 
+            // ordenarPorGBToolStripMenuItem
+            // 
+            ordenarPorGBToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ascendeteToolStripMenuItem, descendenteToolStripMenuItem1 });
+            ordenarPorGBToolStripMenuItem.Name = "ordenarPorGBToolStripMenuItem";
+            ordenarPorGBToolStripMenuItem.Size = new Size(153, 29);
+            ordenarPorGBToolStripMenuItem.Text = "Ordenar por GB";
+            // 
+            // ascendeteToolStripMenuItem
+            // 
+            ascendeteToolStripMenuItem.Name = "ascendeteToolStripMenuItem";
+            ascendeteToolStripMenuItem.Size = new Size(216, 34);
+            ascendeteToolStripMenuItem.Text = "Ascendete";
+            // 
+            // descendenteToolStripMenuItem1
+            // 
+            descendenteToolStripMenuItem1.Name = "descendenteToolStripMenuItem1";
+            descendenteToolStripMenuItem1.Size = new Size(216, 34);
+            descendenteToolStripMenuItem1.Text = "Descendente";
             // 
             // FrmPrincipal
             // 
@@ -109,12 +168,15 @@
             ClientSize = new Size(800, 450);
             Controls.Add(lstBox);
             Controls.Add(menuStrip);
+            Controls.Add(menuOrdenar);
             MainMenuStrip = menuStrip;
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistemas Operativos";
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
+            menuOrdenar.ResumeLayout(false);
+            menuOrdenar.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,5 +191,12 @@
         private ToolStripMenuItem modificarSistemaOperativoToolStripMenuItem;
         private ToolStripMenuItem eliminarSistemOperativoToolStripMenuItem;
         private ListBox lstBox;
+        private MenuStrip menuOrdenar;
+        private ToolStripMenuItem ordenarToolStripMenuItem;
+        private ToolStripMenuItem descendenteToolStripMenuItem;
+        private ToolStripMenuItem ascendenteToolStripMenuItem;
+        private ToolStripMenuItem ordenarPorGBToolStripMenuItem;
+        private ToolStripMenuItem ascendeteToolStripMenuItem;
+        private ToolStripMenuItem descendenteToolStripMenuItem1;
     }
 }

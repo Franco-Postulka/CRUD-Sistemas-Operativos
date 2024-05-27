@@ -33,21 +33,21 @@
             return !(computadora == unsistema);
         }
 
-        public static List<SistemaOperativo> operator +(Computadora computadora, SistemaOperativo unsistema)
+        public static Computadora operator +(Computadora computadora, SistemaOperativo unsistema)
         {
             if (computadora != unsistema)
             {
                 computadora.sistemasOperativos.Add(unsistema);
             }
-            return computadora.sistemasOperativos;
+            return computadora;
         }
-        public static List<SistemaOperativo> operator -(Computadora computadora, SistemaOperativo unsistema)
+        public static Computadora operator -(Computadora computadora, SistemaOperativo unsistema)
         {
             if (computadora == unsistema)
             {
                 computadora.sistemasOperativos.Remove(unsistema);
             }
-            return computadora.sistemasOperativos;
+            return computadora;
         }
 
         public void OrdenarListaPorGBAscendente()
