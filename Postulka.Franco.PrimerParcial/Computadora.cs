@@ -105,7 +105,7 @@
             this.sistemasOperativos = lista;
         }
 
-        public void OrdenarListaPorNombreDescendente()
+        public void OrdenarListaAlfabeticamenteDescendente()
         {
 
             List<SistemaOperativo> lista = this.ListaSistemasOperativos;

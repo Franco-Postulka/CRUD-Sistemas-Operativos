@@ -160,11 +160,11 @@ namespace WinFormsApp
                     Windows windows = (Windows)sistema;
                     FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
                     ConfigurarFormularioModificacion(windows, frmInstalarWindows);
-                    
+
                     frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
                     frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion;
 
-                    ModificarSistema(frmInstalarWindows,indice);
+                    ModificarSistema(frmInstalarWindows, indice);
                 }
                 else if (sistema.GetType() == typeof(MacOS))
                 {
@@ -214,11 +214,33 @@ namespace WinFormsApp
             frmInstalar.BtnInstalar.Text = "Modificar";
         }
 
-        private void descendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ascendenteAlfabeticamente_Click(object sender, EventArgs e)
         {
-
+            this.computadora.OrdenarListaAlfabeticamenteAscendente();
+            this.SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.ActualizarVisor();
         }
 
-        
+        private void descendenteAlfabeticamente_Click(object sender, EventArgs e)
+        {
+            this.computadora.OrdenarListaAlfabeticamenteDescendente();
+            this.SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.ActualizarVisor();
+        }
+
+        private void ascendeteGB_Click(object sender, EventArgs e)
+        {
+            this.computadora.OrdenarListaPorGBAscendente();
+            this.SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.ActualizarVisor();
+        }
+
+        private void descendenteGB_Click(object sender, EventArgs e)
+        {
+
+            this.computadora.OrdenarListaPorGBDescendenete();
+            this.SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.ActualizarVisor();
+        }
     }
 }

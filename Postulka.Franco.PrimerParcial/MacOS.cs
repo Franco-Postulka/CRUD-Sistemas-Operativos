@@ -74,7 +74,7 @@
 
         public override string ToString()
         {
-            return $"Sistema operativo MacOS {this.Nombre} {this.Version}";
+            return $"Sistema operativo {this.Nombre} {this.Version} MacOS";
         }
         public static bool operator ==(MacOS unMac, MacOS otroMac)
         {
