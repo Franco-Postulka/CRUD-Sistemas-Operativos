@@ -16,11 +16,11 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarWindows : FrmInstalar
     {
-        public FrmInstalarWindows()
-        {
-            InitializeComponent();
-        }
-        public FrmInstalarWindows(List<SistemaOperativo> lista) : base(lista)
+        //public FrmInstalarWindows()
+        //{
+        //    InitializeComponent();
+        //}
+        public FrmInstalarWindows(List<SistemaOperativo> sistema) : base(sistema)
         {
             InitializeComponent();
             foreach (EEdicionWindows edicion in Enum.GetValues(typeof(EEdicionWindows)))
@@ -60,7 +60,7 @@ namespace WinFormsApp
                 }
                 else
                 {
-                    this.ListaSistemasOperativos.Add(windows);
+                    this.sistemaOperativo = windows;
                     MessageBox.Show(windows.Descargar());
                     this.DialogResult =DialogResult.OK;
                     this.Close();

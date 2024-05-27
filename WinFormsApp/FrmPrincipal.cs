@@ -84,7 +84,7 @@ namespace WinFormsApp
             instalarWindows.ShowDialog(this);
             if (instalarWindows.DialogResult == DialogResult.OK)
             {
-                this.computadora.ListaSistemasOperativos = instalarWindows.ListaSistemasOperativos;
+                this.computadora.ListaSistemasOperativos.Add(instalarWindows.SistemaOperativo);
                 this.SerializarLista(this.computadora.ListaSistemasOperativos);
                 this.ActualizarVisor();
             }
@@ -96,7 +96,7 @@ namespace WinFormsApp
             instalarMac.ShowDialog(this);
             if (instalarMac.DialogResult == DialogResult.OK)
             {
-                this.computadora.ListaSistemasOperativos = instalarMac.ListaSistemasOperativos;
+                this.computadora.ListaSistemasOperativos.Add(instalarMac.SistemaOperativo);
                 this.SerializarLista(this.computadora.ListaSistemasOperativos);
                 this.ActualizarVisor();
             }
@@ -108,9 +108,38 @@ namespace WinFormsApp
             instalarLinux.ShowDialog(this);
             if (instalarLinux.DialogResult == DialogResult.OK)
             {
-                this.computadora.ListaSistemasOperativos = instalarLinux.ListaSistemasOperativos;
+                this.computadora.ListaSistemasOperativos.Add(instalarLinux.SistemaOperativo);
                 this.SerializarLista(this.computadora.ListaSistemasOperativos);
                 this.ActualizarVisor();
+            }
+        }
+
+        private void modificarMacOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int indice = this.lstBox.SelectedIndex;
+            if (indice == -1)
+            {
+                MessageBox.Show("Debe seleccionar un SO para poder modificar.");
+            }
+            else
+            {
+                SistemaOperativo sistema = computadora.ListaSistemasOperativos[indice];
+                string nombre = sistema.Nombre;
+                string version = sistema.Version;
+                double espacio = sistema.EspacioGB;
+                EEstadoSoporte soporte = sistema.Soporte;
+                if(sistema.GetType() == typeof(Windows))
+                {
+                    //FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows
+                    //this.computadora.ListaSistemasOperativos.At
+
+                }else if(sistema.GetType() == typeof(MacOS))
+                {
+
+                }else if(sistema.GetType() == typeof(Linux))
+                {
+
+                }
             }
         }
     }

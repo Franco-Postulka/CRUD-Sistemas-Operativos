@@ -14,10 +14,10 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarLinux : FrmInstalar
     {
-        public FrmInstalarLinux()
-        {
-            InitializeComponent();
-        }
+        //public FrmInstalarLinux()
+        //{
+        //    InitializeComponent();
+        //}
 
         public FrmInstalarLinux(List<SistemaOperativo> sistema) : base(sistema)
         {
@@ -61,7 +61,7 @@ namespace WinFormsApp
                 }
                 else
                 {
-                    this.ListaSistemasOperativos.Add(linux);
+                    this.sistemaOperativo = linux;
                     MessageBox.Show(linux.Descargar());
                     this.DialogResult = DialogResult.OK;
                     this.Close();

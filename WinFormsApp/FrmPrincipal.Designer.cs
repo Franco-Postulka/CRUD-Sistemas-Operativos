@@ -92,19 +92,20 @@
             // modificarMacOToolStripMenuItem
             // 
             modificarMacOToolStripMenuItem.Name = "modificarMacOToolStripMenuItem";
-            modificarMacOToolStripMenuItem.Size = new Size(268, 34);
+            modificarMacOToolStripMenuItem.Size = new Size(270, 34);
             modificarMacOToolStripMenuItem.Text = "Modificar Windows";
+            modificarMacOToolStripMenuItem.Click += modificarMacOToolStripMenuItem_Click;
             // 
             // modificarMacOSToolStripMenuItem
             // 
             modificarMacOSToolStripMenuItem.Name = "modificarMacOSToolStripMenuItem";
-            modificarMacOSToolStripMenuItem.Size = new Size(268, 34);
+            modificarMacOSToolStripMenuItem.Size = new Size(270, 34);
             modificarMacOSToolStripMenuItem.Text = "Modificar MacOS";
             // 
             // modificarLinuxToolStripMenuItem
             // 
             modificarLinuxToolStripMenuItem.Name = "modificarLinuxToolStripMenuItem";
-            modificarLinuxToolStripMenuItem.Size = new Size(268, 34);
+            modificarLinuxToolStripMenuItem.Size = new Size(270, 34);
             modificarLinuxToolStripMenuItem.Text = "Modificar Linux";
             // 
             // eliminarSistemOperativoToolStripMenuItem
