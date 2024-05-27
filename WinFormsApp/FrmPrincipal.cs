@@ -78,15 +78,46 @@ namespace WinFormsApp
                 ActualizarVisor();
             }
         }
+
+        /// <summary>
+        /// Recibe un formulario de instalacion, actualiza la lista del atributo computadora,
+        /// serializa la lsita y actualiza el visor
+        /// </summary>
+        /// <param name="frmInstalar"></param>
+        private void ActualizarListas(FrmInstalar frmInstalar)
+        {
+            this.computadora.ListaSistemasOperativos.Add(frmInstalar.SistemaOperativo);
+            this.SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.ActualizarVisor();
+        }
         private void instalarWindowsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmInstalarWindows instalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
             instalarWindows.ShowDialog(this);
-            if (instalarWindows.DialogResult == DialogResult.OK)
-            {
-                this.computadora.ListaSistemasOperativos.Add(instalarWindows.SistemaOperativo);
-                this.SerializarLista(this.computadora.ListaSistemasOperativos);
-                this.ActualizarVisor();
+            if (instalarWindows.DialogResult == DialogResult.OK) 
+            { 
+                bool existe = false;
+                foreach (SistemaOperativo sistema in this.Computadora.ListaSistemasOperativos)
+                {
+                    if (instalarWindows.SistemaOperativo.Equals(sistema))
+                    {
+                        existe = true;
+                    }
+                }
+                if (existe)
+                {
+                    MessageBox.Show("El sistema que desea instalar ya existe.");
+                    //this.DialogResult = DialogResult.Cancel;
+                    //this.Close();
+                }
+                else
+                {
+                    //this.sistemaOperativo = windows;
+                    MessageBox.Show(instalarWindows.SistemaOperativo.Descargar());
+                    //this.DialogResult = DialogResult.OK;
+                    //this.Close();
+                    ActualizarListas(instalarWindows);
+                }
             }
         }
 
@@ -94,27 +125,19 @@ namespace WinFormsApp
         {
             FrmInstalarMac instalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
             instalarMac.ShowDialog(this);
-            if (instalarMac.DialogResult == DialogResult.OK)
-            {
-                this.computadora.ListaSistemasOperativos.Add(instalarMac.SistemaOperativo);
-                this.SerializarLista(this.computadora.ListaSistemasOperativos);
-                this.ActualizarVisor();
-            }
+            ActualizarListas(instalarMac);
         }
 
         private void instalarLinuxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmInstalarLinux instalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
             instalarLinux.ShowDialog(this);
-            if (instalarLinux.DialogResult == DialogResult.OK)
-            {
-                this.computadora.ListaSistemasOperativos.Add(instalarLinux.SistemaOperativo);
-                this.SerializarLista(this.computadora.ListaSistemasOperativos);
-                this.ActualizarVisor();
-            }
+            ActualizarListas(instalarLinux);
         }
 
-        private void modificarMacOToolStripMenuItem_Click(object sender, EventArgs e)
+        
+
+        private void modificarSistemaOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int indice = this.lstBox.SelectedIndex;
             if (indice == -1)
@@ -128,19 +151,31 @@ namespace WinFormsApp
                 string version = sistema.Version;
                 double espacio = sistema.EspacioGB;
                 EEstadoSoporte soporte = sistema.Soporte;
-                if(sistema.GetType() == typeof(Windows))
+                if (sistema.GetType() == typeof(Windows))
                 {
-                    //FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows
-                    //this.computadora.ListaSistemasOperativos.At
+                    FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
+                    frmInstalarWindows.Text = "Modificar Windows";
+                    frmInstalarWindows.TxtNombre.Text = nombre;
+                    frmInstalarWindows.TxtVersion.Text = version;
+                    frmInstalarWindows.ShowDialog();
+                    if (frmInstalarWindows.DialogResult == DialogResult.OK)
+                    {
+                        this.computadora.ListaSistemasOperativos[indice] = frmInstalarWindows.SistemaOperativo;
+                        this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                        this.ActualizarVisor();
+                    }
 
-                }else if(sistema.GetType() == typeof(MacOS))
+                }
+                else if (sistema.GetType() == typeof(MacOS))
                 {
 
-                }else if(sistema.GetType() == typeof(Linux))
+                }
+                else if (sistema.GetType() == typeof(Linux))
                 {
 
                 }
             }
+
         }
     }
 }

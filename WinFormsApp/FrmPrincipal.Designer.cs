@@ -34,9 +34,6 @@
             instalarMacOSToolStripMenuItem = new ToolStripMenuItem();
             instalarLinuxToolStripMenuItem = new ToolStripMenuItem();
             modificarSistemaOperativoToolStripMenuItem = new ToolStripMenuItem();
-            modificarMacOToolStripMenuItem = new ToolStripMenuItem();
-            modificarMacOSToolStripMenuItem = new ToolStripMenuItem();
-            modificarLinuxToolStripMenuItem = new ToolStripMenuItem();
             eliminarSistemOperativoToolStripMenuItem = new ToolStripMenuItem();
             lstBox = new ListBox();
             menuStrip.SuspendLayout();
@@ -64,49 +61,30 @@
             // instalarWindowsToolStripMenuItem
             // 
             instalarWindowsToolStripMenuItem.Name = "instalarWindowsToolStripMenuItem";
-            instalarWindowsToolStripMenuItem.Size = new Size(270, 34);
+            instalarWindowsToolStripMenuItem.Size = new Size(250, 34);
             instalarWindowsToolStripMenuItem.Text = "Instalar Windows";
             instalarWindowsToolStripMenuItem.Click += instalarWindowsToolStripMenuItem_Click;
             // 
             // instalarMacOSToolStripMenuItem
             // 
             instalarMacOSToolStripMenuItem.Name = "instalarMacOSToolStripMenuItem";
-            instalarMacOSToolStripMenuItem.Size = new Size(270, 34);
+            instalarMacOSToolStripMenuItem.Size = new Size(250, 34);
             instalarMacOSToolStripMenuItem.Text = "Instalar MacOS";
             instalarMacOSToolStripMenuItem.Click += instalarMacOSToolStripMenuItem_Click;
             // 
             // instalarLinuxToolStripMenuItem
             // 
             instalarLinuxToolStripMenuItem.Name = "instalarLinuxToolStripMenuItem";
-            instalarLinuxToolStripMenuItem.Size = new Size(270, 34);
+            instalarLinuxToolStripMenuItem.Size = new Size(250, 34);
             instalarLinuxToolStripMenuItem.Text = "Instalar Linux";
             instalarLinuxToolStripMenuItem.Click += instalarLinuxToolStripMenuItem_Click;
             // 
             // modificarSistemaOperativoToolStripMenuItem
             // 
-            modificarSistemaOperativoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { modificarMacOToolStripMenuItem, modificarMacOSToolStripMenuItem, modificarLinuxToolStripMenuItem });
             modificarSistemaOperativoToolStripMenuItem.Name = "modificarSistemaOperativoToolStripMenuItem";
             modificarSistemaOperativoToolStripMenuItem.Size = new Size(249, 29);
             modificarSistemaOperativoToolStripMenuItem.Text = "Modificar sistema operativo";
-            // 
-            // modificarMacOToolStripMenuItem
-            // 
-            modificarMacOToolStripMenuItem.Name = "modificarMacOToolStripMenuItem";
-            modificarMacOToolStripMenuItem.Size = new Size(270, 34);
-            modificarMacOToolStripMenuItem.Text = "Modificar Windows";
-            modificarMacOToolStripMenuItem.Click += modificarMacOToolStripMenuItem_Click;
-            // 
-            // modificarMacOSToolStripMenuItem
-            // 
-            modificarMacOSToolStripMenuItem.Name = "modificarMacOSToolStripMenuItem";
-            modificarMacOSToolStripMenuItem.Size = new Size(270, 34);
-            modificarMacOSToolStripMenuItem.Text = "Modificar MacOS";
-            // 
-            // modificarLinuxToolStripMenuItem
-            // 
-            modificarLinuxToolStripMenuItem.Name = "modificarLinuxToolStripMenuItem";
-            modificarLinuxToolStripMenuItem.Size = new Size(270, 34);
-            modificarLinuxToolStripMenuItem.Text = "Modificar Linux";
+            modificarSistemaOperativoToolStripMenuItem.Click += modificarSistemaOperativoToolStripMenuItem_Click;
             // 
             // eliminarSistemOperativoToolStripMenuItem
             // 
@@ -149,9 +127,6 @@
         private ToolStripMenuItem instalarMacOSToolStripMenuItem;
         private ToolStripMenuItem instalarLinuxToolStripMenuItem;
         private ToolStripMenuItem modificarSistemaOperativoToolStripMenuItem;
-        private ToolStripMenuItem modificarMacOToolStripMenuItem;
-        private ToolStripMenuItem modificarMacOSToolStripMenuItem;
-        private ToolStripMenuItem modificarLinuxToolStripMenuItem;
         private ToolStripMenuItem eliminarSistemOperativoToolStripMenuItem;
         private ListBox lstBox;
     }

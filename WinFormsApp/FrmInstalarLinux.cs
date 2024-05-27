@@ -14,10 +14,10 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarLinux : FrmInstalar
     {
-        //public FrmInstalarLinux()
-        //{
-        //    InitializeComponent();
-        //}
+        public FrmInstalarLinux()
+        {
+            InitializeComponent();
+        }
 
         public FrmInstalarLinux(List<SistemaOperativo> sistema) : base(sistema)
         {

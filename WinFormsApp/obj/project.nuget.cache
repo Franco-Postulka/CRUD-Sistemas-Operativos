@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "l0eKdvQZy9V0eX6TJ+CSo2xcmqJkLNb3zdbATJAMgepdPtdXauDv0IAl4qEqyp5ilgunSHflEwJ7CfyFfFKJVA==",
+  "dgSpecHash": "kPa273bJ+6M=",
   "success": true,
   "projectFilePath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.PrimerParcial\\WinFormsApp\\WinFormsApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.30\\microsoft.windowsdesktop.app.ref.6.0.30.nupkg.sha512",
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.30\\microsoft.netcore.app.ref.6.0.30.nupkg.sha512",
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.30\\microsoft.aspnetcore.app.ref.6.0.30.nupkg.sha512",
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.30\\microsoft.netcore.app.host.win-x64.6.0.30.nupkg.sha512"
+  ],
   "logs": []
 }

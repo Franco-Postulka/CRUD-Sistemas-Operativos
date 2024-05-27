@@ -14,10 +14,10 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarMac : FrmInstalar
     {
-        //public FrmInstalarMac()
-        //{
-        //    InitializeComponent();
-        //}
+        public FrmInstalarMac()
+        {
+            InitializeComponent();
+        }
         public FrmInstalarMac(List<SistemaOperativo> lista) :base(lista) 
         {
             InitializeComponent();

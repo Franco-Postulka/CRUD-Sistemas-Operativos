@@ -16,17 +16,27 @@ namespace WinFormsApp
         protected string xmlpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
         protected SistemaOperativo sistemaOperativo;
         public SistemaOperativo SistemaOperativo { get { return this.sistemaOperativo; } set { this.sistemaOperativo = value; } }
-        
+
         protected List<SistemaOperativo> sistemasOperativos;
         public List<SistemaOperativo> ListaSistemasOperativos
         {
             get { return this.sistemasOperativos; }
             set { this.sistemasOperativos = value; }
         }
-        //public FrmInstalar()
-        //{
-        //    InitializeComponent();
-        //}
+        public FrmInstalar()
+        {
+            InitializeComponent();
+        }
+        public TextBox TxtNombre 
+        {
+            get { return this.txtNombre; }
+            set { this.txtNombre = value; }
+        }
+        public TextBox TxtVersion
+        {
+            get { return this.txtVersion; }
+            set { this.txtVersion = value; }
+        }
         public FrmInstalar(List<SistemaOperativo> lista)
         {
             InitializeComponent();

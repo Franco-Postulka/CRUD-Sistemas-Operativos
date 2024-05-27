@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HYK3iZN2FxGu5/9WRGboTaJLnScxYtEsEcpy7eIU1VijzgAcKo6i7djpEwJOBv0Ef5b1ANtl6YaayiKgE7y5Uw==",
+  "dgSpecHash": "6WI/1kZmlGc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.PrimerParcial\\Postulka.Franco.PrimerParcial\\Entidades.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.30\\microsoft.windowsdesktop.app.ref.6.0.30.nupkg.sha512",
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.30\\microsoft.netcore.app.ref.6.0.30.nupkg.sha512",
+    "C:\\Users\\Franco\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.30\\microsoft.aspnetcore.app.ref.6.0.30.nupkg.sha512"
+  ],
   "logs": []
 }
