@@ -5,6 +5,17 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarLinux : FrmInstalar
     {
+        public CheckBox CheckInterfazGrafica
+        {
+            get { return this.checkInterfaz; }
+            set { this.checkInterfaz = value;}
+        }
+
+        public ComboBox CboDistribucion
+        {
+            get { return this.cboDistribucion; }
+            set { this.cboDistribucion = value; }
+        }
         public FrmInstalarLinux()
         {
             InitializeComponent();

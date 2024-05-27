@@ -5,6 +5,17 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarMac : FrmInstalar
     {
+        public CheckBox CheckIntegracionIcloud
+        {
+            get { return this.checkIntegracion; }
+            set {  this.checkIntegracion = value;}
+        }
+
+        public CheckBox CheckCompatibleApple
+        {
+            get { return this.checkCompatibleApple; }
+            set { this.checkCompatibleApple = value; }
+        }
         public FrmInstalarMac()
         {
             InitializeComponent();

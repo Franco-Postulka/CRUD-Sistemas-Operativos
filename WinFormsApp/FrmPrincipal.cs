@@ -1,4 +1,5 @@
 using Entidades;
+using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -158,6 +159,7 @@ namespace WinFormsApp
                     ConfigurarFormularioModificacion(windows, frmInstalarWindows);
                     frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
                     frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion; 
+
                     frmInstalarWindows.ShowDialog();
                     if (frmInstalarWindows.DialogResult == DialogResult.OK)
                     {
@@ -168,11 +170,35 @@ namespace WinFormsApp
                 }
                 else if (sistema.GetType() == typeof(MacOS))
                 {
+                    MacOS mac = (MacOS)sistema;
+                    FrmInstalarMac frmInstalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
+                    ConfigurarFormularioModificacion(mac,frmInstalarMac);
+                    frmInstalarMac.CheckIntegracionIcloud.Checked = mac.IntegracionIcloud;
+                    frmInstalarMac.CheckCompatibleApple.Checked = mac.CompatibleConProcesadorApple;
 
+                    frmInstalarMac.ShowDialog();
+                    if (frmInstalarMac.DialogResult == DialogResult.OK)
+                    {
+                        this.computadora.ListaSistemasOperativos[indice] = frmInstalarMac.SistemaOperativo;
+                        this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                        this.ActualizarVisor();
+                    }
                 }
                 else if (sistema.GetType() == typeof(Linux))
                 {
+                    Linux linux = (Linux)sistema;
+                    FrmInstalarLinux frmInstalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
+                    ConfigurarFormularioModificacion(linux, frmInstalarLinux);
+                    frmInstalarLinux.CheckInterfazGrafica.Checked = linux.InterfazGrafica;
+                    frmInstalarLinux.CboDistribucion.SelectedItem = linux.Distribucion;
 
+                    frmInstalarLinux.ShowDialog();
+                    if (frmInstalarLinux.DialogResult == DialogResult.OK)
+                    {
+                        this.computadora.ListaSistemasOperativos[indice] = frmInstalarLinux.SistemaOperativo;
+                        this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                        this.ActualizarVisor();
+                    }
                 }
             }
 
@@ -184,11 +210,12 @@ namespace WinFormsApp
             string version = sistema.Version;
             double espacio = sistema.EspacioGB;
             EEstadoSoporte soporte = sistema.Soporte;
-            frmInstalar.Text = "Modificar Windows";
+            frmInstalar.Text = $"Modificar {sistema.GetType().Name}";
             frmInstalar.TxtNombre.Text = nombre;
             frmInstalar.TxtVersion.Text = version;
             frmInstalar.TxtEspacio.Text = espacio.ToString();
             frmInstalar.CboEstadoSoporte.SelectedItem = soporte;
+            frmInstalar.BtnInstalar.Text = "Modificar";
         }
     }
 }

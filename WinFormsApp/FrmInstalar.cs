@@ -14,10 +14,7 @@ namespace WinFormsApp
             get { return this.sistemasOperativos; }
             set { this.sistemasOperativos = value; }
         }
-        public FrmInstalar()
-        {
-            InitializeComponent();
-        }
+       
         public TextBox TxtNombre
         {
             get { return this.txtNombre; }
@@ -37,6 +34,15 @@ namespace WinFormsApp
         {
             get { return this.cboEstado; }
             set { this.cboEstado = value; }
+        }
+        public Button BtnInstalar
+        {
+            get { return this.btnInstalar; }
+            set { this.btnInstalar = value; }
+        }
+        public FrmInstalar()
+        {
+            InitializeComponent();
         }
         public FrmInstalar(List<SistemaOperativo> lista)
         {
