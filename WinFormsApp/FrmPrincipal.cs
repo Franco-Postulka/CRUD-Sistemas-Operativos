@@ -130,14 +130,14 @@ namespace WinFormsApp
         {
             FrmInstalarMac instalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
             instalarMac.ShowDialog(this);
-            ActualizarListas(instalarMac);
+            ManejarFormularioInstalacion(instalarMac);
         }
 
         private void instalarLinuxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmInstalarLinux instalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
             instalarLinux.ShowDialog(this);
-            ActualizarListas(instalarLinux);
+            ManejarFormularioInstalacion(instalarLinux);
         }
 
         

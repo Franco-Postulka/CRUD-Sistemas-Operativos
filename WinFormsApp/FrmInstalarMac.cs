@@ -37,27 +37,9 @@ namespace WinFormsApp
             if (validacion_espacio)
             {
                 MacOS mac = new MacOS(nombre,version,espacio,compatible_Apple,soporte,integracionIcloud);
-                bool existe = false;
-                foreach (SistemaOperativo sistema in this.ListaSistemasOperativos)
-                {
-                    if (mac.Equals(sistema))
-                    {
-                        existe = true;
-                    }
-                }
-                if (existe)
-                {
-                    MessageBox.Show("El sistema que desea instalar ya existe.");
-                    this.DialogResult = DialogResult.Cancel;
-                    this.Close();
-                }
-                else
-                {
-                    this.sistemaOperativo = mac;
-                    MessageBox.Show(mac.Descargar());
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
+                this.sistemaOperativo = mac;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {

@@ -44,28 +44,9 @@ namespace WinFormsApp
             if (validacion_espacio)
             {
                 Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux,interfaz);
-                
-                bool existe = false;
-                foreach (SistemaOperativo sistema in this.ListaSistemasOperativos)
-                {
-                    if (linux.Equals(sistema))
-                    {
-                        existe = true;
-                    }
-                }
-                if (existe)
-                {
-                    MessageBox.Show("El sistema que desea instalar ya existe.");
-                    this.DialogResult = DialogResult.Cancel;
-                    this.Close();
-                }
-                else
-                {
-                    this.sistemaOperativo = linux;
-                    MessageBox.Show(linux.Descargar());
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
+                this.sistemaOperativo = linux;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
