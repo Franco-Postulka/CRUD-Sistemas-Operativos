@@ -48,7 +48,6 @@
             elegirUbicacionToolStripMenuItem = new ToolStripMenuItem();
             visualizadorToolStripMenuItem = new ToolStripMenuItem();
             verLogueosToolStripMenuItem = new ToolStripMenuItem();
-            informacionDetalladaDelSOToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             menuStrip.SuspendLayout();
@@ -127,7 +126,7 @@
             menuOrdenar.Items.AddRange(new ToolStripItem[] { ordenarToolStripMenuItem, ordenarPorGBToolStripMenuItem, guardarSOComoToolStripMenuItem, visualizadorToolStripMenuItem });
             menuOrdenar.Location = new Point(72, 376);
             menuOrdenar.Name = "menuOrdenar";
-            menuOrdenar.Size = new Size(608, 33);
+            menuOrdenar.Size = new Size(788, 33);
             menuOrdenar.TabIndex = 2;
             menuOrdenar.Text = "menuStrip1";
             // 
@@ -185,6 +184,7 @@
             ubicacionPredeterminadaToolStripMenuItem.Name = "ubicacionPredeterminadaToolStripMenuItem";
             ubicacionPredeterminadaToolStripMenuItem.Size = new Size(322, 34);
             ubicacionPredeterminadaToolStripMenuItem.Text = "Ubicacion predeterminada";
+            ubicacionPredeterminadaToolStripMenuItem.Click += ubicacionPredeterminadaToolStripMenuItem_Click;
             // 
             // elegirUbicacionToolStripMenuItem
             // 
@@ -195,7 +195,7 @@
             // 
             // visualizadorToolStripMenuItem
             // 
-            visualizadorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogueosToolStripMenuItem, informacionDetalladaDelSOToolStripMenuItem });
+            visualizadorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogueosToolStripMenuItem });
             visualizadorToolStripMenuItem.Name = "visualizadorToolStripMenuItem";
             visualizadorToolStripMenuItem.Size = new Size(53, 29);
             visualizadorToolStripMenuItem.Text = "Ver";
@@ -203,15 +203,9 @@
             // verLogueosToolStripMenuItem
             // 
             verLogueosToolStripMenuItem.Name = "verLogueosToolStripMenuItem";
-            verLogueosToolStripMenuItem.Size = new Size(345, 34);
+            verLogueosToolStripMenuItem.Size = new Size(182, 34);
             verLogueosToolStripMenuItem.Text = "Logueos";
             verLogueosToolStripMenuItem.Click += verLogueosToolStripMenuItem_Click;
-            // 
-            // informacionDetalladaDelSOToolStripMenuItem
-            // 
-            informacionDetalladaDelSOToolStripMenuItem.Name = "informacionDetalladaDelSOToolStripMenuItem";
-            informacionDetalladaDelSOToolStripMenuItem.Size = new Size(345, 34);
-            informacionDetalladaDelSOToolStripMenuItem.Text = "Informacion detallada del SO";
             // 
             // statusStrip1
             // 
@@ -277,6 +271,5 @@
         private ToolStripMenuItem elegirUbicacionToolStripMenuItem;
         private ToolStripMenuItem visualizadorToolStripMenuItem;
         private ToolStripMenuItem verLogueosToolStripMenuItem;
-        private ToolStripMenuItem informacionDetalladaDelSOToolStripMenuItem;
     }
 }

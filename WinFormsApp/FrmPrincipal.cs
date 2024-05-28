@@ -339,13 +339,22 @@ namespace WinFormsApp
                 this.ActualizarVisor();
             }
         }
-
-       
+        private void ubicacionPredeterminadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter writer = new StreamWriter(this.rutaxml, false))
+            {
+                writer.Write(this.pathXmlPredeterminado);
+                this.xmlpath = this.pathXmlPredeterminado;
+            }
+            SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.ActualizarVisor();
+        }
 
         private void verLogueosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmLogueos frmLogueos = new FrmLogueos();
             frmLogueos.ShowDialog();
         }
+
     }
 }
