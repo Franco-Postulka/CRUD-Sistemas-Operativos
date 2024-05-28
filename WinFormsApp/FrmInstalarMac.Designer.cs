@@ -37,9 +37,9 @@
             checkIntegracion.AutoSize = true;
             checkIntegracion.Location = new Point(59, 284);
             checkIntegracion.Name = "checkIntegracion";
-            checkIntegracion.Size = new Size(256, 29);
+            checkIntegracion.Size = new Size(260, 29);
             checkIntegracion.TabIndex = 11;
-            checkIntegracion.Text = "Tiene ntegración con Icloud";
+            checkIntegracion.Text = "Tiene integración con Icloud";
             checkIntegracion.UseVisualStyleBackColor = true;
             // 
             // checkCompatibleApple

@@ -99,11 +99,10 @@ namespace WinFormsApp
             int indice = this.lstBox.SelectedIndex;
             if (indice == -1)
             {
-                MessageBox.Show("Debe seleccionar un SO para poder eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar un SO para poder eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                //this.Computadora.ListaSistemasOperativos.RemoveAt(this.lstBox.SelectedIndex);
                 SistemaOperativo sistemaOperativo = this.computadora.ListaSistemasOperativos[indice];
                 this.computadora -= sistemaOperativo;
                 SerializarLista(this.Computadora.ListaSistemasOperativos);
@@ -173,7 +172,7 @@ namespace WinFormsApp
             int indice = this.lstBox.SelectedIndex;
             if (indice == -1)
             {
-                MessageBox.Show("Debe seleccionar un SO para poder modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar un SO para poder modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -268,7 +267,7 @@ namespace WinFormsApp
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Esta seguro que desea cerrar el formulario?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("Esta seguro que desea cerrar el formulario?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
@@ -289,16 +288,23 @@ namespace WinFormsApp
                     return path;
                 }
                 else
-                {
+                { //Si el archivo no esta porque lo eliminó o lo que sea
+                    MessageBox.Show("Archivo de alamcenamiento no encontrado, se utilizará ubicacion predeterminada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    using (StreamWriter writer = new StreamWriter(this.rutaxml, false))
+                    {
+                        writer.Write(pathXmlPredeterminado);
+                    }
                     return this.pathXmlPredeterminado;
                 }
             }catch (FileNotFoundException ex)
             {
+                MessageBox.Show("Archivo de rutas inexistente, se creará ubicacion predeterminada." +
+                    "\nSi es la primera vez que abre la aplicacion, no prestar atencion al mensaje.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 using (StreamWriter writer = new StreamWriter(this.rutaxml, false))
                 {
                     writer.Write(pathXmlPredeterminado);
                 }
-                return pathXmlPredeterminado;
+                return this.pathXmlPredeterminado;
             }
         }
         private void elegirUbicacionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -317,7 +323,6 @@ namespace WinFormsApp
                     this.xmlpath = path_nuevo;
                 }
                 SerializarLista(this.computadora.ListaSistemasOperativos);
-                this.DeserializarLista();
                 this.ActualizarVisor();
             }
         }
