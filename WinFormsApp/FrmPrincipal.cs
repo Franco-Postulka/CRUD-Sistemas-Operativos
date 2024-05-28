@@ -286,6 +286,13 @@ namespace WinFormsApp
             }
         }
 
+        /// <summary>
+        /// Lee el archivo txt rutaxml que solo guarda el path de donde se serializan los SO
+        /// Si el el archivo txt rutaxml no tiene nada o la ruta que tiene no existe inicializa 
+        /// escribe en el txt la ruta del archivo.xml predeterminado, sino, retorna la ruta.
+        /// Si el archivo donde esta la ruta del .xml no existe, lo crea y le escribe la ruta predeterminada
+        /// </summary>
+        /// <returns></returns>
         private string DevolverPathSerializacion()
         {
             try
@@ -320,6 +327,12 @@ namespace WinFormsApp
                 return this.pathXmlPredeterminado;
             }
         }
+        /// <summary>
+        /// Cambia la ruta del archivo .xml donde se serializan los objetos segun lo que elige el usuario
+        /// serializa la lista y actualiza el visor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void elegirUbicacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path_nuevo = "";
@@ -339,8 +352,14 @@ namespace WinFormsApp
                 this.ActualizarVisor();
             }
         }
+        /// <summary>
+        /// cambia la ruta del archivo xml a la ruta predeterminada, serializa la lista y actualiza el visor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ubicacionPredeterminadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             using (StreamWriter writer = new StreamWriter(this.rutaxml, false))
             {
                 writer.Write(this.pathXmlPredeterminado);
