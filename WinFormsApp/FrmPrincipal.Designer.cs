@@ -121,7 +121,7 @@
             menuOrdenar.Items.AddRange(new ToolStripItem[] { ordenarToolStripMenuItem, ordenarPorGBToolStripMenuItem });
             menuOrdenar.Location = new Point(27, 374);
             menuOrdenar.Name = "menuOrdenar";
-            menuOrdenar.Size = new Size(564, 33);
+            menuOrdenar.Size = new Size(384, 33);
             menuOrdenar.TabIndex = 2;
             menuOrdenar.Text = "menuStrip1";
             // 
@@ -135,14 +135,14 @@
             // ascendenteAlfabeticamente
             // 
             ascendenteAlfabeticamente.Name = "ascendenteAlfabeticamente";
-            ascendenteAlfabeticamente.Size = new Size(270, 34);
+            ascendenteAlfabeticamente.Size = new Size(216, 34);
             ascendenteAlfabeticamente.Text = "Ascendente";
             ascendenteAlfabeticamente.Click += ascendenteAlfabeticamente_Click;
             // 
             // descendenteAlfabeticamente
             // 
             descendenteAlfabeticamente.Name = "descendenteAlfabeticamente";
-            descendenteAlfabeticamente.Size = new Size(270, 34);
+            descendenteAlfabeticamente.Size = new Size(216, 34);
             descendenteAlfabeticamente.Text = "Descendente";
             descendenteAlfabeticamente.Click += descendenteAlfabeticamente_Click;
             // 
@@ -196,6 +196,7 @@
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistemas Operativos";
+            FormClosing += FrmPrincipal_FormClosing;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             menuOrdenar.ResumeLayout(false);

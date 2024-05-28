@@ -78,7 +78,7 @@ namespace WinFormsApp
                 {
                     XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
                     this.computadora.ListaSistemasOperativos = (List<SistemaOperativo>)ser.Deserialize(reader);
-                }    
+                }
             }
             catch (XmlException ex)
             {
@@ -260,6 +260,15 @@ namespace WinFormsApp
             this.computadora.OrdenarListaPorGBDescendenete();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
+        }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Esta seguro que desea cerrar el formulario?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
