@@ -16,11 +16,6 @@ namespace WinFormsApp
             get { return this.cboDistribucion; }
             set { this.cboDistribucion = value; }
         }
-        public FrmInstalarLinux()
-        {
-            InitializeComponent();
-        }
-
         public FrmInstalarLinux(List<SistemaOperativo> sistema) : base(sistema)
         {
             InitializeComponent();

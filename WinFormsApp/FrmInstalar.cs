@@ -44,9 +44,8 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
-        public FrmInstalar(List<SistemaOperativo> lista)
+        public FrmInstalar(List<SistemaOperativo> lista):this()
         {
-            InitializeComponent();
             foreach (EEstadoSoporte estado in Enum.GetValues(typeof(EEstadoSoporte)))
             {
                 this.cboEstado.Items.Add(estado);

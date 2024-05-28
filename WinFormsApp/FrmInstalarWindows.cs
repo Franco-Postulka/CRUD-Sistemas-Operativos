@@ -5,10 +5,7 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarWindows : FrmInstalar
     {
-        public FrmInstalarWindows()
-        {
-            InitializeComponent();
-        }
+        
         public CheckBox CkeckVirtualizacionPermitida
         {
             get { return this.checkVirtualizacion; }

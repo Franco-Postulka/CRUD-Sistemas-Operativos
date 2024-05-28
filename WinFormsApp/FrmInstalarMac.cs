@@ -16,10 +16,6 @@ namespace WinFormsApp
             get { return this.checkCompatibleApple; }
             set { this.checkCompatibleApple = value; }
         }
-        public FrmInstalarMac()
-        {
-            InitializeComponent();
-        }
         public FrmInstalarMac(List<SistemaOperativo> lista) : base(lista)
         {
             InitializeComponent();
