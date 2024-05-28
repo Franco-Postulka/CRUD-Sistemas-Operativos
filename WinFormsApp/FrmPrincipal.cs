@@ -8,7 +8,10 @@ namespace WinFormsApp
     public partial class FrmPrincipal : Form
     {
         private Computadora computadora;
-        protected string xmlpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
+        private string rutaxml = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "rutas.txt");
+
+        private string pathXmlPredeterminado = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
+        private string xmlpath;
         private Usuario usuario;
 
         public Computadora Computadora
@@ -22,6 +25,7 @@ namespace WinFormsApp
             this.IsMdiContainer = true;
             this.computadora = new Computadora();
             this.usuario = usuario;
+            this.xmlpath = DevolverPathSerializacion();
             ActualizarVisor();
 
             DateTime date = DateTime.Now;
@@ -268,6 +272,53 @@ namespace WinFormsApp
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private string DevolverPathSerializacion()
+        {
+            try
+            {
+                string path;
+                using(StreamReader reader = new StreamReader(this.rutaxml))
+                {
+                    path = reader.ReadLine();
+                }
+                if(path != null && File.Exists(path))
+                {
+                    return path;
+                }
+                else
+                {
+                    return this.pathXmlPredeterminado;
+                }
+            }catch (FileNotFoundException ex)
+            {
+                using (StreamWriter writer = new StreamWriter(this.rutaxml, false))
+                {
+                    writer.Write(pathXmlPredeterminado);
+                }
+                return pathXmlPredeterminado;
+            }
+        }
+        private void elegirUbicacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path_nuevo = "";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos xml (*.xml)|*.xml";
+
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                path_nuevo = saveFileDialog.FileName;
+                using (StreamWriter writer = new StreamWriter(this.rutaxml, false))
+                {
+                    writer.Write(path_nuevo);
+                    this.xmlpath = path_nuevo;
+                }
+                SerializarLista(this.computadora.ListaSistemasOperativos);
+                this.DeserializarLista();
+                this.ActualizarVisor();
             }
         }
     }

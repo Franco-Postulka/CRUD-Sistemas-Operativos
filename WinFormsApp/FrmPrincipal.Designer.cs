@@ -45,6 +45,9 @@
             descendenteGB = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
+            guardarSOComoToolStripMenuItem = new ToolStripMenuItem();
+            ubicacionPredeterminadaToolStripMenuItem = new ToolStripMenuItem();
+            elegirUbicacionToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             menuOrdenar.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -118,10 +121,10 @@
             menuOrdenar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             menuOrdenar.Dock = DockStyle.None;
             menuOrdenar.ImageScalingSize = new Size(24, 24);
-            menuOrdenar.Items.AddRange(new ToolStripItem[] { ordenarToolStripMenuItem, ordenarPorGBToolStripMenuItem });
+            menuOrdenar.Items.AddRange(new ToolStripItem[] { ordenarToolStripMenuItem, ordenarPorGBToolStripMenuItem, guardarSOComoToolStripMenuItem });
             menuOrdenar.Location = new Point(27, 374);
             menuOrdenar.Name = "menuOrdenar";
-            menuOrdenar.Size = new Size(384, 33);
+            menuOrdenar.Size = new Size(735, 33);
             menuOrdenar.TabIndex = 2;
             menuOrdenar.Text = "menuStrip1";
             // 
@@ -135,14 +138,14 @@
             // ascendenteAlfabeticamente
             // 
             ascendenteAlfabeticamente.Name = "ascendenteAlfabeticamente";
-            ascendenteAlfabeticamente.Size = new Size(216, 34);
+            ascendenteAlfabeticamente.Size = new Size(270, 34);
             ascendenteAlfabeticamente.Text = "Ascendente";
             ascendenteAlfabeticamente.Click += ascendenteAlfabeticamente_Click;
             // 
             // descendenteAlfabeticamente
             // 
             descendenteAlfabeticamente.Name = "descendenteAlfabeticamente";
-            descendenteAlfabeticamente.Size = new Size(216, 34);
+            descendenteAlfabeticamente.Size = new Size(270, 34);
             descendenteAlfabeticamente.Text = "Descendente";
             descendenteAlfabeticamente.Click += descendenteAlfabeticamente_Click;
             // 
@@ -182,6 +185,26 @@
             toolStripStatusLabel.Name = "toolStripStatusLabel";
             toolStripStatusLabel.Size = new Size(179, 25);
             toolStripStatusLabel.Text = "toolStripStatusLabel1";
+            // 
+            // guardarSOComoToolStripMenuItem
+            // 
+            guardarSOComoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ubicacionPredeterminadaToolStripMenuItem, elegirUbicacionToolStripMenuItem });
+            guardarSOComoToolStripMenuItem.Name = "guardarSOComoToolStripMenuItem";
+            guardarSOComoToolStripMenuItem.Size = new Size(171, 29);
+            guardarSOComoToolStripMenuItem.Text = "Guardar SO como";
+            // 
+            // ubicacionPredeterminadaToolStripMenuItem
+            // 
+            ubicacionPredeterminadaToolStripMenuItem.Name = "ubicacionPredeterminadaToolStripMenuItem";
+            ubicacionPredeterminadaToolStripMenuItem.Size = new Size(322, 34);
+            ubicacionPredeterminadaToolStripMenuItem.Text = "Ubicacion predeterminada";
+            // 
+            // elegirUbicacionToolStripMenuItem
+            // 
+            elegirUbicacionToolStripMenuItem.Name = "elegirUbicacionToolStripMenuItem";
+            elegirUbicacionToolStripMenuItem.Size = new Size(322, 34);
+            elegirUbicacionToolStripMenuItem.Text = "Elegir ubicacion ";
+            elegirUbicacionToolStripMenuItem.Click += elegirUbicacionToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 
@@ -226,5 +249,8 @@
         private ToolStripMenuItem descendenteGB;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel;
+        private ToolStripMenuItem guardarSOComoToolStripMenuItem;
+        private ToolStripMenuItem ubicacionPredeterminadaToolStripMenuItem;
+        private ToolStripMenuItem elegirUbicacionToolStripMenuItem;
     }
 }
