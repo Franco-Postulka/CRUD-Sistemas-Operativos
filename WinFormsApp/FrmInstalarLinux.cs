@@ -8,7 +8,7 @@ namespace WinFormsApp
         public CheckBox CheckInterfazGrafica
         {
             get { return this.checkInterfaz; }
-            set { this.checkInterfaz = value;}
+            set { this.checkInterfaz = value; }
         }
 
         public ComboBox CboDistribucion

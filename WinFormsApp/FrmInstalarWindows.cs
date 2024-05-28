@@ -12,11 +12,11 @@ namespace WinFormsApp
         public CheckBox CkeckVirtualizacionPermitida
         {
             get { return this.checkVirtualizacion; }
-            set {  this.checkVirtualizacion = value;}
+            set { this.checkVirtualizacion = value; }
         }
         public ComboBox CboEdicionWindows
         {
-            get { return this.cboEdicion;  }
+            get { return this.cboEdicion; }
             set { this.cboEdicion = value; }
         }
         public FrmInstalarWindows(List<SistemaOperativo> sistema) : base(sistema)

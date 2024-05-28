@@ -1,5 +1,4 @@
 using Entidades;
-using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -10,19 +9,23 @@ namespace WinFormsApp
     {
         private Computadora computadora;
         protected string xmlpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
-
+        private Usuario usuario;
 
         public Computadora Computadora
         {
             get { return this.computadora; }
             set { this.computadora = value; }
         }
-        public FrmPrincipal()
+        public FrmPrincipal(Usuario usuario)
         {
             InitializeComponent();
             this.IsMdiContainer = true;
             this.computadora = new Computadora();
+            this.usuario = usuario;
             ActualizarVisor();
+
+            DateTime date = DateTime.Now;
+            this.toolStripStatusLabel.Text = $" Usuario logueado: {this.usuario.nombre}, fecha: {date.ToString("dd/MM/yyyy")}";
         }
 
 

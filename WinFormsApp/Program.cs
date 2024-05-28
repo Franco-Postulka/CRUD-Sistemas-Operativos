@@ -20,13 +20,13 @@ namespace WinFormsApp
                 if (login.DialogResult == DialogResult.OK)
                 {
                     logueado = true;
-                    break;
                     login.Close();
+                    break;
                 }
             }
             if (logueado)
             {
-                Application.Run(new FrmPrincipal());
+                Application.Run(new FrmPrincipal(login.Usuario));
             }
         }
     }

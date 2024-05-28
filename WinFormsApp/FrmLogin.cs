@@ -5,6 +5,13 @@ namespace WinFormsApp
     public partial class FrmLogin : Form
     {
         private string path;
+        private Usuario usuario;
+
+        public Usuario Usuario
+        {
+            get { return this.usuario; }
+            set { this.usuario = value; }
+        }
         public FrmLogin(string path)
         {
             InitializeComponent();
@@ -26,6 +33,7 @@ namespace WinFormsApp
                     if (usuario.correo == mail && usuario.clave == clave)
                     {
                         retorno = true;
+                        this.usuario = usuario;
                         break;
                     }
                 }

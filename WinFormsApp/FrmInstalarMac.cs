@@ -8,7 +8,7 @@ namespace WinFormsApp
         public CheckBox CheckIntegracionIcloud
         {
             get { return this.checkIntegracion; }
-            set {  this.checkIntegracion = value;}
+            set { this.checkIntegracion = value; }
         }
 
         public CheckBox CheckCompatibleApple

@@ -14,7 +14,7 @@ namespace WinFormsApp
             get { return this.sistemasOperativos; }
             set { this.sistemasOperativos = value; }
         }
-       
+
         public TextBox TxtNombre
         {
             get { return this.txtNombre; }

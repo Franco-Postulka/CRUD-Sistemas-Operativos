@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp
 {
-    internal class Usuario
+    public class Usuario
     {
         public string apellido { get; set; }
         public string nombre { get; set; }

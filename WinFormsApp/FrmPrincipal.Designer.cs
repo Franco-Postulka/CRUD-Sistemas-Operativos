@@ -43,8 +43,11 @@
             ordenarPorGBToolStripMenuItem = new ToolStripMenuItem();
             ascendeteGB = new ToolStripMenuItem();
             descendenteGB = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel = new ToolStripStatusLabel();
             menuStrip.SuspendLayout();
             menuOrdenar.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
@@ -105,7 +108,7 @@
             // 
             lstBox.FormattingEnabled = true;
             lstBox.ItemHeight = 25;
-            lstBox.Location = new Point(27, 73);
+            lstBox.Location = new Point(27, 57);
             lstBox.Name = "lstBox";
             lstBox.Size = new Size(709, 304);
             lstBox.TabIndex = 1;
@@ -116,7 +119,7 @@
             menuOrdenar.Dock = DockStyle.None;
             menuOrdenar.ImageScalingSize = new Size(24, 24);
             menuOrdenar.Items.AddRange(new ToolStripItem[] { ordenarToolStripMenuItem, ordenarPorGBToolStripMenuItem });
-            menuOrdenar.Location = new Point(27, 389);
+            menuOrdenar.Location = new Point(27, 374);
             menuOrdenar.Name = "menuOrdenar";
             menuOrdenar.Size = new Size(564, 33);
             menuOrdenar.TabIndex = 2;
@@ -153,22 +156,39 @@
             // ascendeteGB
             // 
             ascendeteGB.Name = "ascendeteGB";
-            ascendeteGB.Size = new Size(270, 34);
+            ascendeteGB.Size = new Size(216, 34);
             ascendeteGB.Text = "Ascendete";
             ascendeteGB.Click += ascendeteGB_Click;
             // 
             // descendenteGB
             // 
             descendenteGB.Name = "descendenteGB";
-            descendenteGB.Size = new Size(270, 34);
+            descendenteGB.Size = new Size(216, 34);
             descendenteGB.Text = "Descendente";
             descendenteGB.Click += descendenteGB_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(24, 24);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
+            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(764, 32);
+            statusStrip1.TabIndex = 3;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel
+            // 
+            toolStripStatusLabel.Name = "toolStripStatusLabel";
+            toolStripStatusLabel.Size = new Size(179, 25);
+            toolStripStatusLabel.Text = "toolStripStatusLabel1";
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(764, 450);
+            ClientSize = new Size(764, 460);
+            Controls.Add(statusStrip1);
             Controls.Add(lstBox);
             Controls.Add(menuStrip);
             Controls.Add(menuOrdenar);
@@ -180,6 +200,8 @@
             menuStrip.PerformLayout();
             menuOrdenar.ResumeLayout(false);
             menuOrdenar.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,5 +223,7 @@
         private ToolStripMenuItem ordenarPorGBToolStripMenuItem;
         private ToolStripMenuItem ascendeteGB;
         private ToolStripMenuItem descendenteGB;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel;
     }
 }
