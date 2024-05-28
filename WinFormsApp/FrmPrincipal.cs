@@ -48,11 +48,23 @@ namespace WinFormsApp
         /// <param name="lista"></param>
         private void SerializarLista(List<SistemaOperativo> lista)
         {
-            using (XmlTextWriter writer = new XmlTextWriter(this.xmlpath, Encoding.UTF8))
+            try
             {
-                XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
-                ser.Serialize(writer, lista);
+                using (XmlTextWriter writer = new XmlTextWriter(this.xmlpath, Encoding.UTF8))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
+                    ser.Serialize(writer, lista);
+                }
             }
+            catch (XmlException ex)
+            {
+                MessageBox.Show($"Error de XML durante la serialización: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         /// <summary>
@@ -60,11 +72,21 @@ namespace WinFormsApp
         /// </summary>
         private void DeserializarLista()
         {
-
-            using (XmlTextReader reader = new XmlTextReader(this.xmlpath))
+            try
             {
-                XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
-                this.computadora.ListaSistemasOperativos = (List<SistemaOperativo>)ser.Deserialize(reader);
+                using (XmlTextReader reader = new XmlTextReader(this.xmlpath))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
+                    this.computadora.ListaSistemasOperativos = (List<SistemaOperativo>)ser.Deserialize(reader);
+                }    
+            }
+            catch (XmlException ex)
+            {
+                MessageBox.Show($"Error de XML durante la serialización: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -73,7 +95,7 @@ namespace WinFormsApp
             int indice = this.lstBox.SelectedIndex;
             if (indice == -1)
             {
-                MessageBox.Show("Debe seleccionar un SO para poder eliminar.");
+                MessageBox.Show("Debe seleccionar un SO para poder eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -147,7 +169,7 @@ namespace WinFormsApp
             int indice = this.lstBox.SelectedIndex;
             if (indice == -1)
             {
-                MessageBox.Show("Debe seleccionar un SO para poder modificar.");
+                MessageBox.Show("Debe seleccionar un SO para poder modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

@@ -38,15 +38,15 @@ namespace WinFormsApp
             bool integracionIcloud = this.checkIntegracion.Checked;
             if (!validacion_espacio)
             {
-                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.");
+                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (version == "")
             {
-                MessageBox.Show("No ingresó nada en el campo Version.");
+                MessageBox.Show("No ingresó nada en el campo Version.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (nombre == "")
             {
-                MessageBox.Show("No ingresó nada en el campo Nombre.");
+                MessageBox.Show("No ingresó nada en el campo Nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
