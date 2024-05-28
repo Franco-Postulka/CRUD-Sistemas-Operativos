@@ -43,16 +43,24 @@ namespace WinFormsApp
 
             EDistribucionLinux distribucionLinux = (EDistribucionLinux)this.cboDistribucion.SelectedItem;
             bool interfaz = this.checkInterfaz.Checked;
-            if (validacion_espacio)
+            if (!validacion_espacio)
+            {
+                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.");
+            }
+            else if (version == "")
+            {
+                MessageBox.Show("No ingresó nada en el campo Version.");
+            }
+            else if (nombre == "")
+            {
+                MessageBox.Show("No ingresó nada en el campo Nombre.");
+            }
+            else
             {
                 Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux, interfaz);
                 this.sistemaOperativo = linux;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.");
             }
         }
     }

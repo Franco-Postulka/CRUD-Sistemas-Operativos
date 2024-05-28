@@ -40,16 +40,23 @@ namespace WinFormsApp
             EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
             EEdicionWindows edicion = (EEdicionWindows)this.cboEdicion.SelectedItem;
             bool virtualizacion = this.checkVirtualizacion.Checked;
-            if (validacion_espacio)
+            if (!validacion_espacio)
+            {
+                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.");
+            }else if (version == "")
+            {
+                MessageBox.Show("No ingresó nada en el campo Version.");
+            }
+            else if (nombre == "")
+            {
+                MessageBox.Show("No ingresó nada en el campo Nombre.");
+            }
+            else
             {
                 Windows windows = new Windows(nombre, version, espacio, soporte, edicion, virtualizacion);
                 this.sistemaOperativo = windows;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.");
             }
         }
     }
