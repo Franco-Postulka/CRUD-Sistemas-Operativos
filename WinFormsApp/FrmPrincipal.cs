@@ -37,7 +37,7 @@ namespace WinFormsApp
 
         private void GuardarDatosUsuario()
         {
-            using (StreamWriter writer = new StreamWriter(this.rutaUsuariosLogueados,true))
+            using (StreamWriter writer = new StreamWriter(this.rutaUsuariosLogueados, true))
             {
                 Usuario usuario = this.usuario;
                 string info = $"El {usuario.perfil} {usuario.apellido} {usuario.nombre}, legajo: {usuario.legajo}, correo: " +
@@ -45,7 +45,7 @@ namespace WinFormsApp
                 writer.WriteLine(info);
             }
         }
-    private void ActualizarVisor()
+        private void ActualizarVisor()
         {
             this.lstBox.Items.Clear();
             if (File.Exists(this.xmlpath))
@@ -291,11 +291,11 @@ namespace WinFormsApp
             try
             {
                 string path;
-                using(StreamReader reader = new StreamReader(this.rutaxml))
+                using (StreamReader reader = new StreamReader(this.rutaxml))
                 {
                     path = reader.ReadLine();
                 }
-                if(path != null && File.Exists(path))
+                if (path != null && File.Exists(path))
                 {
                     return path;
                 }
@@ -308,7 +308,8 @@ namespace WinFormsApp
                     }
                     return this.pathXmlPredeterminado;
                 }
-            }catch (FileNotFoundException ex)
+            }
+            catch (FileNotFoundException ex)
             {
                 MessageBox.Show("Archivo de rutas inexistente, se creará ubicacion predeterminada." +
                     "\nSi es la primera vez que abre la aplicacion, no prestar atencion al mensaje.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -337,6 +338,14 @@ namespace WinFormsApp
                 SerializarLista(this.computadora.ListaSistemasOperativos);
                 this.ActualizarVisor();
             }
+        }
+
+       
+
+        private void verLogueosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLogueos frmLogueos = new FrmLogueos();
+            frmLogueos.ShowDialog();
         }
     }
 }

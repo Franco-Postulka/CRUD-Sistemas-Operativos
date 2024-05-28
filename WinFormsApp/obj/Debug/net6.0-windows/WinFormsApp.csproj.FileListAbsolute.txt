@@ -24,3 +24,4 @@ C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParc
 C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\obj\Debug\net6.0-windows\WinFormsApp.FrmInstalarWindows.resources
 C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\obj\Debug\net6.0-windows\WinFormsApp.FrmInstalarMac.resources
 C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\obj\Debug\net6.0-windows\WinFormsApp.FrmInstalarLinux.resources
+C:\Users\Franco\Documents\UTN\Segundo cuatri\Progra 2\Postulka.Franco.PrimerParcial\WinFormsApp\obj\Debug\net6.0-windows\WinFormsApp.FrmLogueos.resources
