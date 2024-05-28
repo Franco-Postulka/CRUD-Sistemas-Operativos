@@ -8,11 +8,13 @@ namespace WinFormsApp
     public partial class FrmPrincipal : Form
     {
         private Computadora computadora;
-        private string rutaxml = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "rutas.txt");
 
+        private string rutaxml = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "rutas.txt");
         private string pathXmlPredeterminado = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
         private string xmlpath;
+
         private Usuario usuario;
+        private string rutaUsuariosLogueados = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "usuarios.log");
 
         public Computadora Computadora
         {
@@ -24,16 +26,26 @@ namespace WinFormsApp
             InitializeComponent();
             this.IsMdiContainer = true;
             this.computadora = new Computadora();
-            this.usuario = usuario;
             this.xmlpath = DevolverPathSerializacion();
             ActualizarVisor();
 
+            this.usuario = usuario;
             DateTime date = DateTime.Now;
+            GuardarDatosUsuario();
             this.toolStripStatusLabel.Text = $" Usuario logueado: {this.usuario.nombre}, fecha: {date.ToString("dd/MM/yyyy")}";
         }
 
-
-        private void ActualizarVisor()
+        private void GuardarDatosUsuario()
+        {
+            using (StreamWriter writer = new StreamWriter(this.rutaUsuariosLogueados,true))
+            {
+                Usuario usuario = this.usuario;
+                string info = $"El {usuario.perfil} {usuario.apellido} {usuario.nombre}, legajo: {usuario.legajo}, correo: " +
+                    $"{usuario.correo}. Ingresó el: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
+                writer.WriteLine(info);
+            }
+        }
+    private void ActualizarVisor()
         {
             this.lstBox.Items.Clear();
             if (File.Exists(this.xmlpath))
