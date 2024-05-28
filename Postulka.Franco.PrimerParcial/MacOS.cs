@@ -22,25 +22,25 @@
             this.compatibleConProcesadorApple = compatibleApple;
         }
         public MacOS(string nombre, string version, double espacio, bool compatibleApple, EEstadoSoporte soporte)
-            : this(nombre, version, espacio, compatibleApple, soporte, true)
+            : this(nombre, version, espacio, compatibleApple, soporte, false)
         {
             /// <summary>
-            /// constructor sin el parametro integracionIcloud (se asigna true)
+            /// constructor sin el parametro integracionIcloud (se asigna false)
             /// </summary>
         }
         public MacOS(string nombre, string version, double espacio, EEstadoSoporte soporte, bool integracionIcloud)
-            : this(nombre, version, espacio, true, soporte, integracionIcloud)
+            : this(nombre, version, espacio, false, soporte, integracionIcloud)
         {
             /// <summary>
-            /// constructor sin el parametro compatibleApple (se asigna true )
+            /// constructor sin el parametro compatibleApple (se asigna false )
             /// </summary>
         }
 
         public MacOS(string nombre, string version, double espacio, EEstadoSoporte soporte)
-            : this(nombre, version, espacio, true, soporte, true)
+            : this(nombre, version, espacio, false, soporte, false)
         {
             /// <summary>
-            /// constructor sin los parametros compatibleApple e integracionIcloud (se asigna true  y true)
+            /// constructor sin los parametros compatibleApple e integracionIcloud (se asigna false  y false)
             /// </summary>
         }
 

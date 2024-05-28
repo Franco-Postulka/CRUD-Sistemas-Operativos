@@ -47,14 +47,28 @@ namespace WinFormsApp
             {
                 MessageBox.Show("No ingresó nada en el campo Version.");
             }
-            else if (nombre == "")
-            {
-                MessageBox.Show("No ingresó nada en el campo Nombre.");
-            }
             else
             {
-                Windows windows = new Windows(nombre, version, espacio, soporte, edicion, virtualizacion);
-                this.sistemaOperativo = windows;
+                if(nombre == "" && virtualizacion == false)
+                {
+                    Windows windows = new Windows(version, espacio, soporte, edicion);
+                    this.sistemaOperativo = windows;
+                }
+                else if (nombre == "")
+                {
+                    Windows windows = new Windows(version, espacio, soporte, edicion, virtualizacion);
+                    this.sistemaOperativo = windows;
+                }else if(virtualizacion == false)
+                {
+                    Windows windows = new Windows(nombre,version, espacio, soporte, edicion);
+                    this.sistemaOperativo = windows;
+                }
+                else
+                {
+                    Windows windows = new Windows(nombre, version, espacio, soporte, edicion, virtualizacion);
+                    this.sistemaOperativo = windows;
+
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

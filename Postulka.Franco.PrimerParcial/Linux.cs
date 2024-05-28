@@ -30,17 +30,17 @@
             /// </summary>
         }
         public Linux(string nombre, string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion)
-            : this(nombre, version, espacioGB, soporte, distribucion, true)
+            : this(nombre, version, espacioGB, soporte, distribucion, false)
         {
             /// <summary>
-            /// constructor sin interfaz como parametro (se asigna como true)
+            /// constructor sin interfaz como parametro (se asigna como false)
             /// </summary>
         }
         public Linux(string version, double espacioGB, EEstadoSoporte soporte, EDistribucionLinux distribucion)
-            : this("Linux", version, espacioGB, soporte, distribucion, true)
+            : this("Linux", version, espacioGB, soporte, distribucion, false)
         {
             /// <summary>
-            /// constructor sin nombre como parametro y sin interfaz (se asigna como Linux y true)
+            /// constructor sin nombre como parametro y sin interfaz (se asigna como Linux y false)
             /// </summary>
         }
 

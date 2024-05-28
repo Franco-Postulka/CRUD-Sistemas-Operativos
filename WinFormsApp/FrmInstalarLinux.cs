@@ -51,14 +51,29 @@ namespace WinFormsApp
             {
                 MessageBox.Show("No ingresó nada en el campo Version.");
             }
-            else if (nombre == "")
-            {
-                MessageBox.Show("No ingresó nada en el campo Nombre.");
-            }
             else
             {
-                Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux, interfaz);
-                this.sistemaOperativo = linux;
+                if (nombre == "" && interfaz == false)
+                {
+                    Linux linux = new Linux(version, espacio, soporte, distribucionLinux);
+                    this.sistemaOperativo = linux;
+                }
+                else if(nombre == "")
+                {
+                    Linux linux = new Linux(version, espacio, soporte, distribucionLinux, interfaz);
+                    this.sistemaOperativo = linux;
+                }
+                else if(interfaz == false)
+                {
+                    Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux);
+                    this.sistemaOperativo = linux;
+                }
+                else
+                {
+                    Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux, interfaz);
+                    this.sistemaOperativo = linux;
+
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

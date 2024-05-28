@@ -50,8 +50,26 @@ namespace WinFormsApp
             }
             else
             {
-                MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte, integracionIcloud);
-                this.sistemaOperativo = mac;
+                if(compatible_Apple == false && integracionIcloud == false)
+                {
+                    MacOS mac = new MacOS(nombre, version, espacio, soporte);
+                    this.sistemaOperativo = mac;
+                }
+                else if(compatible_Apple == false)
+                {
+                    MacOS mac = new MacOS(nombre, version, espacio, soporte, integracionIcloud);
+                    this.sistemaOperativo = mac;
+                }
+                else if(integracionIcloud == false)
+                {
+                    MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte);
+                    this.sistemaOperativo = mac;
+                }
+                else
+                {
+                    MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte, integracionIcloud);
+                    this.sistemaOperativo = mac;
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -29,17 +29,17 @@
             /// </summary>
         }
         public Windows(string nombre, string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion)
-            : this(nombre, version, espacio, soporte, edicion, true)
+            : this(nombre, version, espacio, soporte, edicion, false)
         {
             /// <summary>
-            /// constructor sin virtualizacion como parametro (lo asigna como true)
+            /// constructor sin virtualizacion como parametro (lo asigna como false)
             /// </summary>
         }
         public Windows(string version, double espacio, EEstadoSoporte soporte, EEdicionWindows edicion)
-            : this("Windows", version, espacio, soporte, edicion, true)
+            : this("Windows", version, espacio, soporte, edicion, false)
         {
             /// <summary>
-            /// constructor sin nombre y sin virtualizacion como parametro (lo asigna como true y Windows)
+            /// constructor sin nombre y sin virtualizacion como parametro (lo asigna como false y Windows)
             /// </summary>
         }
 
