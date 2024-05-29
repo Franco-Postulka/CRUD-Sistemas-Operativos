@@ -40,7 +40,7 @@ namespace WinFormsApp
             using (StreamWriter writer = new StreamWriter(this.rutaUsuariosLogueados, true))
             {
                 Usuario usuario = this.usuario;
-                string info = $"El {usuario.perfil} {usuario.apellido} {usuario.nombre}, legajo: {usuario.legajo}, correo: " +
+                string info = $"El {usuario.perfil} {usuario.nombre} {usuario.apellido}, legajo {usuario.legajo}, correo " +
                     $"{usuario.correo}. Ingresó el: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
                 writer.WriteLine(info);
             }
@@ -319,7 +319,7 @@ namespace WinFormsApp
             catch (FileNotFoundException ex)
             {
                 MessageBox.Show("Archivo de rutas inexistente, se creará ubicacion predeterminada." +
-                    "\nSi es la primera vez que abre la aplicacion, no prestar atencion al mensaje.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    "\nSi es la primera vez que abre la aplicacion, ignorar este mensaje.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 using (StreamWriter writer = new StreamWriter(this.rutaxml, false))
                 {
                     writer.Write(pathXmlPredeterminado);
@@ -375,5 +375,18 @@ namespace WinFormsApp
             frmLogueos.ShowDialog();
         }
 
+        private void informaciónEspecíficaDelSOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int indice = this.lstBox.SelectedIndex;
+            if (indice == -1)
+            {
+                MessageBox.Show("Debe seleccionar un SO para poder ver su información.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                SistemaOperativo sistema = computadora.ListaSistemasOperativos[indice];
+                MessageBox.Show(sistema.DevolverInformacionEspecifica(), "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

@@ -50,6 +50,7 @@
             verLogueosToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
+            informaciónEspecíficaDelSOToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             menuOrdenar.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -140,14 +141,14 @@
             // ascendenteAlfabeticamente
             // 
             ascendenteAlfabeticamente.Name = "ascendenteAlfabeticamente";
-            ascendenteAlfabeticamente.Size = new Size(216, 34);
+            ascendenteAlfabeticamente.Size = new Size(270, 34);
             ascendenteAlfabeticamente.Text = "Ascendente";
             ascendenteAlfabeticamente.Click += ascendenteAlfabeticamente_Click;
             // 
             // descendenteAlfabeticamente
             // 
             descendenteAlfabeticamente.Name = "descendenteAlfabeticamente";
-            descendenteAlfabeticamente.Size = new Size(216, 34);
+            descendenteAlfabeticamente.Size = new Size(270, 34);
             descendenteAlfabeticamente.Text = "Descendente";
             descendenteAlfabeticamente.Click += descendenteAlfabeticamente_Click;
             // 
@@ -161,14 +162,14 @@
             // ascendeteGB
             // 
             ascendeteGB.Name = "ascendeteGB";
-            ascendeteGB.Size = new Size(216, 34);
+            ascendeteGB.Size = new Size(270, 34);
             ascendeteGB.Text = "Ascendete";
             ascendeteGB.Click += ascendeteGB_Click;
             // 
             // descendenteGB
             // 
             descendenteGB.Name = "descendenteGB";
-            descendenteGB.Size = new Size(216, 34);
+            descendenteGB.Size = new Size(270, 34);
             descendenteGB.Text = "Descendente";
             descendenteGB.Click += descendenteGB_Click;
             // 
@@ -195,7 +196,7 @@
             // 
             // visualizadorToolStripMenuItem
             // 
-            visualizadorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogueosToolStripMenuItem });
+            visualizadorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verLogueosToolStripMenuItem, informaciónEspecíficaDelSOToolStripMenuItem });
             visualizadorToolStripMenuItem.Name = "visualizadorToolStripMenuItem";
             visualizadorToolStripMenuItem.Size = new Size(53, 29);
             visualizadorToolStripMenuItem.Text = "Ver";
@@ -203,7 +204,7 @@
             // verLogueosToolStripMenuItem
             // 
             verLogueosToolStripMenuItem.Name = "verLogueosToolStripMenuItem";
-            verLogueosToolStripMenuItem.Size = new Size(182, 34);
+            verLogueosToolStripMenuItem.Size = new Size(349, 34);
             verLogueosToolStripMenuItem.Text = "Logueos";
             verLogueosToolStripMenuItem.Click += verLogueosToolStripMenuItem_Click;
             // 
@@ -222,6 +223,13 @@
             toolStripStatusLabel.Name = "toolStripStatusLabel";
             toolStripStatusLabel.Size = new Size(179, 25);
             toolStripStatusLabel.Text = "toolStripStatusLabel1";
+            // 
+            // informaciónEspecíficaDelSOToolStripMenuItem
+            // 
+            informaciónEspecíficaDelSOToolStripMenuItem.Name = "informaciónEspecíficaDelSOToolStripMenuItem";
+            informaciónEspecíficaDelSOToolStripMenuItem.Size = new Size(349, 34);
+            informaciónEspecíficaDelSOToolStripMenuItem.Text = "Información específica del SO";
+            informaciónEspecíficaDelSOToolStripMenuItem.Click += informaciónEspecíficaDelSOToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 
@@ -271,5 +279,6 @@
         private ToolStripMenuItem elegirUbicacionToolStripMenuItem;
         private ToolStripMenuItem visualizadorToolStripMenuItem;
         private ToolStripMenuItem verLogueosToolStripMenuItem;
+        private ToolStripMenuItem informaciónEspecíficaDelSOToolStripMenuItem;
     }
 }

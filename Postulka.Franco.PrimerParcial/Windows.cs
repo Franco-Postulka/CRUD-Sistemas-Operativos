@@ -55,7 +55,7 @@
                 $"Version: {this.Version}\n" +
                 $"Edicion: {this.Edicion}\n" +
                 $"Soporte: {this.Soporte}\n" +
-                $"Ocupa:{this.EspacioGB}" +
+                $"Ocupa: {this.EspacioGB} GB\n" +
                 $"Permite virtualizacion: {aceptavirtualizacion}";
         }
         public override string ToString()
