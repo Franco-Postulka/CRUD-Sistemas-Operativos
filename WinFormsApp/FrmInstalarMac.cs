@@ -24,51 +24,45 @@ namespace WinFormsApp
 
         protected override void btnInstalar_Click(object sender, EventArgs e)
         {
+            this.validar_datos();
             string nombre = this.txtNombre.Text;
-            string version = this.txtVersion.Text;
-            double espacio;
-
-            string txtEspacio = this.txtEspacio.Text.Replace(',', '.');
-            bool validacion_espacio = double.TryParse(txtEspacio, NumberStyles.Any, CultureInfo.InvariantCulture, out espacio);
-            bool compatible_Apple = this.checkCompatibleApple.Checked;
-            EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
-            bool integracionIcloud = this.checkIntegracion.Checked;
-            if (!validacion_espacio)
+            if (this.validacion_ingresos == true)
             {
-                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (String.IsNullOrWhiteSpace(version))
-            {
-                MessageBox.Show("No ingresó nada en el campo Version.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (String.IsNullOrWhiteSpace(nombre))
-            {
-                MessageBox.Show("No ingresó nada en el campo Nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                if(compatible_Apple == false && integracionIcloud == false)
+                if (String.IsNullOrWhiteSpace(nombre))
                 {
-                    MacOS mac = new MacOS(nombre, version, espacio, soporte);
-                    this.sistemaOperativo = mac;
-                }
-                else if(compatible_Apple == false)
-                {
-                    MacOS mac = new MacOS(nombre, version, espacio, soporte, integracionIcloud);
-                    this.sistemaOperativo = mac;
-                }
-                else if(integracionIcloud == false)
-                {
-                    MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte);
-                    this.sistemaOperativo = mac;
+                    MessageBox.Show("No ingresó nada en el campo Nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte, integracionIcloud);
-                    this.sistemaOperativo = mac;
+                    string version = this.txtVersion.Text;
+                    double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'));// YA SE VALIDO EN base.validar_datos();
+                    EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
+
+                    bool compatible_Apple = this.checkCompatibleApple.Checked;
+                    bool integracionIcloud = this.checkIntegracion.Checked;
+                    if (compatible_Apple == false && integracionIcloud == false)
+                    {
+                        MacOS mac = new MacOS(nombre, version, espacio, soporte);
+                        this.sistemaOperativo = mac;
+                    }
+                    else if(compatible_Apple == false)
+                    {
+                        MacOS mac = new MacOS(nombre, version, espacio, soporte, integracionIcloud);
+                        this.sistemaOperativo = mac;
+                    }
+                    else if(integracionIcloud == false)
+                    {
+                        MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte);
+                        this.sistemaOperativo = mac;
+                    }
+                    else
+                    {
+                        MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte, integracionIcloud);
+                        this.sistemaOperativo = mac;
+                    }
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
-                this.DialogResult = DialogResult.OK;
-                this.Close();
             }
         }
 

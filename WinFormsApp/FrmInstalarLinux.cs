@@ -30,25 +30,17 @@ namespace WinFormsApp
 
         private void btnInstalar_Click_1(object sender, EventArgs e)
         {
-            string nombre = this.txtNombre.Text;
-            string version = this.txtVersion.Text;
-            double espacio;
-            string txtEspacio = this.txtEspacio.Text.Replace(',', '.');
-            bool validacion_espacio = double.TryParse(txtEspacio, NumberStyles.Any, CultureInfo.InvariantCulture, out espacio);
-            EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
+            this.validar_datos();
+            if(this.validacion_ingresos == true)
+            {
+                string nombre = this.txtNombre.Text;
+                string version = this.txtVersion.Text;
+                double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'));// YA SE VALIDO EN base.validar_datos();
+                EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
 
-            EDistribucionLinux distribucionLinux = (EDistribucionLinux)this.cboDistribucion.SelectedItem;
-            bool interfaz = this.checkInterfaz.Checked;
-            if (!validacion_espacio)
-            {
-                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.","Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (String.IsNullOrWhiteSpace(version))
-            {
-                MessageBox.Show("No ingresó nada en el campo Version.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
+                EDistribucionLinux distribucionLinux = (EDistribucionLinux)this.cboDistribucion.SelectedItem;
+                bool interfaz = this.checkInterfaz.Checked;
+
                 if (String.IsNullOrWhiteSpace(nombre) && interfaz == false)
                 {
                     Linux linux = new Linux(version, espacio, soporte, distribucionLinux);
