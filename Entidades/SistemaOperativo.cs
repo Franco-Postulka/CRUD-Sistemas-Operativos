@@ -41,5 +41,26 @@ namespace Entidades
         {
             return $"Sistema operativo {this.Nombre} {this.Version}";
         }
+
+        public static bool operator ==(SistemaOperativo sistema, SistemaOperativo otroSistema)
+        {
+            return (sistema.GetType().Name == otroSistema.GetType().Name && sistema.Nombre == otroSistema.Nombre && sistema.Version == otroSistema.Version);
+        }
+        public static bool operator !=(SistemaOperativo sistema, SistemaOperativo otroSistema)
+        {
+            return !(sistema == otroSistema);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+            else
+            {
+                return (this == (SistemaOperativo)obj);
+            }
+        }
     }
 }
