@@ -41,18 +41,18 @@ namespace WinFormsApp
             if (!validacion_espacio)
             {
                 MessageBox.Show("Error al ingresar la cantidad de GB de espacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }else if (version == "")
+            }else if (String.IsNullOrWhiteSpace(version))
             {
                 MessageBox.Show("No ingresó nada en el campo Version.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if(nombre == "" && virtualizacion == false)
+                if(String.IsNullOrWhiteSpace(nombre) && virtualizacion == false)
                 {
                     Windows windows = new Windows(version, espacio, soporte, edicion);
                     this.sistemaOperativo = windows;
                 }
-                else if (nombre == "")
+                else if (String.IsNullOrWhiteSpace(nombre))
                 {
                     Windows windows = new Windows(version, espacio, soporte, edicion, virtualizacion);
                     this.sistemaOperativo = windows;

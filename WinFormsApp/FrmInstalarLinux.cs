@@ -43,18 +43,18 @@ namespace WinFormsApp
             {
                 MessageBox.Show("Error al ingresar la cantidad de GB de espacio.","Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (version == "")
+            else if (String.IsNullOrWhiteSpace(version))
             {
                 MessageBox.Show("No ingresó nada en el campo Version.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (nombre == "" && interfaz == false)
+                if (String.IsNullOrWhiteSpace(nombre) && interfaz == false)
                 {
                     Linux linux = new Linux(version, espacio, soporte, distribucionLinux);
                     this.sistemaOperativo = linux;
                 }
-                else if(nombre == "")
+                else if(String.IsNullOrWhiteSpace(nombre))
                 {
                     Linux linux = new Linux(version, espacio, soporte, distribucionLinux, interfaz);
                     this.sistemaOperativo = linux;

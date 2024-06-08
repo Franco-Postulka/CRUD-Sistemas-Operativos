@@ -37,11 +37,11 @@ namespace WinFormsApp
             {
                 MessageBox.Show("Error al ingresar la cantidad de GB de espacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (version == "")
+            else if (String.IsNullOrWhiteSpace(version))
             {
                 MessageBox.Show("No ingresó nada en el campo Version.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (nombre == "")
+            else if (String.IsNullOrWhiteSpace(nombre))
             {
                 MessageBox.Show("No ingresó nada en el campo Nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
