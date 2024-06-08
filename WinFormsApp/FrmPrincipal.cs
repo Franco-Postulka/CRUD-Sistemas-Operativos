@@ -1,4 +1,5 @@
 using Entidades;
+using Entidades.Enumerados;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -115,10 +116,14 @@ namespace WinFormsApp
             }
             else
             {
-                SistemaOperativo sistemaOperativo = this.computadora.ListaSistemasOperativos[indice];
-                this.computadora -= sistemaOperativo;
-                SerializarLista(this.Computadora.ListaSistemasOperativos);
-                ActualizarVisor();
+                DialogResult result = MessageBox.Show("Esta seguro que desea eliminar el SO?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    SistemaOperativo sistemaOperativo = this.computadora.ListaSistemasOperativos[indice];
+                    this.computadora -= sistemaOperativo;
+                    SerializarLista(this.Computadora.ListaSistemasOperativos);
+                    ActualizarVisor();
+                }
             }
         }
 

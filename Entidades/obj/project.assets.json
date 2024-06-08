@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {
-      "Entidades/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Entidades.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Entidades.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "Entidades/1.0.0": {
-      "type": "project",
-      "path": "../Entidades/Entidades.csproj",
-      "msbuildProject": "../Entidades/Entidades.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": [
-      "Entidades >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "C:\\Users\\Franco\\.nuget\\packages\\": {}
@@ -32,31 +13,27 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\WinFormsApp\\WinFormsApp.csproj",
-      "projectName": "WinFormsApp",
-      "projectPath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\WinFormsApp\\WinFormsApp.csproj",
+      "projectUniqueName": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\Entidades\\Entidades.csproj",
+      "projectName": "Entidades",
+      "projectPath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\Entidades\\Entidades.csproj",
       "packagesPath": "C:\\Users\\Franco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\WinFormsApp\\obj\\",
+      "outputPath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\Entidades\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Franco\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
-          "projectReferences": {
-            "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\Entidades\\Entidades.csproj": {
-              "projectPath": "C:\\Users\\Franco\\Documents\\UTN\\Segundo cuatri\\Progra 2\\Postulka.Franco.SegundoParcial\\Entidades\\Entidades.csproj"
-            }
-          }
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -71,8 +48,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "imports": [
           "net461",
           "net462",
@@ -90,10 +67,6 @@
             "version": "[6.0.30, 6.0.30]"
           },
           {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.30, 6.0.30]"
-          },
-          {
             "name": "Microsoft.NETCore.App.Ref",
             "version": "[6.0.30, 6.0.30]"
           },
@@ -105,9 +78,6 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
-          },
-          "Microsoft.WindowsDesktop.App.WindowsForms": {
-            "privateAssets": "none"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
