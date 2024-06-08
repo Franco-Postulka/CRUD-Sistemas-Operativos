@@ -8,7 +8,7 @@
 
 ## Diagrama de clases de los Sistemas Operativos.
 ### Clase padre Sistema Operativo.
-![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/0fbc0c6b-06f3-4d0f-af08-e53f03192ac2)
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/67d1a16f-ec15-4493-be9e-6e86040e2bd6)
 ### Clase hija Linux.
 ![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/5a125eed-eac2-49c5-9d6c-96302a152a01)
 ### Clase hija Windows.
