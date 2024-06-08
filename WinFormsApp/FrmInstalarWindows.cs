@@ -6,7 +6,7 @@ namespace WinFormsApp
 {
     public partial class FrmInstalarWindows : FrmInstalar
     {
-        
+
         public CheckBox CkeckVirtualizacionPermitida
         {
             get { return this.checkVirtualizacion; }
@@ -28,7 +28,7 @@ namespace WinFormsApp
             this.txtNombre.Text = "Windows";
         }
 
-        protected override void btnInstalar_Click(object sender, EventArgs e)
+        private void btnInstalar_Click(object sender, EventArgs e)
         {
             this.validar_datos();
             if (this.validacion_ingresos == true)
@@ -39,7 +39,7 @@ namespace WinFormsApp
                 EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
                 EEdicionWindows edicion = (EEdicionWindows)this.cboEdicion.SelectedItem;
                 bool virtualizacion = this.checkVirtualizacion.Checked;
-                if(String.IsNullOrWhiteSpace(nombre) && virtualizacion == false)
+                if (String.IsNullOrWhiteSpace(nombre) && virtualizacion == false)
                 {
                     Windows windows = new Windows(version, espacio, soporte, edicion);
                     this.sistemaOperativo = windows;
@@ -48,9 +48,10 @@ namespace WinFormsApp
                 {
                     Windows windows = new Windows(version, espacio, soporte, edicion, virtualizacion);
                     this.sistemaOperativo = windows;
-                }else if(virtualizacion == false)
+                }
+                else if (virtualizacion == false)
                 {
-                    Windows windows = new Windows(nombre,version, espacio, soporte, edicion);
+                    Windows windows = new Windows(nombre, version, espacio, soporte, edicion);
                     this.sistemaOperativo = windows;
                 }
                 else
@@ -62,6 +63,7 @@ namespace WinFormsApp
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+
         }
     }
 }

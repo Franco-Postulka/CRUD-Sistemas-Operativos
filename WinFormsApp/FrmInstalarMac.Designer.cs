@@ -32,6 +32,10 @@
             checkCompatibleApple = new CheckBox();
             SuspendLayout();
             // 
+            // btnInstalar
+            // 
+            btnInstalar.Click += btnInstalar_Click;
+            // 
             // checkIntegracion
             // 
             checkIntegracion.AutoSize = true;

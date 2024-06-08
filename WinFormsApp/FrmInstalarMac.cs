@@ -22,7 +22,7 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        protected override void btnInstalar_Click(object sender, EventArgs e)
+        private void btnInstalar_Click(object sender, EventArgs e)
         {
             this.validar_datos();
             string nombre = this.txtNombre.Text;
@@ -45,12 +45,12 @@ namespace WinFormsApp
                         MacOS mac = new MacOS(nombre, version, espacio, soporte);
                         this.sistemaOperativo = mac;
                     }
-                    else if(compatible_Apple == false)
+                    else if (compatible_Apple == false)
                     {
                         MacOS mac = new MacOS(nombre, version, espacio, soporte, integracionIcloud);
                         this.sistemaOperativo = mac;
                     }
-                    else if(integracionIcloud == false)
+                    else if (integracionIcloud == false)
                     {
                         MacOS mac = new MacOS(nombre, version, espacio, compatible_Apple, soporte);
                         this.sistemaOperativo = mac;
@@ -64,7 +64,7 @@ namespace WinFormsApp
                     this.Close();
                 }
             }
-        }
 
+        }
     }
 }

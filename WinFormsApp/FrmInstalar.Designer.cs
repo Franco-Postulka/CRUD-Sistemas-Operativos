@@ -133,7 +133,6 @@
             btnInstalar.TabIndex = 10;
             btnInstalar.Text = "Instalar";
             btnInstalar.UseVisualStyleBackColor = true;
-            btnInstalar.Click += btnInstalar_Click;
             // 
             // FrmInstalar
             // 

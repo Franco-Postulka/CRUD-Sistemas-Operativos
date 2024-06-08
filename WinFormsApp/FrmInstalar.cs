@@ -82,8 +82,5 @@ namespace WinFormsApp
                 this.validacion_ingresos = true;
             }
         }
-        protected virtual void btnInstalar_Click(object sender, EventArgs e)
-        {
-        }
     }
 }

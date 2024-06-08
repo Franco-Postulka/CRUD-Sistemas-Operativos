@@ -28,10 +28,11 @@ namespace WinFormsApp
             this.txtNombre.Text = "Linux";
         }
 
-        private void btnInstalar_Click_1(object sender, EventArgs e)
+       
+        private void btnInstalar_Click(object sender, EventArgs e)
         {
             this.validar_datos();
-            if(this.validacion_ingresos == true)
+            if (this.validacion_ingresos == true)
             {
                 string nombre = this.txtNombre.Text;
                 string version = this.txtVersion.Text;
@@ -46,12 +47,12 @@ namespace WinFormsApp
                     Linux linux = new Linux(version, espacio, soporte, distribucionLinux);
                     this.sistemaOperativo = linux;
                 }
-                else if(String.IsNullOrWhiteSpace(nombre))
+                else if (String.IsNullOrWhiteSpace(nombre))
                 {
                     Linux linux = new Linux(version, espacio, soporte, distribucionLinux, interfaz);
                     this.sistemaOperativo = linux;
                 }
-                else if(interfaz == false)
+                else if (interfaz == false)
                 {
                     Linux linux = new Linux(nombre, version, espacio, soporte, distribucionLinux);
                     this.sistemaOperativo = linux;

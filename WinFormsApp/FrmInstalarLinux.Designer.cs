@@ -35,7 +35,7 @@
             // 
             // btnInstalar
             // 
-            btnInstalar.Click += btnInstalar_Click_1;
+            btnInstalar.Click += btnInstalar_Click;
             // 
             // cboDistribucion
             // 

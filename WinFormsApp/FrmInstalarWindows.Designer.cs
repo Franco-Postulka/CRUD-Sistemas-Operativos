@@ -33,6 +33,10 @@
             cboEdicion = new ComboBox();
             SuspendLayout();
             // 
+            // btnInstalar
+            // 
+            btnInstalar.Click += btnInstalar_Click;
+            // 
             // label8
             // 
             label8.AutoSize = true;
