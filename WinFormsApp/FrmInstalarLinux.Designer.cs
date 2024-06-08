@@ -39,6 +39,7 @@
             // 
             // cboDistribucion
             // 
+            cboDistribucion.DropDownStyle = ComboBoxStyle.DropDownList;
             cboDistribucion.FormattingEnabled = true;
             cboDistribucion.Location = new Point(542, 291);
             cboDistribucion.Name = "cboDistribucion";

@@ -64,6 +64,7 @@
             // 
             // cboEstado
             // 
+            cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cboEstado.FormattingEnabled = true;
             cboEstado.Location = new Point(542, 119);
             cboEstado.Name = "cboEstado";

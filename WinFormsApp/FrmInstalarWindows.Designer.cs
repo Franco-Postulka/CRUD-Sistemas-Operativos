@@ -54,6 +54,7 @@
             // 
             // cboEdicion
             // 
+            cboEdicion.DropDownStyle = ComboBoxStyle.DropDownList;
             cboEdicion.FormattingEnabled = true;
             cboEdicion.Location = new Point(542, 275);
             cboEdicion.Name = "cboEdicion";
@@ -70,6 +71,11 @@
             Controls.Add(label8);
             Name = "FrmInstalarWindows";
             Text = "Insatalar Windows";
+            Controls.SetChildIndex(txtNombre, 0);
+            Controls.SetChildIndex(txtVersion, 0);
+            Controls.SetChildIndex(txtEspacio, 0);
+            Controls.SetChildIndex(cboEstado, 0);
+            Controls.SetChildIndex(btnInstalar, 0);
             Controls.SetChildIndex(label8, 0);
             Controls.SetChildIndex(checkVirtualizacion, 0);
             Controls.SetChildIndex(cboEdicion, 0);
