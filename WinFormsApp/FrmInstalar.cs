@@ -73,6 +73,10 @@ namespace WinFormsApp
             {
                 MessageBox.Show("Error al ingresar la cantidad de GB de espacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (espacio <=0)
+            {
+                MessageBox.Show("Error al ingresar la cantidad de GB de espacio.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if (String.IsNullOrWhiteSpace(version))
             {
                 MessageBox.Show("No ingresó nada en el campo Version.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
