@@ -43,17 +43,30 @@ namespace WinFormsApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            bool datos_validados = this.ComprobarDatos();
-            if (datos_validados)
+            try
             {
-                this.DialogResult = DialogResult.OK;
+                bool datos_validados = this.ComprobarDatos();
+                if (datos_validados)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show(this, "Email o clave erroneos, vuelva a ingresar los datos.");
+                    //this.txtEmail.Text = "";
+                    this.txtClave.Text = "";
+                }
+
             }
-            else
+            catch (JsonException ex)
             {
-                MessageBox.Show(this, "Email o clave erroneos, vuelva a ingresar los datos.");
-                this.txtEmail.Text = "";
-                this.txtClave.Text = "";
+                MessageBox.Show($"JsonException:\n {ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"Error al momento de validar datos:\n {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
