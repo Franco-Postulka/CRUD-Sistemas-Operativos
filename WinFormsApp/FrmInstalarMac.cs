@@ -25,7 +25,7 @@ namespace WinFormsApp
         private void btnInstalar_Click(object sender, EventArgs e)
         {
             this.validar_datos();
-            string nombre = this.txtNombre.Text;
+            string nombre = this.txtNombre.Text.Trim();
             if (this.validacion_ingresos == true)
             {
                 if (String.IsNullOrWhiteSpace(nombre))
@@ -34,7 +34,7 @@ namespace WinFormsApp
                 }
                 else
                 {
-                    string version = this.txtVersion.Text;
+                    string version = this.txtVersion.Text.Replace(" ", "");
                     double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'));// YA SE VALIDO EN base.validar_datos();
                     EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
 

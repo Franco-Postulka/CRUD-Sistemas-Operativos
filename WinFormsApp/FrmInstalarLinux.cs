@@ -34,8 +34,8 @@ namespace WinFormsApp
             this.validar_datos();
             if (this.validacion_ingresos == true)
             {
-                string nombre = this.txtNombre.Text;
-                string version = this.txtVersion.Text;
+                string nombre = this.txtNombre.Text.Replace(" ","");
+                string version = this.txtVersion.Text.Replace(" ","");
                 double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'));// YA SE VALIDO EN base.validar_datos();
                 EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
 

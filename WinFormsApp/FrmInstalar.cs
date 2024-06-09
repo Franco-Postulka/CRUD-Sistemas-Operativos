@@ -63,7 +63,7 @@ namespace WinFormsApp
         {
             //valida el txtEspacio (que sea un numero) y que se haya completado el campo version 
             string nombre = this.txtNombre.Text;
-            string version = this.txtVersion.Text;
+            string version = this.txtVersion.Text; 
             double espacio;
             string txtEspacio = this.txtEspacio.Text.Replace(',', '.');
             bool validacion_espacio = double.TryParse(txtEspacio, NumberStyles.Any, CultureInfo.InvariantCulture, out espacio);
