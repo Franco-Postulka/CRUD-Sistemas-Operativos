@@ -1,4 +1,6 @@
-﻿namespace Entidades
+﻿using System.Data.Common;
+
+namespace Entidades
 {
     public class Computadora
     {
@@ -70,20 +72,8 @@
 
         public void OrdenarListaPorGBDescendenete()
         {
-            List<SistemaOperativo> lista = this.ListaSistemasOperativos;
-            for (int i = 0; i < lista.Count - 1; i++)
-            {
-                for (int j = i + 1; j < lista.Count; j++)
-                {
-                    if (lista[i].EspacioGB < lista[j].EspacioGB)
-                    {
-                        SistemaOperativo sistemai = lista[i];
-                        lista[i] = lista[j];
-                        lista[j] = sistemai;
-                    }
-                }
-            }
-            this.sistemasOperativos = lista;
+            this.OrdenarListaPorGBAscendente();
+            this.ListaSistemasOperativos.Reverse();
         }
 
         public void OrdenarListaAlfabeticamenteAscendente()
@@ -104,25 +94,10 @@
             }
             this.sistemasOperativos = lista;
         }
-
         public void OrdenarListaAlfabeticamenteDescendente()
         {
-
-            List<SistemaOperativo> lista = this.ListaSistemasOperativos;
-            for (int i = 0; i < lista.Count - 1; i++)
-            {
-                for (int j = i + 1; j < lista.Count; j++)
-                {
-                    int comparacion = String.Compare(lista[i].Nombre, lista[j].Nombre);
-                    if (comparacion < 0) //el primer string va antes alfabeticamente
-                    {
-                        SistemaOperativo sistemai = lista[i];
-                        lista[i] = lista[j];
-                        lista[j] = sistemai;
-                    }
-                }
-            }
-            this.sistemasOperativos = lista;
+            this.OrdenarListaPorGBAscendente();
+            this.ListaSistemasOperativos.Reverse();
         }
     }
 }
