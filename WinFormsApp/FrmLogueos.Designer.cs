@@ -38,13 +38,13 @@
             lstBox.ItemHeight = 25;
             lstBox.Location = new Point(12, 83);
             lstBox.Name = "lstBox";
-            lstBox.Size = new Size(834, 329);
+            lstBox.Size = new Size(857, 329);
             lstBox.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(352, 29);
+            label1.Location = new Point(366, 24);
             label1.Name = "label1";
             label1.Size = new Size(169, 25);
             label1.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(858, 450);
+            ClientSize = new Size(877, 450);
             Controls.Add(label1);
             Controls.Add(lstBox);
             Name = "FrmLogueos";

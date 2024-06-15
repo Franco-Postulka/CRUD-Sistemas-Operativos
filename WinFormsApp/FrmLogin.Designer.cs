@@ -66,6 +66,7 @@
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(301, 31);
             txtClave.TabIndex = 3;
+            txtClave.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 

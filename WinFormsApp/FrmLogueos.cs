@@ -42,6 +42,5 @@ namespace WinFormsApp
                 MessageBox.Show("Ocurrió un error al leer el archivo: " + ex.Message);
             }
         }
-        
     }
 }
