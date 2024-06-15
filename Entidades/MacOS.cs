@@ -76,7 +76,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return $"Sistema operativo {this.Nombre} {this.Version} MacOS";
+            return base.ToString() + " MacOS";
         }
         public static bool operator ==(MacOS unMac, MacOS otroMac)
         {

@@ -31,7 +31,7 @@ namespace Entidades
         }
         public SistemaOperativo(string nombre, string version, double espacio) : this(nombre, version, espacio, EEstadoSoporte.SoporteCompleto)
         {
-            ///Sobrecarga sin EEstado soporte como parametro, lo inicializa como estado soporte completo 
+            ///Sobrecarga sin EEstadoSoporte como parametro, lo inicializa como EEstadoSoporte.SoporteCompleto 
         }
         public abstract string DevolverInformacionEspecifica();
 

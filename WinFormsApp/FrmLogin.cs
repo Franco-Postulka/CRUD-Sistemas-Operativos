@@ -30,12 +30,18 @@ namespace WinFormsApp
                 Console.WriteLine(usuarios[0].correo);
                 foreach (Usuario usuario in usuarios)
                 {
-                    if (usuario.correo == mail && usuario.clave == clave)
-                    {
-                        retorno = true;
-                        this.usuario = usuario;
-                        break;
-                    }
+                    this.usuario = usuario; //BORRAR ESTO 
+                    retorno = true;//BORRAR ESTO
+                    break;//BORRAR ESTO
+
+                    // VOLVER A PONER ESTO!!!!!!:
+
+                    //if (usuario.correo == mail && usuario.clave == clave)
+                    //{
+                    //    retorno = true;
+                    //    this.usuario = usuario;
+                    //    break;
+                    //}
                 }
             }
             return retorno;

@@ -15,15 +15,19 @@ namespace WinFormsApp
             FrmLogin login = new FrmLogin("MOCK_DATA.json");
             login.ShowDialog();
             bool logueado = false;
-            while (login.DialogResult != DialogResult.Cancel)
-            {
-                if (login.DialogResult == DialogResult.OK)
-                {
-                    logueado = true;
-                    login.Close();
-                    break;
-                }
-            }
+
+            //VOLVER A POINER ESTO:
+
+            //while (login.DialogResult != DialogResult.Cancel)
+            //{
+            //    if (login.DialogResult == DialogResult.OK)
+            //    {
+            //        logueado = true;
+            //        login.Close();
+            //        break;
+            //    }
+            //}
+            logueado = true; //BORRAR ESTO
             if (logueado)
             {
                 Application.Run(new FrmPrincipal(login.Usuario));

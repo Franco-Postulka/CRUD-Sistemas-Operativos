@@ -62,7 +62,7 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return $"Sistema operativo {this.Nombre} {this.Version} {this.Edicion}";
+            return base.ToString() + $" {this.Edicion}";
         }
 
         public static bool operator ==(Windows unwindows, Windows otrowindows)

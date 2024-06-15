@@ -68,7 +68,7 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return $"Sistema operativo {this.Nombre} {this.Distribucion} {this.Version}";
+            return base.ToString() + $" {this.Distribucion}";
         }
 
         public static bool operator ==(Linux unlinux, Linux otrolinux)
