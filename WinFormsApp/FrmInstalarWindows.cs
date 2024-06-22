@@ -35,7 +35,7 @@ namespace WinFormsApp
             {
                 string nombre = this.txtNombre.Text.Replace(" ", "");
                 string version = this.txtVersion.Text.Replace(" ", "");
-                double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'));// YA SE VALIDO EN base.validar_datos();
+                double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'),CultureInfo.InvariantCulture);// YA SE VALIDO EN base.validar_datos();
                 EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
                 EEdicionWindows edicion = (EEdicionWindows)this.cboEdicion.SelectedItem;
                 bool virtualizacion = this.checkVirtualizacion.Checked;
