@@ -68,7 +68,12 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return base.ToString() + $" {this.Distribucion}";
+            string interfaz = "sin";
+            if (this.InterfazGrafica == true)
+            {
+                interfaz = "con";
+            }
+            return base.ToString() + $" {this.Distribucion} {interfaz} interfaz gráfica";
         }
 
         public static bool operator ==(Linux unlinux, Linux otrolinux)

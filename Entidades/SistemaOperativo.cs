@@ -42,7 +42,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return $"Sistema operativo {this.Nombre} {this.Version}";
+            return $"Sistema de {this.espacioGB} GB, {this.estadoSoporte}, {this.Nombre} {this.Version}";
         }
 
         public static bool operator ==(SistemaOperativo sistema, SistemaOperativo otroSistema)

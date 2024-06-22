@@ -76,7 +76,17 @@ namespace Entidades
 
         public override string ToString()
         {
-            return base.ToString() + " MacOS";
+            string icloud = "sin";
+            if (this.IntegracionIcloud)
+            {
+                icloud = "con";
+            }
+            string compatibleApple = "incompatible";
+            if (this.compatibleConProcesadorApple)
+            {
+                compatibleApple = "compatible";
+            }
+            return base.ToString() + $" MacOS, {icloud} Icloud, {compatibleApple} con procesador Apple";
         }
         public static bool operator ==(MacOS unMac, MacOS otroMac)
         {

@@ -48,9 +48,9 @@
             elegirUbicacionToolStripMenuItem = new ToolStripMenuItem();
             visualizadorToolStripMenuItem = new ToolStripMenuItem();
             verLogueosToolStripMenuItem = new ToolStripMenuItem();
+            informaciónEspecíficaDelSOToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
-            informaciónEspecíficaDelSOToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             menuOrdenar.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -62,7 +62,7 @@
             menuStrip.Dock = DockStyle.None;
             menuStrip.ImageScalingSize = new Size(24, 24);
             menuStrip.Items.AddRange(new ToolStripItem[] { instalarSsitemaOperativoToolStripMenuItem, modificarSistemaOperativoToolStripMenuItem, eliminarSistemOperativoToolStripMenuItem });
-            menuStrip.Location = new Point(27, 9);
+            menuStrip.Location = new Point(79, 9);
             menuStrip.Name = "menuStrip";
             menuStrip.Size = new Size(709, 33);
             menuStrip.TabIndex = 0;
@@ -114,9 +114,9 @@
             // 
             lstBox.FormattingEnabled = true;
             lstBox.ItemHeight = 25;
-            lstBox.Location = new Point(27, 57);
+            lstBox.Location = new Point(12, 57);
             lstBox.Name = "lstBox";
-            lstBox.Size = new Size(709, 304);
+            lstBox.Size = new Size(845, 304);
             lstBox.TabIndex = 1;
             // 
             // menuOrdenar
@@ -125,7 +125,7 @@
             menuOrdenar.Dock = DockStyle.None;
             menuOrdenar.ImageScalingSize = new Size(24, 24);
             menuOrdenar.Items.AddRange(new ToolStripItem[] { ordenarToolStripMenuItem, ordenarPorGBToolStripMenuItem, guardarSOComoToolStripMenuItem, visualizadorToolStripMenuItem });
-            menuOrdenar.Location = new Point(72, 376);
+            menuOrdenar.Location = new Point(121, 379);
             menuOrdenar.Name = "menuOrdenar";
             menuOrdenar.Size = new Size(788, 33);
             menuOrdenar.TabIndex = 2;
@@ -141,14 +141,14 @@
             // ascendenteAlfabeticamente
             // 
             ascendenteAlfabeticamente.Name = "ascendenteAlfabeticamente";
-            ascendenteAlfabeticamente.Size = new Size(270, 34);
+            ascendenteAlfabeticamente.Size = new Size(216, 34);
             ascendenteAlfabeticamente.Text = "Ascendente";
             ascendenteAlfabeticamente.Click += ascendenteAlfabeticamente_Click;
             // 
             // descendenteAlfabeticamente
             // 
             descendenteAlfabeticamente.Name = "descendenteAlfabeticamente";
-            descendenteAlfabeticamente.Size = new Size(270, 34);
+            descendenteAlfabeticamente.Size = new Size(216, 34);
             descendenteAlfabeticamente.Text = "Descendente";
             descendenteAlfabeticamente.Click += descendenteAlfabeticamente_Click;
             // 
@@ -162,14 +162,14 @@
             // ascendeteGB
             // 
             ascendeteGB.Name = "ascendeteGB";
-            ascendeteGB.Size = new Size(270, 34);
+            ascendeteGB.Size = new Size(216, 34);
             ascendeteGB.Text = "Ascendete";
             ascendeteGB.Click += ascendeteGB_Click;
             // 
             // descendenteGB
             // 
             descendenteGB.Name = "descendenteGB";
-            descendenteGB.Size = new Size(270, 34);
+            descendenteGB.Size = new Size(216, 34);
             descendenteGB.Text = "Descendente";
             descendenteGB.Click += descendenteGB_Click;
             // 
@@ -208,13 +208,20 @@
             verLogueosToolStripMenuItem.Text = "Logueos";
             verLogueosToolStripMenuItem.Click += verLogueosToolStripMenuItem_Click;
             // 
+            // informaciónEspecíficaDelSOToolStripMenuItem
+            // 
+            informaciónEspecíficaDelSOToolStripMenuItem.Name = "informaciónEspecíficaDelSOToolStripMenuItem";
+            informaciónEspecíficaDelSOToolStripMenuItem.Size = new Size(349, 34);
+            informaciónEspecíficaDelSOToolStripMenuItem.Text = "Información específica del SO";
+            informaciónEspecíficaDelSOToolStripMenuItem.Click += informaciónEspecíficaDelSOToolStripMenuItem_Click;
+            // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(24, 24);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
             statusStrip1.Location = new Point(0, 428);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(764, 32);
+            statusStrip1.Size = new Size(869, 32);
             statusStrip1.TabIndex = 3;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -224,18 +231,11 @@
             toolStripStatusLabel.Size = new Size(179, 25);
             toolStripStatusLabel.Text = "toolStripStatusLabel1";
             // 
-            // informaciónEspecíficaDelSOToolStripMenuItem
-            // 
-            informaciónEspecíficaDelSOToolStripMenuItem.Name = "informaciónEspecíficaDelSOToolStripMenuItem";
-            informaciónEspecíficaDelSOToolStripMenuItem.Size = new Size(349, 34);
-            informaciónEspecíficaDelSOToolStripMenuItem.Text = "Información específica del SO";
-            informaciónEspecíficaDelSOToolStripMenuItem.Click += informaciónEspecíficaDelSOToolStripMenuItem_Click;
-            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(764, 460);
+            ClientSize = new Size(869, 460);
             Controls.Add(statusStrip1);
             Controls.Add(lstBox);
             Controls.Add(menuStrip);

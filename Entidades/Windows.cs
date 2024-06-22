@@ -62,7 +62,12 @@ namespace Entidades
         }
         public override string ToString()
         {
-            return base.ToString() + $" {this.Edicion}";
+            string aceptavirtualizacion = "sin";
+            if (this.VirtualizacionPermitida)
+            {
+                aceptavirtualizacion = "con";
+            }
+            return base.ToString() + $" {this.Edicion}, {aceptavirtualizacion} virtualización permitida";
         }
 
         public static bool operator ==(Windows unwindows, Windows otrowindows)
