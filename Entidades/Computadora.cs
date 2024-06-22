@@ -102,7 +102,8 @@ namespace Entidades
         /// </summary>
         public void OrdenarListaAlfabeticamenteDescendente()
         {
-            this.OrdenarListaPorGBAscendente();
+            this.OrdenarListaAlfabeticamenteAscendente();
+            
             this.ListaSistemasOperativos.Reverse();
         }
     }

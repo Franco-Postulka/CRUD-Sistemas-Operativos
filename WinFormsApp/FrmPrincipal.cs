@@ -288,6 +288,7 @@ namespace WinFormsApp
             this.computadora.OrdenarListaAlfabeticamenteAscendente();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
+            MessageBox.Show("Lista ordenada alfabéticamente de manera ascendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -301,6 +302,7 @@ namespace WinFormsApp
             this.computadora.OrdenarListaAlfabeticamenteDescendente();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
+            MessageBox.Show("Lista ordenada alfabéticamente de manera descendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -314,6 +316,7 @@ namespace WinFormsApp
             this.computadora.OrdenarListaPorGBAscendente();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
+            MessageBox.Show("Lista ordenada según GB que ocupa de manera ascendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -327,6 +330,7 @@ namespace WinFormsApp
             this.computadora.OrdenarListaPorGBDescendenete();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
+            MessageBox.Show("Lista ordenada según GB que ocupa de manera descendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
