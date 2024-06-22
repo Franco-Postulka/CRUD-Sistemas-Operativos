@@ -36,6 +36,9 @@ namespace WinFormsApp
             this.toolStripStatusLabel.Text = $" Usuario logueado: {this.usuario.nombre}, fecha: {date.ToString("dd/MM/yyyy")}";
         }
 
+        /// <summary>
+        /// Guarda los datos del usuario que inicio sesion en el archivo .log que gurada esa info (this.rutaUsuariosLogueados)
+        /// </summary>
         private void GuardarDatosUsuario()
         {
             using (StreamWriter writer = new StreamWriter(this.rutaUsuariosLogueados, true))
@@ -184,6 +187,13 @@ namespace WinFormsApp
 
 
 
+        /// <summary>
+        /// Revisa el sistema operativo que se selecciono y segun su tipo (Windows, MacOs o Linux), precompleta
+        /// las clasillas de un fromulario de instalacion segun los atributos del SO seleccionado,
+        /// muestra el formulario y modifica el sistema operativo con la nueva version 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modificarSistemaOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int indice = this.lstBox.SelectedIndex;
@@ -229,6 +239,14 @@ namespace WinFormsApp
 
         }
 
+        /// <summary>
+        /// Recibe un formulario de modificacion (el de instalacion precompletado) y el indice del sistema
+        /// a modificar en la lista de la computadora(clase contenedora)
+        /// Una vez completado el formulario correctamente se modifica el indice de la lista con la nueva version 
+        /// del sitema, se serializa la lista y se actualiza el visor
+        /// </summary>
+        /// <param name="frmInstalar"></param>
+        /// <param name="indice"></param>
         private void ModificarSistema(FrmInstalar frmInstalar, int indice)
         {
             frmInstalar.ShowDialog();
@@ -239,6 +257,12 @@ namespace WinFormsApp
                 this.ActualizarVisor();
             }
         }
+        /// <summary>
+        /// Reutiliza el frmInstalar para modificar atributos de un SO, precompletando las
+        /// casillas del formulario con los atributos del sistema que recibe por parametros.
+        /// </summary>
+        /// <param name="sistema"></param>
+        /// <param name="frmInstalar"></param>
         private void ConfigurarFormularioModificacion(SistemaOperativo sistema, FrmInstalar frmInstalar)
         {
             string nombre = sistema.Nombre;
@@ -253,6 +277,12 @@ namespace WinFormsApp
             frmInstalar.BtnInstalar.Text = "Modificar";
         }
 
+        /// <summary>
+        /// Ordena a lista de SO de manera descendente teniendo en cuenta el atributo Nombre, 
+        /// serializa la lista y actualiza el visor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ascendenteAlfabeticamente_Click(object sender, EventArgs e)
         {
             this.computadora.OrdenarListaAlfabeticamenteAscendente();
@@ -260,6 +290,12 @@ namespace WinFormsApp
             this.ActualizarVisor();
         }
 
+        /// <summary>
+        /// Ordena a lista de SO de manera descendente teniendo en cuenta el atributo Nombre, 
+        /// serializa la lista y actualiza el visor 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void descendenteAlfabeticamente_Click(object sender, EventArgs e)
         {
             this.computadora.OrdenarListaAlfabeticamenteDescendente();
@@ -267,6 +303,12 @@ namespace WinFormsApp
             this.ActualizarVisor();
         }
 
+        /// <summary>
+        /// Ordena a lista de SO de manera ascendente teniendo en cuenta el atributo GB, 
+        /// serializa la lista y actualiza el visor 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ascendeteGB_Click(object sender, EventArgs e)
         {
             this.computadora.OrdenarListaPorGBAscendente();
@@ -274,14 +316,24 @@ namespace WinFormsApp
             this.ActualizarVisor();
         }
 
+        /// <summary>
+        /// Ordena a lista de SO de manera descendente teniendo en cuenta el atributo GB, 
+        /// serializa la lista y actualiza el visor 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void descendenteGB_Click(object sender, EventArgs e)
         {
-
             this.computadora.OrdenarListaPorGBDescendenete();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
         }
 
+        /// <summary>
+        /// Abre cuadro de dialogo para confirmar si sl usuario quiere cerrar o no la app
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Esta seguro que desea cerrar el formulario?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -374,12 +426,22 @@ namespace WinFormsApp
             this.ActualizarVisor();
         }
 
+        /// <summary>
+        /// Abre formulario donde aparecen todos los logueos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void verLogueosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmLogueos frmLogueos = new FrmLogueos();
             frmLogueos.ShowDialog();
         }
 
+        /// <summary>
+        /// Muestra la informacion especifica de un sistema operativo si el usuario selecciono uno
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void informaciónEspecíficaDelSOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int indice = this.lstBox.SelectedIndex;

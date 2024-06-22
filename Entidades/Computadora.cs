@@ -76,6 +76,9 @@ namespace Entidades
             this.ListaSistemasOperativos.Reverse();
         }
 
+        /// <summary>
+        /// Compara los nombres del sistema operativo y los ordena de manera ascendente (de la A a la Z)
+        /// </summary>
         public void OrdenarListaAlfabeticamenteAscendente()
         {
             List<SistemaOperativo> lista = this.ListaSistemasOperativos;
@@ -94,6 +97,9 @@ namespace Entidades
             }
             this.sistemasOperativos = lista;
         }
+        /// <summary>
+        /// Compara los nombres del sistema operativo y los ordena de manera descendente (de la Z a la A)
+        /// </summary>
         public void OrdenarListaAlfabeticamenteDescendente()
         {
             this.OrdenarListaPorGBAscendente();
