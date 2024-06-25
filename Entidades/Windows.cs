@@ -1,4 +1,5 @@
 ﻿using Entidades.Enumerados;
+using System.Runtime.CompilerServices;
 
 namespace Entidades
 {
@@ -90,25 +91,9 @@ namespace Entidades
                 return (this == (Windows)obj);
             }
         }
-
-
-        /// <summary>
-        /// Convierte un Mac a un windows estandar, tomando la version, el espacio y el soporte del mac que convierte
-        /// </summary>
-        /// <param name="mac"></param>
-        public static explicit operator Windows(MacOS mac)
+        public static explicit operator String(Windows windows)
         {
-            Windows windows = new Windows(mac.Version, mac.EspacioGB, mac.Soporte, EEdicionWindows.Home);
-            return windows;
-        }
-        /// <summary>
-        /// Convierte un Linux a un windows estandar, tomando la version, el espacio y el soporte del Linux que convierte
-        /// </summary>
-        /// <param name="mac"></param>
-        public static explicit operator Windows(Linux linux)
-        {
-            Windows windows = new Windows(linux.Version, linux.EspacioGB, linux.Soporte, EEdicionWindows.Home);
-            return windows;
+            return windows.DevolverInformacionEspecifica();
         }
     }
 }

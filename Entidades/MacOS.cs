@@ -109,24 +109,9 @@ namespace Entidades
             }
         }
 
-        /// <summary>
-        /// Convierte un Windows a un MacOS Sonoma (ultimo hasta la fecha)
-        /// </summary>
-        /// <param name="windows"></param>
-        public static explicit operator MacOS(Windows windows)
+        public static explicit operator String(MacOS mac)
         {
-            MacOS mac = new MacOS("Sonoma",windows.Version,windows.EspacioGB,windows.Soporte);
-            return mac;
-        }
-
-        /// <summary>
-        /// Convierte un Linux a un MacOS Sonoma (ultimo hasta la fecha)
-        /// </summary>
-        /// <param name="windows"></param>
-        public static explicit operator MacOS(Linux linux)
-        {
-            MacOS mac = new MacOS("Sonoma", linux.Version, linux.EspacioGB, linux.Soporte);
-            return mac;
+            return mac.DevolverInformacionEspecifica();
         }
     }
 }

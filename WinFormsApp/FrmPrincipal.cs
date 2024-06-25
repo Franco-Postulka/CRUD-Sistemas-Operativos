@@ -456,7 +456,8 @@ namespace WinFormsApp
             else
             {
                 SistemaOperativo sistema = computadora.ListaSistemasOperativos[indice];
-                MessageBox.Show(sistema.DevolverInformacionEspecifica(), "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string info = (string)sistema; //Explicit usado en cada clase para usar el metodo DevolverInformacionEspecifica()
+                MessageBox.Show(info, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

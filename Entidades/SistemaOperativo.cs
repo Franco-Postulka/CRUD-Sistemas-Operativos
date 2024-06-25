@@ -65,5 +65,10 @@ namespace Entidades
                 return (this == (SistemaOperativo)obj);
             }
         }
+
+        public static explicit operator String(SistemaOperativo sistema)
+        {
+            return sistema.DevolverInformacionEspecifica();
+        }
     }
 }

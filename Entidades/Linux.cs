@@ -98,24 +98,9 @@ namespace Entidades
             }
         }
 
-
-        /// <summary>
-        /// Convierte un MacOS a un Linux de tipo Ubuntu
-        /// </summary>
-        /// <param name="mac"></param>
-        public static explicit operator Linux(MacOS mac)
+        public static explicit operator String(Linux linux)
         {
-            Linux linux = new Linux(mac.Version,mac.EspacioGB,mac.Soporte,EDistribucionLinux.Ubuntu);
-            return linux;
-        }
-        /// <summary>
-        /// Convierte un Windows a un Linux de tipo Ubuntu
-        /// </summary>
-        /// <param name="mac"></param>
-        public static explicit operator Linux(Windows windows)
-        {
-            Linux linux = new Linux(windows.Version, windows.EspacioGB, windows.Soporte, EDistribucionLinux.Ubuntu);
-            return linux;
+            return linux.DevolverInformacionEspecifica();
         }
     }
 }
