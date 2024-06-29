@@ -64,7 +64,7 @@
             menuStrip.Items.AddRange(new ToolStripItem[] { instalarSsitemaOperativoToolStripMenuItem, modificarSistemaOperativoToolStripMenuItem, eliminarSistemOperativoToolStripMenuItem });
             menuStrip.Location = new Point(79, 9);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(709, 33);
+            menuStrip.Size = new Size(724, 33);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip1";
             // 
@@ -72,27 +72,27 @@
             // 
             instalarSsitemaOperativoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { instalarWindowsToolStripMenuItem, instalarMacOSToolStripMenuItem, instalarLinuxToolStripMenuItem });
             instalarSsitemaOperativoToolStripMenuItem.Name = "instalarSsitemaOperativoToolStripMenuItem";
-            instalarSsitemaOperativoToolStripMenuItem.Size = new Size(220, 29);
-            instalarSsitemaOperativoToolStripMenuItem.Text = "Instalar sitema sperativo";
+            instalarSsitemaOperativoToolStripMenuItem.Size = new Size(231, 29);
+            instalarSsitemaOperativoToolStripMenuItem.Text = "Instalar sistema operativo";
             // 
             // instalarWindowsToolStripMenuItem
             // 
             instalarWindowsToolStripMenuItem.Name = "instalarWindowsToolStripMenuItem";
-            instalarWindowsToolStripMenuItem.Size = new Size(250, 34);
+            instalarWindowsToolStripMenuItem.Size = new Size(270, 34);
             instalarWindowsToolStripMenuItem.Text = "Instalar Windows";
             instalarWindowsToolStripMenuItem.Click += instalarWindowsToolStripMenuItem_Click;
             // 
             // instalarMacOSToolStripMenuItem
             // 
             instalarMacOSToolStripMenuItem.Name = "instalarMacOSToolStripMenuItem";
-            instalarMacOSToolStripMenuItem.Size = new Size(250, 34);
+            instalarMacOSToolStripMenuItem.Size = new Size(270, 34);
             instalarMacOSToolStripMenuItem.Text = "Instalar MacOS";
             instalarMacOSToolStripMenuItem.Click += instalarMacOSToolStripMenuItem_Click;
             // 
             // instalarLinuxToolStripMenuItem
             // 
             instalarLinuxToolStripMenuItem.Name = "instalarLinuxToolStripMenuItem";
-            instalarLinuxToolStripMenuItem.Size = new Size(250, 34);
+            instalarLinuxToolStripMenuItem.Size = new Size(270, 34);
             instalarLinuxToolStripMenuItem.Text = "Instalar Linux";
             instalarLinuxToolStripMenuItem.Click += instalarLinuxToolStripMenuItem_Click;
             // 
@@ -106,8 +106,8 @@
             // eliminarSistemOperativoToolStripMenuItem
             // 
             eliminarSistemOperativoToolStripMenuItem.Name = "eliminarSistemOperativoToolStripMenuItem";
-            eliminarSistemOperativoToolStripMenuItem.Size = new Size(232, 29);
-            eliminarSistemOperativoToolStripMenuItem.Text = "Eliminar Sistem Operativo";
+            eliminarSistemOperativoToolStripMenuItem.Size = new Size(236, 29);
+            eliminarSistemOperativoToolStripMenuItem.Text = "Eliminar sistema operativo";
             eliminarSistemOperativoToolStripMenuItem.Click += eliminarSistemOperativoToolStripMenuItem_Click;
             // 
             // lstBox
@@ -141,14 +141,14 @@
             // ascendenteAlfabeticamente
             // 
             ascendenteAlfabeticamente.Name = "ascendenteAlfabeticamente";
-            ascendenteAlfabeticamente.Size = new Size(216, 34);
+            ascendenteAlfabeticamente.Size = new Size(270, 34);
             ascendenteAlfabeticamente.Text = "Ascendente";
             ascendenteAlfabeticamente.Click += ascendenteAlfabeticamente_Click;
             // 
             // descendenteAlfabeticamente
             // 
             descendenteAlfabeticamente.Name = "descendenteAlfabeticamente";
-            descendenteAlfabeticamente.Size = new Size(216, 34);
+            descendenteAlfabeticamente.Size = new Size(270, 34);
             descendenteAlfabeticamente.Text = "Descendente";
             descendenteAlfabeticamente.Click += descendenteAlfabeticamente_Click;
             // 
@@ -184,14 +184,14 @@
             // 
             ubicacionPredeterminadaToolStripMenuItem.Name = "ubicacionPredeterminadaToolStripMenuItem";
             ubicacionPredeterminadaToolStripMenuItem.Size = new Size(322, 34);
-            ubicacionPredeterminadaToolStripMenuItem.Text = "Ubicacion predeterminada";
+            ubicacionPredeterminadaToolStripMenuItem.Text = "Ubicación predeterminada";
             ubicacionPredeterminadaToolStripMenuItem.Click += ubicacionPredeterminadaToolStripMenuItem_Click;
             // 
             // elegirUbicacionToolStripMenuItem
             // 
             elegirUbicacionToolStripMenuItem.Name = "elegirUbicacionToolStripMenuItem";
             elegirUbicacionToolStripMenuItem.Size = new Size(322, 34);
-            elegirUbicacionToolStripMenuItem.Text = "Elegir ubicacion ";
+            elegirUbicacionToolStripMenuItem.Text = "Elegir ubicación ";
             elegirUbicacionToolStripMenuItem.Click += elegirUbicacionToolStripMenuItem_Click;
             // 
             // visualizadorToolStripMenuItem

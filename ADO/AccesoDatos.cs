@@ -72,7 +72,7 @@ namespace ADO
                 this.comando = new SqlCommand();
 
                 this.comando.CommandType = CommandType.Text;
-                this.comando.CommandText = "SELECT id, nombre, version, espacioGB, estadoSoporte, edicion, virtualizacionPermitida, distribucion, interfazGrafica, integracionIcloud, compatibleConProcesadorApple FROM tabla";
+                this.comando.CommandText = "SELECT id, nombre, version, espacioGB, estadoSoporte, tipo, edicion, virtualizacionPermitida, distribucion, interfazGrafica, integracionIcloud, compatibleConProcesadorApple FROM tabla";
                 this.comando.Connection = this.conexion;
 
                 this.conexion.Open();
@@ -89,7 +89,7 @@ namespace ADO
                             Windows windows = new Windows();
                             windows.Nombre = lector["nombre"].ToString();
                             windows.Version = lector["version"].ToString();
-                            windows.EspacioGB = (float)lector["espacioGB"];
+                            windows.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
                             windows.Soporte = (EEstadoSoporte)lector["estadoSoporte"];
                             windows.Edicion = (EEdicionWindows)lector["edicion"];
                             windows.VirtualizacionPermitida = (bool)lector["virtualizacionPermitida"];
@@ -101,7 +101,7 @@ namespace ADO
                             MacOS mac = new MacOS();
                             mac.Nombre = lector["nombre"].ToString();
                             mac.Version = lector["version"].ToString();
-                            mac.EspacioGB = (float)lector["espacioGB"];
+                            mac.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
                             mac.Soporte = (EEstadoSoporte)lector["estadoSoporte"];
                             mac.CompatibleConProcesadorApple = (bool)lector["compatibleConProcesadorApple"];
                             mac.IntegracionIcloud = (bool)lector["integracionIcloud"];
@@ -112,7 +112,7 @@ namespace ADO
                             Linux sistema = new Linux();
                             sistema.Nombre = lector["nombre"].ToString();
                             sistema.Version = lector["version"].ToString();
-                            sistema.EspacioGB = (float)lector["espacioGB"];
+                            sistema.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
                             sistema.Soporte = (EEstadoSoporte)lector["estadoSoporte"];
                             sistema.Distribucion = (EDistribucionLinux)lector["distribucion"];
                             sistema.InterfazGrafica = (bool)lector["interfazGrafica"];

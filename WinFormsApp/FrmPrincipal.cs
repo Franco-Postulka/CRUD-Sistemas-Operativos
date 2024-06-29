@@ -54,6 +54,11 @@ namespace WinFormsApp
         }
         private void ActualizarVisor()
         {
+            ////////////////////////////////
+            List<SistemaOperativo> sistemas = this.RetornarListaDB();
+            this.SerializarLista(sistemas);
+            ////////////////////////////////
+
             this.lstBox.Items.Clear();
             if (File.Exists(this.xmlpath))
             {
@@ -89,10 +94,20 @@ namespace WinFormsApp
             }
         }
 
+        /// <summary>
+        /// Guarda un SO en la DB
+        /// </summary>
+        /// <param name="sistema"></param>
         private void GuardarEnDB(SistemaOperativo sistema)
         {
             AccesoDatos acceso = new AccesoDatos(); 
             acceso.AgregarSistema(sistema);
+        }
+        private List<SistemaOperativo> RetornarListaDB()
+        {
+            AccesoDatos acceso = new AccesoDatos();
+            List<SistemaOperativo> sistemas =  acceso.ObtenerListaSistemas();
+            return sistemas;
         }
 
         /// <summary>
