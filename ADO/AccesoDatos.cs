@@ -141,50 +141,77 @@ namespace ADO
 
         #region Insert
 
-        //public bool AgregarDato(Dato param)
-        //{
-        //    bool rta = true;
+        public bool AgregarDato(SistemaOperativo sistema)
+        {
+            bool rta = true;
 
-        //    try
-        //    {
-        //        //string sql = "INSERT INTO dato (cadena, entero, flotante) VALUES(";
-        //        //sql = sql + "'" + param.cadena + "'," + param.entero.ToString() + "," + param.flotante.ToString() + ")";
-        //        this.comando = new SqlCommand();
+            try
+            {
+                this.comando = new SqlCommand();
+                string sql;
 
-        //        this.comando.Parameters.AddWithValue("@cadena", param.cadena);
-        //        this.comando.Parameters.AddWithValue("@entero", param.entero);
-        //        this.comando.Parameters.AddWithValue("@flotante", param.flotante);
+                this.comando.Parameters.AddWithValue("@nombre", sistema.Nombre);
+                this.comando.Parameters.AddWithValue("@version", sistema.Version);
+                this.comando.Parameters.AddWithValue("@espacioGB", sistema.EspacioGB);
+                this.comando.Parameters.AddWithValue("@estadoSoporte", (int)sistema.Soporte);
+                sql = "INSERT INTO tabla (nombre, version, espacioGB, estadoSoporte) VALUES (@nombre, @version, @espacioGB, @estadoSoporte)";
 
-        //        string sql = "INSERT INTO dato (cadena, entero, flotante) VALUES (@cadena, @entero, @flotante)";
+                if (sistema.GetType() == typeof(Windows))
+                {
+                    Windows windows = (Windows)sistema;
+                    this.comando.Parameters.AddWithValue("@edicion", (int)windows.Edicion);
+                    this.comando.Parameters.AddWithValue("@virtualizacionPermitida", windows.VirtualizacionPermitida);
 
-        //        this.comando.CommandType = CommandType.Text;
-        //        this.comando.CommandText = sql;
-        //        this.comando.Connection = this.conexion;
+                    sql = "INSERT INTO tabla (nombre, version, espacioGB, estadoSoporte, edicion, virtualizacionPermitida) VALUES (@nombre, @version, @espacioGB, @estadoSoporte, @edicion, @virtualizacionPermitida)";
 
-        //        this.conexion.Open();
+                }
+                else if(sistema.GetType() == typeof(Linux))
+                {
+                    Linux linux = (Linux)sistema;
+                    this.comando.Parameters.AddWithValue("@distribucion", (int)linux.Distribucion);
+                    this.comando.Parameters.AddWithValue("@interfazGrafica", linux.InterfazGrafica);
 
-        //        int filasAfectadas = this.comando.ExecuteNonQuery();
+                    sql = "INSERT INTO tabla (nombre, version, espacioGB, estadoSoporte, distribucion, interfazGrafica) VALUES (@nombre, @version, @espacioGB, @estadoSoporte, @distribucion, @interfazGrafica)";
 
-        //        if (filasAfectadas == 0)
-        //        {
-        //            rta = false;
-        //        }
+                }
+                else if (sistema.GetType() == typeof(MacOS))
+                {
+                    MacOS mac = (MacOS)sistema;
+                    this.comando.Parameters.AddWithValue("@integracionIcloud", mac.IntegracionIcloud);
+                    this.comando.Parameters.AddWithValue("@compatibleConProcesadorApple", mac.CompatibleConProcesadorApple);
 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        rta = false;
-        //    }
-        //    finally
-        //    {
-        //        if (this.conexion.State == ConnectionState.Open)
-        //        {
-        //            this.conexion.Close();
-        //        }
-        //    }
+                    sql = "INSERT INTO tabla (nombre, version, espacioGB, estadoSoporte, integracionIcloud, compatibleConProcesadorApple) VALUES (@nombre, @version, @espacioGB, @estadoSoporte, @integracionIcloud, @compatibleConProcesadorApple)";
 
-        //    return rta;
-        //}
+                }
+
+                this.comando.CommandType = CommandType.Text;
+                this.comando.CommandText = sql;
+                this.comando.Connection = this.conexion;
+
+                this.conexion.Open();
+
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
+            return rta;
+        }
 
         //#endregion
 
