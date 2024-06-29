@@ -354,6 +354,52 @@ namespace ADO
 
         #endregion
 
+
+        #region UObtenerID
+        /// <summary>
+        /// Devuelve el ultimo ID generado en la tabla de la base de datos, si no se creo ningun objeto
+        /// devuleve un 0, Si tuvo excepciones devulve -1
+        /// </summary>
+        /// <returns></returns>
+        public int ObtenerUltimoIdGenerado()
+        {
+            int ultimoId;
+
+            try
+            {
+                string sql = "SELECT IDENT_CURRENT('tabla')";
+
+                this.comando = new SqlCommand(sql, this.conexion);
+
+                this.conexion.Open();
+                object result = comando.ExecuteScalar();
+                if (result != DBNull.Value) // representa un valor nulo de la base de datos 
+                {
+                    ultimoId = Convert.ToInt32(result);
+                }
+                else
+                {
+                    ultimoId = 0;
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                ultimoId = -1;
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
+            return ultimoId;
+        }
+
+        #endregion
         #endregion
     }
 }

@@ -1,3 +1,4 @@
+using ADO;
 using Entidades;
 using Entidades.Enumerados;
 using System.Text;
@@ -26,7 +27,9 @@ namespace WinFormsApp
         {
             InitializeComponent();
             this.IsMdiContainer = true;
-            this.computadora = new Computadora();
+            AccesoDatos acceso = new AccesoDatos();
+            int id = acceso.ObtenerUltimoIdGenerado();
+            this.computadora = new Computadora(id);
             this.xmlpath = DevolverPathSerializacion();
             ActualizarVisor();
 
@@ -84,7 +87,12 @@ namespace WinFormsApp
             {
                 MessageBox.Show($"Error inesperado: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void GuardarEnDB(SistemaOperativo sistema)
+        {
+            AccesoDatos acceso = new AccesoDatos(); 
+            acceso.AgregarSistema(sistema);
         }
 
         /// <summary>
@@ -139,6 +147,7 @@ namespace WinFormsApp
         {
             this.computadora += frmInstalar.SistemaOperativo;
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.GuardarEnDB(frmInstalar.SistemaOperativo);
             this.ActualizarVisor();
         }
         /// <summary>

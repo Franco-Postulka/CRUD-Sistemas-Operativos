@@ -5,16 +5,19 @@ namespace Entidades
     public class Computadora
     {
         private List<SistemaOperativo> sistemasOperativos;
+        private int id;
 
         public List<SistemaOperativo> ListaSistemasOperativos
         {
             get { return this.sistemasOperativos; }
             set { this.sistemasOperativos = value; }
         }
+        public int ID { get { return this.id; } set {  this.id = value; } }
 
-        public Computadora()
+        public Computadora(int id)
         {
             this.sistemasOperativos = new List<SistemaOperativo>();
+            this.id = id;
         }
 
         public static bool operator ==(Computadora computadora, SistemaOperativo unsistema)
@@ -35,8 +38,19 @@ namespace Entidades
             return !(computadora == unsistema);
         }
 
+        /// <summary>
+        /// Agrega un sistema a la lista de computadores, incrementa el ID de la compu
+        /// (para que sea paralelo a l DB) y le asigna el ID al sistema
+        /// </summary>
+        /// <param name="computadora"></param>
+        /// <param name="unsistema"></param>
+        /// <returns></returns>
         public static Computadora operator +(Computadora computadora, SistemaOperativo unsistema)
         {
+            //aumentar el id estatico
+            computadora.id += 1;
+            //Agregar el atributo id al sistema
+            unsistema.Id = computadora.id;
             if (computadora != unsistema)
             {
                 computadora.sistemasOperativos.Add(unsistema);
