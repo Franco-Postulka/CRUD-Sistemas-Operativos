@@ -115,6 +115,11 @@ namespace WinFormsApp
             acceso.ModificarSistema(sistema);
         }
 
+        private void BorrarSistemaEnDB(SistemaOperativo sistema)
+        {
+            AccesoDatos acceso = new AccesoDatos();
+            acceso.EliminarSistema(sistema.Id);
+        }
         /// <summary>
         /// Deserializa el xml con la lista de SO y actualiza la lista de SO del atributo computadora.
         /// </summary>
@@ -152,6 +157,7 @@ namespace WinFormsApp
                 {
                     SistemaOperativo sistemaOperativo = this.computadora.ListaSistemasOperativos[indice];
                     this.computadora -= sistemaOperativo;
+                    this.BorrarSistemaEnDB(sistemaOperativo);
                     SerializarLista(this.Computadora.ListaSistemasOperativos);
                     ActualizarVisor();
                 }
