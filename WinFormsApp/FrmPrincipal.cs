@@ -54,11 +54,10 @@ namespace WinFormsApp
         }
         private void ActualizarVisor()
         {
-            ////////////////////////////////
-            List<SistemaOperativo> sistemas = this.RetornarListaDB();
-            this.SerializarLista(sistemas);
-            ////////////////////////////////
-
+            //////////////////////////
+            List<SistemaOperativo> lista = this.RetornarListaDB();
+            this.SerializarLista(lista);
+            ///////////////////////////
             this.lstBox.Items.Clear();
             if (File.Exists(this.xmlpath))
             {
@@ -108,6 +107,12 @@ namespace WinFormsApp
             AccesoDatos acceso = new AccesoDatos();
             List<SistemaOperativo> sistemas =  acceso.ObtenerListaSistemas();
             return sistemas;
+        }
+
+        private void ModificarSistemaEnDB(SistemaOperativo sistema)
+        {
+            AccesoDatos acceso = new AccesoDatos();
+            acceso.ModificarSistema(sistema);
         }
 
         /// <summary>
@@ -228,6 +233,7 @@ namespace WinFormsApp
             else
             {
                 SistemaOperativo sistema = computadora.ListaSistemasOperativos[indice];
+                int id = sistema.Id;
                 if (sistema.GetType() == typeof(Windows))
                 {
                     Windows windows = (Windows)sistema;
@@ -237,7 +243,7 @@ namespace WinFormsApp
                     frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
                     frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion;
 
-                    ModificarSistema(frmInstalarWindows, indice);
+                    ModificarSistema(frmInstalarWindows, indice, id);
                 }
                 else if (sistema.GetType() == typeof(MacOS))
                 {
@@ -247,7 +253,7 @@ namespace WinFormsApp
                     frmInstalarMac.CheckIntegracionIcloud.Checked = mac.IntegracionIcloud;
                     frmInstalarMac.CheckCompatibleApple.Checked = mac.CompatibleConProcesadorApple;
 
-                    ModificarSistema(frmInstalarMac, indice);
+                    ModificarSistema(frmInstalarMac, indice, id);
                 }
                 else if (sistema.GetType() == typeof(Linux))
                 {
@@ -257,7 +263,7 @@ namespace WinFormsApp
                     frmInstalarLinux.CheckInterfazGrafica.Checked = linux.InterfazGrafica;
                     frmInstalarLinux.CboDistribucion.SelectedItem = linux.Distribucion;
 
-                    ModificarSistema(frmInstalarLinux, indice);
+                    ModificarSistema(frmInstalarLinux, indice, id);
                 }
             }
 
@@ -271,13 +277,15 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="frmInstalar"></param>
         /// <param name="indice"></param>
-        private void ModificarSistema(FrmInstalar frmInstalar, int indice)
+        private void ModificarSistema(FrmInstalar frmInstalar, int indice, int id)
         {
             frmInstalar.ShowDialog();
             if (frmInstalar.DialogResult == DialogResult.OK)
             {
+                frmInstalar.SistemaOperativo.Id = id;
                 this.computadora.ListaSistemasOperativos[indice] = frmInstalar.SistemaOperativo;
                 this.SerializarLista(this.computadora.ListaSistemasOperativos);
+                this.ModificarSistemaEnDB(frmInstalar.SistemaOperativo);
                 this.ActualizarVisor();
             }
         }

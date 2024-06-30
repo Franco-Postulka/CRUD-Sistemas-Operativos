@@ -87,6 +87,7 @@ namespace ADO
                         case 0:
                             //windows
                             Windows windows = new Windows();
+                            windows.Id = (int)lector["id"];
                             windows.Nombre = lector["nombre"].ToString();
                             windows.Version = lector["version"].ToString();
                             windows.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
@@ -99,6 +100,7 @@ namespace ADO
 
                             //mac
                             MacOS mac = new MacOS();
+                            mac.Id = (int)lector["id"];
                             mac.Nombre = lector["nombre"].ToString();
                             mac.Version = lector["version"].ToString();
                             mac.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
@@ -109,14 +111,15 @@ namespace ADO
                             break;
                         case 2:
                             //linux
-                            Linux sistema = new Linux();
-                            sistema.Nombre = lector["nombre"].ToString();
-                            sistema.Version = lector["version"].ToString();
-                            sistema.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
-                            sistema.Soporte = (EEstadoSoporte)lector["estadoSoporte"];
-                            sistema.Distribucion = (EDistribucionLinux)lector["distribucion"];
-                            sistema.InterfazGrafica = (bool)lector["interfazGrafica"];
-                            lista.Add(sistema);
+                            Linux linux = new Linux();
+                            linux.Id = (int)lector["id"];
+                            linux.Nombre = lector["nombre"].ToString();
+                            linux.Version = lector["version"].ToString();
+                            linux.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
+                            linux.Soporte = (EEstadoSoporte)lector["estadoSoporte"];
+                            linux.Distribucion = (EDistribucionLinux)lector["distribucion"];
+                            linux.InterfazGrafica = (bool)lector["interfazGrafica"];
+                            lista.Add(linux);
                             break;
 
                     }
@@ -240,6 +243,7 @@ namespace ADO
                 this.comando.Parameters.AddWithValue("@version", sistema.Version);
                 this.comando.Parameters.AddWithValue("@espacioGB", sistema.EspacioGB);
                 this.comando.Parameters.AddWithValue("@estadoSoporte", (int)sistema.Soporte);
+                this.comando.Parameters.AddWithValue("@id", sistema.Id);
 
                 string sql = "UPDATE tabla ";
                 sql += "SET nombre = @nombre, version = @version, espacioGB = @espacioGB, estadoSoporte = @estadoSoporte ";
@@ -275,7 +279,7 @@ namespace ADO
 
                 }
 
-                sql += "WHERE id = @id";
+                sql += " WHERE id = @id";
 
                 this.comando.CommandType = CommandType.Text;
                 this.comando.CommandText = sql;
