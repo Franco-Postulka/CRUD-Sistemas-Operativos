@@ -54,10 +54,6 @@ namespace WinFormsApp
         }
         private void ActualizarVisor()
         {
-            //////////////////////////
-            List<SistemaOperativo> lista = this.RetornarListaDB();
-            this.SerializarLista(lista);
-            ///////////////////////////
             this.lstBox.Items.Clear();
             if (File.Exists(this.xmlpath))
             {
@@ -166,7 +162,7 @@ namespace WinFormsApp
 
         /// <summary>
         /// Recibe un formulario de instalacion, actualiza la lista del atributo computadora,
-        /// serializa la lsita y actualiza el visor
+        /// serializa la lista y actualiza el visor
         /// </summary>
         /// <param name="frmInstalar"></param>
         private void ActualizarListas(FrmInstalar frmInstalar)
