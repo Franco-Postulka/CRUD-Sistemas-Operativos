@@ -19,6 +19,18 @@ namespace WinFormsApp
         private Usuario usuario;
         private string rutaUsuariosLogueados = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "usuarios.log");
 
+        //Declaro delegado para manejar el evento 
+        public delegate void SistemaNoSeleccionadoEventHandler(object sender, EventArgs e);
+
+        //Declaro el evento usando el delegado
+        public event SistemaNoSeleccionadoEventHandler SistemaNoSeleccionado;
+
+        //Declaro el metodo que dispara el evento
+        private void OnSistemaNoSeleccionado(EventArgs e)
+        {
+            SistemaNoSeleccionado.Invoke(this, e);
+        }
+
         public Computadora Computadora
         {
             get { return this.computadora; }
@@ -38,6 +50,19 @@ namespace WinFormsApp
             DateTime date = DateTime.Now;
             GuardarDatosUsuario();
             this.toolStripStatusLabel.Text = $" Usuario logueado: {this.usuario.nombre}, fecha: {date.ToString("dd/MM/yyyy")}";
+
+            //El metodo receptor se suscribe al evento.
+            this.SistemaNoSeleccionado += new SistemaNoSeleccionadoEventHandler(Receptor_SistemaNoSeleccionado);
+        }
+
+        /// <summary>
+        /// Suscriptor al evento SistemaNoSeleccionado, cuando se lanza el evento, se ejecuta.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Receptor_SistemaNoSeleccionado(object sender, EventArgs e)
+        {
+            MessageBox.Show("Debe seleccionar un SO para poder realizar esta acción.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -155,12 +180,18 @@ namespace WinFormsApp
             }
         }
 
+        /// <summary>
+        /// Eelimina el sistema seleccionado, si no se selecciono ninguno lanza el evento SistemaNoSeleccionado
+        /// en el metodo OnSistemaNoSeleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void eliminarSistemOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int indice = this.lstBox.SelectedIndex;
             if (indice == -1)
             {
-                MessageBox.Show("Debe seleccionar un SO para poder eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.OnSistemaNoSeleccionado(EventArgs.Empty);
             }
             else
             {
@@ -245,7 +276,8 @@ namespace WinFormsApp
         /// <summary>
         /// Revisa el sistema operativo que se selecciono y segun su tipo (Windows, MacOs o Linux), precompleta
         /// las clasillas de un fromulario de instalacion segun los atributos del SO seleccionado,
-        /// muestra el formulario y modifica el sistema operativo con la nueva version 
+        /// muestra el formulario y modifica el sistema operativo con la nueva version.
+        /// Si no se seleccionó ningun sistema lanza el evento SistemaNoSeleccionado en el metodo OnSistemaNoSeleccionado
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -254,7 +286,7 @@ namespace WinFormsApp
             int indice = this.lstBox.SelectedIndex;
             if (indice == -1)
             {
-                MessageBox.Show("Debe seleccionar un SO para poder modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.OnSistemaNoSeleccionado(EventArgs.Empty);
             }
             else
             {
