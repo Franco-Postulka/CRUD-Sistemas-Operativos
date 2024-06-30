@@ -2,6 +2,7 @@ using ADO;
 using Entidades;
 using Entidades.Enumerados;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -173,6 +174,14 @@ namespace WinFormsApp
                     ActualizarVisor();
                 }
             }
+            //if(this.usuario.perfil == "administrador")
+            //{
+            //}
+            //else
+            //{
+            //    MessageBox.Show($"Solo los perfiles de administrador pueden eliminar, usted es {this.usuario.perfil}.",
+            //        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
 
         /// <summary>
@@ -365,7 +374,7 @@ namespace WinFormsApp
             this.computadora.OrdenarListaPorGBAscendente();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
-            MessageBox.Show("Lista ordenada según GB que ocupa de manera ascendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Lista ordenada según GB de manera ascendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -379,7 +388,7 @@ namespace WinFormsApp
             this.computadora.OrdenarListaPorGBDescendenete();
             this.SerializarLista(this.computadora.ListaSistemasOperativos);
             this.ActualizarVisor();
-            MessageBox.Show("Lista ordenada según GB que ocupa de manera descendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Lista ordenada según GB de manera descendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>

@@ -66,59 +66,36 @@ namespace Entidades
             return computadora;
         }
 
-        public void OrdenarListaPorGBAscendente()
+        /// <summary>
+        /// Recibe un Delegado Comparison y ordena la lista usando el metodo Sort(comparison)
+        /// </summary>
+        /// <param name="comparison"></param>
+        public void OrdenarLista(Comparison<SistemaOperativo> comparison)
         {
             List<SistemaOperativo> lista = this.ListaSistemasOperativos;
-            for (int i = 0; i < lista.Count - 1; i++)
-            {
-                for (int j = i + 1; j < lista.Count; j++)
-                {
-                    if (lista[i].EspacioGB > lista[j].EspacioGB)
-                    {
-                        SistemaOperativo sistemai = lista[i];
-                        lista[i] = lista[j];
-                        lista[j] = sistemai;
-                    }
-                }
-            }
+            lista.Sort(comparison);
             this.sistemasOperativos = lista;
         }
 
-        public void OrdenarListaPorGBDescendenete()
+        public void OrdenarListaPorGBAscendente() 
         {
-            this.OrdenarListaPorGBAscendente();
-            this.ListaSistemasOperativos.Reverse();
+            Comparison<SistemaOperativo> comparison = (SistemaOperativo s1,SistemaOperativo s2) => s1.EspacioGB.CompareTo(s2.EspacioGB);
+            OrdenarLista(comparison);
         }
-
-        /// <summary>
-        /// Compara los nombres del sistema operativo y los ordena de manera ascendente (de la A a la Z)
-        /// </summary>
+        public void OrdenarListaPorGBDescendenete() 
+        {
+            Comparison<SistemaOperativo> comparison = (SistemaOperativo s1, SistemaOperativo s2) => s2.EspacioGB.CompareTo(s1.EspacioGB);
+            OrdenarLista(comparison);
+        }
         public void OrdenarListaAlfabeticamenteAscendente()
         {
-            List<SistemaOperativo> lista = this.ListaSistemasOperativos;
-            for (int i = 0; i < lista.Count - 1; i++)
-            {
-                for (int j = i + 1; j < lista.Count; j++)
-                {
-                    int comparacion = String.Compare(lista[i].Nombre, lista[j].Nombre);
-                    if (comparacion > 0) //el primer string va despues alfabeticamente
-                    {
-                        SistemaOperativo sistemai = lista[i];
-                        lista[i] = lista[j];
-                        lista[j] = sistemai;
-                    }
-                }
-            }
-            this.sistemasOperativos = lista;
+            Comparison<SistemaOperativo> comparison = (SistemaOperativo s1, SistemaOperativo s2) => String.Compare(s1.Nombre, s2.Nombre);
+            OrdenarLista(comparison);
         }
-        /// <summary>
-        /// Compara los nombres del sistema operativo y los ordena de manera descendente (de la Z a la A)
-        /// </summary>
-        public void OrdenarListaAlfabeticamenteDescendente()
+        public void OrdenarListaAlfabeticamenteDescendente() 
         {
-            this.OrdenarListaAlfabeticamenteAscendente();
-            
-            this.ListaSistemasOperativos.Reverse();
+            Comparison<SistemaOperativo> comparison = (SistemaOperativo s1, SistemaOperativo s2) => String.Compare(s2.Nombre, s1.Nombre);
+            OrdenarLista(comparison);
         }
     }
 }
