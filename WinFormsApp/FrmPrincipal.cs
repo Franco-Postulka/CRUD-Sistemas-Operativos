@@ -115,20 +115,6 @@ namespace WinFormsApp
             }
         }
 
-        /// <summary>
-        /// Guarda un SO en la DB
-        /// </summary>
-        /// <param name="sistema"></param>
-        private void GuardarEnDB(SistemaOperativo sistema)
-        {
-            AccesoDatos acceso = new AccesoDatos(); 
-            bool agregado_correcto = acceso.AgregarSistema(sistema);
-            if (!agregado_correcto)
-            {
-                MessageBox.Show($"El sistema operativo no se agregó correctamente en la base de datos",
-                    "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private List<SistemaOperativo> RetornarListaDB()
         {
             AccesoDatos acceso = new AccesoDatos();
@@ -136,26 +122,62 @@ namespace WinFormsApp
             return sistemas;
         }
 
+        /// <summary>
+        /// Guarda un SO en la DB
+        /// </summary>
+        /// <param name="sistema"></param>
+        private void GuardarEnDB(SistemaOperativo sistema)
+        {
+            Task.Run(() =>
+            {
+                AccesoDatos acceso = new AccesoDatos();
+                bool agregado_correcto = acceso.AgregarSistema(sistema);
+                if (!agregado_correcto)
+                {
+                    //Como quiero afectar la interfaz, invoco la accion desde mi hilo principal(this)
+                    this.Invoke(new Action(() =>
+                    {
+                        MessageBox.Show($"El sistema operativo no se agregó correctamente en la base de datos",
+                            "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }));
+                }
+            });
+        }
+
         private void ModificarSistemaEnDB(SistemaOperativo sistema)
         {
-            AccesoDatos acceso = new AccesoDatos();
-            bool modificado_correcto = acceso.ModificarSistema(sistema);
-            if (!modificado_correcto)
+            Task.Run(() =>
             {
-                MessageBox.Show($"El sistema operativo no se modificó correctamente en la base de datos",
-                    "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                AccesoDatos acceso = new AccesoDatos();
+                bool modificado_correcto = acceso.ModificarSistema(sistema);
+                if (!modificado_correcto)
+                {
+                    //Como quiero afectar la interfaz, invoco la accion desde mi hilo principal(this)
+                    this.Invoke(new Action(() =>
+                    {
+                        MessageBox.Show($"El sistema operativo no se modificó correctamente en la base de datos",
+                            "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }));
+                }
+            });
         }
 
         private void BorrarSistemaEnDB(SistemaOperativo sistema)
         {
-            AccesoDatos acceso = new AccesoDatos();
-            bool borrado_correcto = acceso.EliminarSistema(sistema.Id);
-            if (!borrado_correcto) 
+            Task.Run(() =>
             {
-                MessageBox.Show($"El sistema operativo no se borró correctamente en la base de datos",
-                    "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                AccesoDatos acceso = new AccesoDatos();
+                bool borrado_correcto = acceso.EliminarSistema(sistema.Id);
+                if (!borrado_correcto)
+                {
+                    //Como quiero afectar la interfaz, invoco la accion desde mi hilo principal(this)
+                    this.Invoke(new Action(() =>
+                    {
+                        MessageBox.Show($"El sistema operativo no se borró correctamente en la base de datos",
+                            "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }));
+                }
+            });
         }
         /// <summary>
         /// Deserializa el xml con la lista de SO y actualiza la lista de SO del atributo computadora.
