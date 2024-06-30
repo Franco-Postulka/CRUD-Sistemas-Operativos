@@ -96,7 +96,12 @@ namespace WinFormsApp
         private void GuardarEnDB(SistemaOperativo sistema)
         {
             AccesoDatos acceso = new AccesoDatos(); 
-            acceso.AgregarSistema(sistema);
+            bool agregado_correcto = acceso.AgregarSistema(sistema);
+            if (!agregado_correcto)
+            {
+                MessageBox.Show($"El sistema operativo no se agregó correctamente en la base de datos",
+                    "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private List<SistemaOperativo> RetornarListaDB()
         {
@@ -108,13 +113,23 @@ namespace WinFormsApp
         private void ModificarSistemaEnDB(SistemaOperativo sistema)
         {
             AccesoDatos acceso = new AccesoDatos();
-            acceso.ModificarSistema(sistema);
+            bool modificado_correcto = acceso.ModificarSistema(sistema);
+            if (!modificado_correcto)
+            {
+                MessageBox.Show($"El sistema operativo no se modificó correctamente en la base de datos",
+                    "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BorrarSistemaEnDB(SistemaOperativo sistema)
         {
             AccesoDatos acceso = new AccesoDatos();
-            acceso.EliminarSistema(sistema.Id);
+            bool borrado_correcto = acceso.EliminarSistema(sistema.Id);
+            if (!borrado_correcto) 
+            {
+                MessageBox.Show($"El sistema operativo no se borró correctamente en la base de datos",
+                    "Error en base de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         /// <summary>
         /// Deserializa el xml con la lista de SO y actualiza la lista de SO del atributo computadora.
