@@ -35,7 +35,7 @@ namespace WinFormsApp
                 else
                 {
                     string version = this.txtVersion.Text.Replace(" ", "");
-                    double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'),CultureInfo.InvariantCulture);// YA SE VALIDO EN base.validar_datos();
+                    double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'), CultureInfo.InvariantCulture);// YA SE VALIDO EN base.validar_datos();
                     EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
 
                     bool compatible_Apple = this.checkCompatibleApple.Checked;
@@ -64,7 +64,6 @@ namespace WinFormsApp
                     this.Close();
                 }
             }
-
         }
     }
 }
