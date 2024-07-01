@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace WinFormsApp
 {
-    public partial class FrmInstalarLinux : FrmInstalar
+    public partial class FrmInstalarLinux : FrmInstalar, IInstalar 
     {
         public CheckBox CheckInterfazGrafica
         {
@@ -29,7 +29,7 @@ namespace WinFormsApp
         }
 
        
-        private void btnInstalar_Click(object sender, EventArgs e)
+        public void btnInstalar_Click(object sender, EventArgs e)
         {
             this.validar_datos();
             if (this.validacion_ingresos == true)

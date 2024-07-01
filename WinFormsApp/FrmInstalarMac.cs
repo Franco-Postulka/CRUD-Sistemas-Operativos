@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace WinFormsApp
 {
-    public partial class FrmInstalarMac : FrmInstalar
+    public partial class FrmInstalarMac : FrmInstalar, IInstalar
     {
         public CheckBox CheckIntegracionIcloud
         {
@@ -22,7 +22,7 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        private void btnInstalar_Click(object sender, EventArgs e)
+        public void btnInstalar_Click(object sender, EventArgs e)
         {
             this.validar_datos();
             string nombre = this.txtNombre.Text.Trim();

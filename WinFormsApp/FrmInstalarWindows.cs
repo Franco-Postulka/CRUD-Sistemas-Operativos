@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace WinFormsApp
 {
-    public partial class FrmInstalarWindows : FrmInstalar
+    public partial class FrmInstalarWindows : FrmInstalar, IInstalar
     {
 
         public CheckBox CkeckVirtualizacionPermitida
@@ -28,7 +28,7 @@ namespace WinFormsApp
             this.txtNombre.Text = "Windows";
         }
 
-        private void btnInstalar_Click(object sender, EventArgs e)
+        public void btnInstalar_Click(object sender, EventArgs e)
         {
             this.validar_datos();
             if (this.validacion_ingresos == true)
