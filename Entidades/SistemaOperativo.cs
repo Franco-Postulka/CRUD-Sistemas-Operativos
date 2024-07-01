@@ -6,7 +6,7 @@ namespace Entidades
     [XmlInclude(typeof(Windows))]
     [XmlInclude(typeof(Linux))]
     [XmlInclude(typeof(MacOS))]
-    public abstract class SistemaOperativo
+    public abstract class SistemaOperativo : ISistema<SistemaOperativo>
     {
         private string nombre;
         private string version;
@@ -18,7 +18,6 @@ namespace Entidades
         public string Version { get { return this.version; } set { this.version = value; } }
         public double EspacioGB { get { return this.espacioGB; } set { this.espacioGB = value; } }
         public EEstadoSoporte Soporte { get { return this.estadoSoporte; } set { this.estadoSoporte = value; } }
-
         public int Id { get { return this.id; } set { this.id = value; } }
         public SistemaOperativo()
         {
