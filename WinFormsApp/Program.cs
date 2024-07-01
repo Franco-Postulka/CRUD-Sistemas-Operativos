@@ -18,16 +18,15 @@ namespace WinFormsApp
 
             //VOLVER A POINER ESTO:
 
-            //while (login.DialogResult != DialogResult.Cancel)
-            //{
-            //    if (login.DialogResult == DialogResult.OK)
-            //    {
-            //        logueado = true;
-            //        login.Close();
-            //        break;
-            //    }
-            //}
-            logueado = true; //BORRAR ESTO
+            while (login.DialogResult != DialogResult.Cancel)
+            {
+                if (login.DialogResult == DialogResult.OK)
+                {
+                    logueado = true;
+                    login.Close();
+                    break;
+                }
+            }
             if (logueado)
             {
                 Application.Run(new FrmPrincipal(login.Usuario));
