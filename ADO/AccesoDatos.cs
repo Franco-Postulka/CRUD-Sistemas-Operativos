@@ -90,7 +90,7 @@ namespace ADO
                             windows.Id = (int)lector["id"];
                             windows.Nombre = lector["nombre"].ToString();
                             windows.Version = lector["version"].ToString();
-                            windows.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 1);
+                            windows.EspacioGB = Math.Round(Convert.ToDouble(lector["espacioGB"]), 2);
                             windows.Soporte = (EEstadoSoporte)lector["estadoSoporte"];
                             windows.Edicion = (EEdicionWindows)lector["edicion"];
                             windows.VirtualizacionPermitida = (bool)lector["virtualizacionPermitida"];

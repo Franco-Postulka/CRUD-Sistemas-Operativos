@@ -24,13 +24,13 @@ namespace WinFormsApp
 
         public override void btnInstalar_Click(object sender, EventArgs e)
         {
-            this.validar_datos();
-            string nombre = this.txtNombre.Text.Trim();
-            if (this.validacion_ingresos == true)
+            try
             {
+                this.validar_datos();
+                string nombre = this.txtNombre.Text.Trim();
                 if (String.IsNullOrWhiteSpace(nombre))
                 {
-                    MessageBox.Show("No ingresó nada en el campo Nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    throw new NoValidadoExcepcion("No ingresó nada en el campo Nombre.");
                 }
                 else
                 {
@@ -40,6 +40,7 @@ namespace WinFormsApp
 
                     bool compatible_Apple = this.checkCompatibleApple.Checked;
                     bool integracionIcloud = this.checkIntegracion.Checked;
+
                     if (compatible_Apple == false && integracionIcloud == false)
                     {
                         MacOS mac = new MacOS(nombre, version, espacio, soporte);
@@ -63,6 +64,14 @@ namespace WinFormsApp
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+            }
+            catch (NoValidadoExcepcion ex)
+            {
+                MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

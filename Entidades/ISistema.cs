@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace Entidades
 {
     /// <summary>
-    /// La deben implementar clases de tipo SistemaOperativo y con constructor sin parametros para que 
-    /// se pueda serializar con xml
+    /// La deben implementar clases de tipo SistemaOperativo 
     /// </summary>
     /// <typeparam name="T"></typeparam>
     internal interface ISistema<T> where T : SistemaOperativo

@@ -30,15 +30,16 @@ namespace WinFormsApp
 
         public override void btnInstalar_Click(object sender, EventArgs e)
         {
-            this.validar_datos();
-            if (this.validacion_ingresos == true)
+            try
             {
+                this.validar_datos();
                 string nombre = this.txtNombre.Text.Replace(" ", "");
                 string version = this.txtVersion.Text.Replace(" ", "");
-                double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'),CultureInfo.InvariantCulture);// YA SE VALIDO EN base.validar_datos();
+                double espacio = double.Parse(this.txtEspacio.Text.Replace(',', '.'), CultureInfo.InvariantCulture);// YA SE VALIDO EN base.validar_datos();
                 EEstadoSoporte soporte = (EEstadoSoporte)this.cboEstado.SelectedItem;
                 EEdicionWindows edicion = (EEdicionWindows)this.cboEdicion.SelectedItem;
                 bool virtualizacion = this.checkVirtualizacion.Checked;
+
                 if (String.IsNullOrWhiteSpace(nombre) && virtualizacion == false)
                 {
                     Windows windows = new Windows(version, espacio, soporte, edicion);
@@ -63,7 +64,14 @@ namespace WinFormsApp
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-
+            catch (NoValidadoExcepcion ex)
+            {
+                MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
