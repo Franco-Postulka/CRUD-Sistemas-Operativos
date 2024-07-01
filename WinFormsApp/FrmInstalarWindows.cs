@@ -59,7 +59,6 @@ namespace WinFormsApp
                 {
                     Windows windows = new Windows(nombre, version, espacio, soporte, edicion, virtualizacion);
                     this.sistemaOperativo = windows;
-
                 }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
