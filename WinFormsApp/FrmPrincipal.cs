@@ -210,31 +210,31 @@ namespace WinFormsApp
         /// <param name="e"></param>
         private void eliminarSistemOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int indice = this.lstBox.SelectedIndex;
-            if (indice == -1)
+            if (this.usuario.perfil == "administrador")
             {
-                this.OnSistemaNoSeleccionado(EventArgs.Empty);
+                int indice = this.lstBox.SelectedIndex;
+                if (indice == -1)
+                {
+                    this.OnSistemaNoSeleccionado(EventArgs.Empty);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Esta seguro que desea eliminar el SO?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        SistemaOperativo sistemaOperativo = this.computadora.ListaSistemasOperativos[indice];
+                        this.computadora -= sistemaOperativo;
+                        this.BorrarSistemaEnDB(sistemaOperativo);
+                        SerializarLista(this.Computadora.ListaSistemasOperativos);
+                        ActualizarVisor();
+                    }
+                }
             }
             else
             {
-                DialogResult result = MessageBox.Show("Esta seguro que desea eliminar el SO?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    SistemaOperativo sistemaOperativo = this.computadora.ListaSistemasOperativos[indice];
-                    this.computadora -= sistemaOperativo;
-                    this.BorrarSistemaEnDB(sistemaOperativo);
-                    SerializarLista(this.Computadora.ListaSistemasOperativos);
-                    ActualizarVisor();
-                }
+                MessageBox.Show($"Solo los perfiles de administrador pueden eliminar, usted es {this.usuario.perfil}.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            //if(this.usuario.perfil == "administrador")
-            //{
-            //}
-            //else
-            //{
-            //    MessageBox.Show($"Solo los perfiles de administrador pueden eliminar, usted es {this.usuario.perfil}.",
-            //        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
         }
 
         /// <summary>
@@ -274,23 +274,52 @@ namespace WinFormsApp
         }
         private void instalarWindowsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmInstalarWindows instalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
-            instalarWindows.ShowDialog(this);
-            ManejarFormularioInstalacion(instalarWindows);
+
+            if (this.usuario.perfil == "vendedor")
+            {
+
+                MessageBox.Show($"Solo los perfiles de administrador y supervisor pueden instalar, usted es {this.usuario.perfil}.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FrmInstalarWindows instalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
+                instalarWindows.ShowDialog(this);
+                ManejarFormularioInstalacion(instalarWindows);
+            }
         }
 
         private void instalarMacOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmInstalarMac instalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
-            instalarMac.ShowDialog(this);
-            ManejarFormularioInstalacion(instalarMac);
+
+            if (this.usuario.perfil == "vendedor")
+            {
+
+                MessageBox.Show($"Solo los perfiles de administrador y supervisor pueden instalar, usted es {this.usuario.perfil}.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FrmInstalarMac instalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
+                instalarMac.ShowDialog(this);
+                ManejarFormularioInstalacion(instalarMac);
+            }
         }
 
         private void instalarLinuxToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmInstalarLinux instalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
-            instalarLinux.ShowDialog(this);
-            ManejarFormularioInstalacion(instalarLinux);
+            if (this.usuario.perfil == "vendedor")
+            {
+
+                MessageBox.Show($"Solo los perfiles de administrador y supervisor pueden instalar, usted es {this.usuario.perfil}.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FrmInstalarLinux instalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
+                instalarLinux.ShowDialog(this);
+                ManejarFormularioInstalacion(instalarLinux);
+            }
         }
 
 
@@ -305,45 +334,54 @@ namespace WinFormsApp
         /// <param name="e"></param>
         private void modificarSistemaOperativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int indice = this.lstBox.SelectedIndex;
-            if (indice == -1)
+            if(this.usuario.perfil == "vendedor")
             {
-                this.OnSistemaNoSeleccionado(EventArgs.Empty);
+
+                MessageBox.Show($"Solo los perfiles de administrador y supervisor pueden modificar, usted es {this.usuario.perfil}.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                SistemaOperativo sistema = computadora.ListaSistemasOperativos[indice];
-                int id = sistema.Id;
-                if (sistema.GetType() == typeof(Windows))
+                int indice = this.lstBox.SelectedIndex;
+                if (indice == -1)
                 {
-                    Windows windows = (Windows)sistema;
-                    FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
-                    ConfigurarFormularioModificacion(windows, frmInstalarWindows);
-
-                    frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
-                    frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion;
-
-                    ModificarSistema(frmInstalarWindows, indice, id);
+                    this.OnSistemaNoSeleccionado(EventArgs.Empty);
                 }
-                else if (sistema.GetType() == typeof(MacOS))
+                else
                 {
-                    MacOS mac = (MacOS)sistema;
-                    FrmInstalarMac frmInstalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
-                    ConfigurarFormularioModificacion(mac, frmInstalarMac);
-                    frmInstalarMac.CheckIntegracionIcloud.Checked = mac.IntegracionIcloud;
-                    frmInstalarMac.CheckCompatibleApple.Checked = mac.CompatibleConProcesadorApple;
+                    SistemaOperativo sistema = computadora.ListaSistemasOperativos[indice];
+                    int id = sistema.Id;
+                    if (sistema.GetType() == typeof(Windows))
+                    {
+                        Windows windows = (Windows)sistema;
+                        FrmInstalarWindows frmInstalarWindows = new FrmInstalarWindows(this.computadora.ListaSistemasOperativos);
+                        ConfigurarFormularioModificacion(windows, frmInstalarWindows);
 
-                    ModificarSistema(frmInstalarMac, indice, id);
-                }
-                else if (sistema.GetType() == typeof(Linux))
-                {
-                    Linux linux = (Linux)sistema;
-                    FrmInstalarLinux frmInstalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
-                    ConfigurarFormularioModificacion(linux, frmInstalarLinux);
-                    frmInstalarLinux.CheckInterfazGrafica.Checked = linux.InterfazGrafica;
-                    frmInstalarLinux.CboDistribucion.SelectedItem = linux.Distribucion;
+                        frmInstalarWindows.CkeckVirtualizacionPermitida.Checked = windows.VirtualizacionPermitida;
+                        frmInstalarWindows.CboEdicionWindows.SelectedItem = windows.Edicion;
 
-                    ModificarSistema(frmInstalarLinux, indice, id);
+                        ModificarSistema(frmInstalarWindows, indice, id);
+                    }
+                    else if (sistema.GetType() == typeof(MacOS))
+                    {
+                        MacOS mac = (MacOS)sistema;
+                        FrmInstalarMac frmInstalarMac = new FrmInstalarMac(this.computadora.ListaSistemasOperativos);
+                        ConfigurarFormularioModificacion(mac, frmInstalarMac);
+                        frmInstalarMac.CheckIntegracionIcloud.Checked = mac.IntegracionIcloud;
+                        frmInstalarMac.CheckCompatibleApple.Checked = mac.CompatibleConProcesadorApple;
+
+                        ModificarSistema(frmInstalarMac, indice, id);
+                    }
+                    else if (sistema.GetType() == typeof(Linux))
+                    {
+                        Linux linux = (Linux)sistema;
+                        FrmInstalarLinux frmInstalarLinux = new FrmInstalarLinux(this.computadora.ListaSistemasOperativos);
+                        ConfigurarFormularioModificacion(linux, frmInstalarLinux);
+                        frmInstalarLinux.CheckInterfazGrafica.Checked = linux.InterfazGrafica;
+                        frmInstalarLinux.CboDistribucion.SelectedItem = linux.Distribucion;
+
+                        ModificarSistema(frmInstalarLinux, indice, id);
+                    }
                 }
             }
 
