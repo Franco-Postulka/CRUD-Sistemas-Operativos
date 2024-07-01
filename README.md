@@ -8,20 +8,27 @@
 
 ## Diagrama de clases de los Sistemas Operativos.
 ### Clase padre Sistema Operativo.
-![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/67d1a16f-ec15-4493-be9e-6e86040e2bd6)
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/3fbea71f-8498-476e-abd8-1dbfe910255b)
 ### Clase hija Linux.
-![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/5a125eed-eac2-49c5-9d6c-96302a152a01)
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/22120933-9e85-4c6d-94a2-01f6d80c2df9)
 ### Clase hija Windows.
-![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/2a4b9126-6b64-40d4-9595-11f2ab8979ce)
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/c69043b6-208b-4b90-b0b9-18859f18c592)
 ### Clase hija MacOS.
-![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/230734ff-5aa0-4756-a398-73aa06e6fbc0)
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/0931d471-1019-4740-9d65-c141966f51b2)
 
 
 ## Clase Computadora (objeto utilzado como contenedor de sistemas operativos)
-![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/b6af052e-0832-44d8-99b0-678a64b8e846)
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/622016ec-f17e-42a1-b1b0-38e36f1f3f45)
 
 ## Digrama de los enumerados.
-![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/bb9fed85-f006-4fb0-b8e4-afd6085f644c)
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/9e06792a-8b49-49d5-abfa-d01ffdbb86ae)
 
+## Interfaces.
+# Interfaz genérica implementada en la clase SistemaOperativo.
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/b7ca429b-983e-4cb1-a205-8440a7f4d0e5)
 
+# Interfaz implementada en los formularios de instalación.
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/20cce99c-3aaf-42a7-8a07-3cd77f0a1c72)
 
+## Excepción propia lanzada cuando el usuario ingresa mal los campos al momento de instalar o modificar un SO.
+![image](https://github.com/Franco-Postulka/Postulka.Franco.PrimerParcial/assets/128150248/3899d756-fe94-48d7-a713-3d41bf8d3c66)
