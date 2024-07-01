@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace WinFormsApp
 {
-    public abstract partial class FrmInstalar : Form
+    public abstract partial class FrmInstalar : Form, IInstalar
     {
         protected bool validacion_ingresos;
         protected string xmlpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SO.xml");
@@ -85,6 +85,11 @@ namespace WinFormsApp
             {
                 this.validacion_ingresos = true;
             }
+        }
+
+        public virtual void btnInstalar_Click(object sender, EventArgs e) 
+        {
+            validar_datos();
         }
     }
 }
