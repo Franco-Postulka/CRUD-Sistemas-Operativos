@@ -12,6 +12,19 @@ En este mismo repositorio hay un archivo Script.sql para poder generar la base d
 
 Dentro “Resources.resx” de la carpeta “Properties” del proyecto ADO  está el string de conexión a la base de datos, el mismo debe ser modificado con el string de conexión correspondiente después de haber generado la base de datos con el script. 
 
+## Aplicación de los temas del segundo parcial además de SQL.
+**Manejo de excepciones propias:** implementado en el proyecto de entidades con la creación de NoValidadoExcepcion. Se lanza y captura cuando el ingreso de los datos en los formularios de instalación y modificación no fue correcto. (aparece en el diagrama de clases)
+
+**Interfaces y generics:** se crearon dos interfaces, una no genérica implementada por el frmInstalar, otra genérica implementada por SistemaOperativo. (aparece en el diagrama de clases)
+
+**Tests unitarios:** en el proyecto TestEntidades hay pruebas para los constructores y equals de las tres clases hijas.
+
+**Task:** utilizado en los métodos para agregar, modificar y eliminar elementos de la base de datos, para que la aplicación pueda seguir su normal funcionamiento incluso cuando dicha tarea se demora. 
+
+**Eventos propios:** si el usuario quiere modificar o eliminar un SO pero no seleccionó ninguno, se lanza un evento y se avisa al usuario que le faltó seleccionar un SO. 
+
+**Delegados:** se aplica en los métodos de ordenamiento de la clase Computadora y con el evento propio. 
+
 
 ## Diagrama de clases de los Sistemas Operativos.
 ### Clase padre Sistema Operativo.
