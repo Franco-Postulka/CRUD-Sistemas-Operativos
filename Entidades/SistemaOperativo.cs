@@ -39,10 +39,9 @@ namespace Entidades
         {
             return $"Sistema operativo {this.Nombre} {this.Version} instalado";
         }
-
         public override string ToString()
         {
-            return $"Sistema de {this.espacioGB} GB, {this.estadoSoporte}, {this.Nombre} {this.Version}";
+            return $"{this.Nombre} {this.Version} de {this.espacioGB} GB, {this.estadoSoporte}, ";
         }
 
         public static bool operator ==(SistemaOperativo sistema, SistemaOperativo otroSistema)
