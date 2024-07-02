@@ -1,10 +1,17 @@
-# Postulka.Franco.PrimerParcial
+# Postulka.Franco.SegundoParcial
 
 **Titulo:** CRUD-SistemasOperativos
 
 **Sobre Mi:** Soy Franco Postulka, estudiante de la Tecnicatura en Programación en la UTN. Como desarrollador, domino Python, Django, JavaScript, HTML, CSS, Git y GitHub. Este proyecto es parte de mi incursión en C# y el entorno .NET
 
 **Resumen:** Esta aplicación consta de distintos formulario que le permiten al usuario agregar a su listado de sistemas operativos, sistemas MacOS, Linux y Windows. Los sistemas tienen características en común y propias de cada uno, impidiendo la existencia de dos sistemas iguales en el listado. Los mismos pueden modificarse y eliminarse. El listado y los cambios en el mismo son guardados en un archivo de tipo xml, el cual el usuario puede elegir su ubicación o usar la ubicación que la aplicación brinda por defecto. La lista de SO se puede ordenar alfabéticamente y según la cantidad de GB que ocupa el mismo, de manera ascendente y descendente. 
+
+Las operaciones CUD (creación, modificación y eliminación) se ven reflejadas en una base de datos, siendo el motor que su usó SQLServer. Los datos que persisten en el archivo xml son los mismos en la base de datos. La lectura de los objetos se realiza a través del archivo xml ya que al ser los mismos datos, dar la opción de ver los elementos desde la DB no haría nada visualmente, solo sería un botón extra.
+
+En este mismo repositorio hay un archivo Script.sql para poder generar la base de datos tal cual fue creada y con algunos objetos añadidos, también está al final de este README.
+
+Dentro “Resources.resx” de la carpeta “Properties” del proyecto ADO  está el string de conexión a la base de datos, el mismo debe ser modificado con el string de conexión correspondiente después de haber generado la base de datos con el script. 
+
 
 ## Diagrama de clases de los Sistemas Operativos.
 ### Clase padre Sistema Operativo.
