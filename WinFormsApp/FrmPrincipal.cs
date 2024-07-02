@@ -10,6 +10,7 @@ namespace WinFormsApp
 {
     public partial class FrmPrincipal : Form
     {
+        #region atributos, propiedades, delegado ,constructor
         private Computadora computadora;
 
         private string rutaxml = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "rutas.txt");
@@ -19,17 +20,12 @@ namespace WinFormsApp
         private Usuario usuario;
         private string rutaUsuariosLogueados = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "usuarios.log");
 
+
         //Declaro delegado para manejar el evento 
         public delegate void SistemaNoSeleccionadoEventHandler(object sender, EventArgs e);
 
         //Declaro el evento usando el delegado
         public event SistemaNoSeleccionadoEventHandler SistemaNoSeleccionado;
-
-        //Declaro el metodo que dispara el evento
-        private void OnSistemaNoSeleccionado(EventArgs e)
-        {
-            SistemaNoSeleccionado.Invoke(this, e);
-        }
 
         public Computadora Computadora
         {
@@ -55,6 +51,16 @@ namespace WinFormsApp
             this.SistemaNoSeleccionado += new SistemaNoSeleccionadoEventHandler(Receptor_SistemaNoSeleccionado);
         }
 
+        #endregion
+        #region Métodos
+
+        #region Eventos
+        //Declaro el metodo que dispara el evento
+        private void OnSistemaNoSeleccionado(EventArgs e)
+        {
+            this.SistemaNoSeleccionado.Invoke(this, e);
+        }
+
         /// <summary>
         /// Suscriptor al evento SistemaNoSeleccionado, cuando se lanza el evento, se ejecuta.
         /// </summary>
@@ -64,57 +70,9 @@ namespace WinFormsApp
         {
             MessageBox.Show("Debe seleccionar un SO para poder realizar esta acción.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        /// <summary>
-        /// Guarda los datos del usuario que inicio sesion en el archivo .log que gurada esa info (this.rutaUsuariosLogueados)
-        /// </summary>
-        private void GuardarDatosUsuario()
-        {
-            using (StreamWriter writer = new StreamWriter(this.rutaUsuariosLogueados, true))
-            {
-                Usuario usuario = this.usuario;
-                string info = $"El {usuario.perfil} {usuario.nombre} {usuario.apellido}, legajo {usuario.legajo}, correo " +
-                    $"{usuario.correo}. Ingresó el: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
-                writer.WriteLine(info);
-            }
-        }
-        private void ActualizarVisor()
-        {
-            this.lstBox.Items.Clear();
-            if (File.Exists(this.xmlpath))
-            {
-                this.DeserializarLista();
-                foreach (SistemaOperativo sistema in this.computadora.ListaSistemasOperativos)
-                {
-                    this.lstBox.Items.Add(sistema.ToString());
-                }
-            }
-        }
-
-        /// <summary>
-        /// recibe un lista que serializa en el archivo xml 
-        /// </summary>
-        /// <param name="lista"></param>
-        private void SerializarLista(List<SistemaOperativo> lista)
-        {
-            try
-            {
-                using (XmlTextWriter writer = new XmlTextWriter(this.xmlpath, Encoding.UTF8))
-                {
-                    XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
-                    ser.Serialize(writer, lista);
-                }
-            }
-            catch (XmlException ex)
-            {
-                MessageBox.Show($"Error de XML durante la serialización: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error inesperado: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        #endregion
+       
+        #region Bades de datos
         private List<SistemaOperativo> RetornarListaDB()
         {
             AccesoDatos acceso = new AccesoDatos();
@@ -179,6 +137,34 @@ namespace WinFormsApp
                 }
             });
         }
+        #endregion
+
+        #region Archivos
+        
+        /// <summary>
+        /// recibe un lista que serializa en el archivo xml 
+        /// </summary>
+        /// <param name="lista"></param>
+        private void SerializarLista(List<SistemaOperativo> lista)
+        {
+            try
+            {
+                using (XmlTextWriter writer = new XmlTextWriter(this.xmlpath, Encoding.UTF8))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<SistemaOperativo>));
+                    ser.Serialize(writer, lista);
+                }
+            }
+            catch (XmlException ex)
+            {
+                MessageBox.Show($"Error de XML durante la serialización: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// Deserializa el xml con la lista de SO y actualiza la lista de SO del atributo computadora.
         /// </summary>
@@ -201,7 +187,9 @@ namespace WinFormsApp
                 MessageBox.Show($"Error inesperado: {ex.Message}", "Error de Serialización", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
+        #region Eliminacion SO
         /// <summary>
         /// Eelimina el sistema seleccionado, si no se selecciono ninguno lanza el evento SistemaNoSeleccionado
         /// en el metodo OnSistemaNoSeleccionado
@@ -236,19 +224,9 @@ namespace WinFormsApp
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Recibe un formulario de instalacion, actualiza la lista del atributo computadora,
-        /// serializa la lista y actualiza el visor
-        /// </summary>
-        /// <param name="frmInstalar"></param>
-        private void ActualizarListas(FrmInstalar frmInstalar)
-        {
-            this.computadora += frmInstalar.SistemaOperativo;
-            this.SerializarLista(this.computadora.ListaSistemasOperativos);
-            this.GuardarEnDB(frmInstalar.SistemaOperativo);
-            this.ActualizarVisor();
-        }
+        #region Instalacion SO
         /// <summary>
         /// Recibe fomulario de instalacion, si el objeto SistemaOperativo del formulario esta en la lsita 
         /// de SO de la computadora, avisa al usuario, si no esta lo agrega con el metodo ActualizarListas
@@ -321,9 +299,9 @@ namespace WinFormsApp
                 ManejarFormularioInstalacion(instalarLinux);
             }
         }
+        #endregion
 
-
-
+        #region Modificacion SO
         /// <summary>
         /// Revisa el sistema operativo que se selecciono y segun su tipo (Windows, MacOs o Linux), precompleta
         /// las clasillas de un fromulario de instalacion segun los atributos del SO seleccionado,
@@ -426,6 +404,9 @@ namespace WinFormsApp
             frmInstalar.CboEstadoSoporte.SelectedItem = soporte;
             frmInstalar.BtnInstalar.Text = "Modificar";
         }
+        #endregion
+
+        #region Ordenamiento
 
         /// <summary>
         /// Ordena a lista de SO de manera descendente teniendo en cuenta el atributo Nombre, 
@@ -482,7 +463,47 @@ namespace WinFormsApp
             this.ActualizarVisor();
             MessageBox.Show("Lista ordenada según GB de manera descendente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        #endregion
 
+        #region Otros métodos
+        /// <summary>
+        /// Guarda los datos del usuario que inicio sesion en el archivo .log que gurada esa info (this.rutaUsuariosLogueados)
+        /// </summary>
+        private void GuardarDatosUsuario()
+        {
+            using (StreamWriter writer = new StreamWriter(this.rutaUsuariosLogueados, true))
+            {
+                Usuario usuario = this.usuario;
+                string info = $"El {usuario.perfil} {usuario.nombre} {usuario.apellido}, legajo {usuario.legajo}, correo " +
+                    $"{usuario.correo}. Ingresó el: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
+                writer.WriteLine(info);
+            }
+        }
+        private void ActualizarVisor()
+        {
+            this.lstBox.Items.Clear();
+            if (File.Exists(this.xmlpath))
+            {
+                this.DeserializarLista();
+                foreach (SistemaOperativo sistema in this.computadora.ListaSistemasOperativos)
+                {
+                    this.lstBox.Items.Add(sistema.ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        /// Recibe un formulario de instalacion, actualiza la lista del atributo computadora,
+        /// serializa la lista y actualiza el visor
+        /// </summary>
+        /// <param name="frmInstalar"></param>
+        private void ActualizarListas(FrmInstalar frmInstalar)
+        {
+            this.computadora += frmInstalar.SistemaOperativo;
+            this.SerializarLista(this.computadora.ListaSistemasOperativos);
+            this.GuardarEnDB(frmInstalar.SistemaOperativo);
+            this.ActualizarVisor();
+        }
         /// <summary>
         /// Abre cuadro de dialogo para confirmar si sl usuario quiere cerrar o no la app
         /// </summary>
@@ -610,5 +631,8 @@ namespace WinFormsApp
                 MessageBox.Show(info, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        #endregion
+
+        #endregion
     }
 }
