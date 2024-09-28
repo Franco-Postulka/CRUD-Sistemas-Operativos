@@ -1,29 +1,23 @@
-# Postulka.Franco.SegundoParcial
+# CRUD-SistemasOperativos
 
-**Titulo:** CRUD-SistemasOperativos
+## Descripción del Proyecto
+Este proyecto es una aplicación de escritorio desarrollada en .NET con C# utilizando WinForms, que permite al usuario gestionar un listado de sistemas operativos. Los sistemas operativos que pueden añadirse son MacOS, Linux y Windows, cada uno con características comunes y específicas. La aplicación garantiza que no se puedan agregar sistemas operativos duplicados al listado.
 
-**Sobre Mi:** Soy Franco Postulka, estudiante de la Tecnicatura en Programación en la UTN. Como desarrollador, domino Python, Django, JavaScript, HTML, CSS, Git y GitHub. Este proyecto es parte de mi incursión en C# y el entorno .NET
+El listado de sistemas operativos puede ser modificado o eliminado, y se guarda en un archivo XML, cuya ubicación puede ser elegida por el usuario o utilizar la ubicación por defecto proporcionada por la aplicación. Además, la lista de sistemas puede ordenarse alfabéticamente o según la cantidad de espacio en disco que ocupan, en orden ascendente o descendente.
 
-**Resumen:** Esta aplicación consta de distintos formulario que le permiten al usuario agregar a su listado de sistemas operativos, sistemas MacOS, Linux y Windows. Los sistemas tienen características en común y propias de cada uno, impidiendo la existencia de dos sistemas iguales en el listado. Los mismos pueden modificarse y eliminarse. El listado y los cambios en el mismo son guardados en un archivo de tipo xml, el cual el usuario puede elegir su ubicación o usar la ubicación que la aplicación brinda por defecto. La lista de SO se puede ordenar alfabéticamente y según la cantidad de GB que ocupa el mismo, de manera ascendente y descendente. 
+Las operaciones de creación, modificación y eliminación (CRUD) también se reflejan en una base de datos SQL Server, manteniendo consistencia con los datos guardados en el archivo XML.
 
-Las operaciones CUD (creación, modificación y eliminación) se ven reflejadas en una base de datos, siendo el motor que su usó SQLServer. Los datos que persisten en el archivo xml son los mismos en la base de datos. La lectura de los objetos se realiza a través del archivo xml ya que al ser los mismos datos, dar la opción de ver los elementos desde la DB no haría nada visualmente, solo sería un botón extra.
+## Características
+- **Agregar, modificar y eliminar sistemas operativos**.
+- **Almacenamiento** de los sistemas en un archivo XML y en una base de datos SQL Server.
+- **Ordenación** alfabética o por espacio en disco (ascendente y descendente).
+- **Validación de datos** para evitar duplicados.
+  
+## Base de Datos
+El repositorio incluye un archivo `Script.sql` que permite generar la base de datos tal como fue diseñada. El string de conexión a la base de datos puede encontrarse en el archivo `Resources.resx` dentro de la carpeta `Properties` del proyecto y debe ser modificado según la configuración local del usuario.
 
-En este mismo repositorio hay un archivo Script.sql para poder generar la base de datos tal cual fue creada y con algunos objetos añadidos, también está al final de este README.
-
-Dentro “Resources.resx” de la carpeta “Properties” del proyecto ADO  está el string de conexión a la base de datos, el mismo debe ser modificado con el string de conexión correspondiente después de haber generado la base de datos con el script. 
-
-## Aplicación de los temas del segundo parcial además de SQL.
-**Manejo de excepciones propias:** implementado en el proyecto de entidades con la creación de NoValidadoExcepcion. Se lanza y captura cuando el ingreso de los datos en los formularios de instalación y modificación no fue correcto. (aparece en el diagrama de clases)
-
-**Interfaces y generics:** se crearon dos interfaces, una no genérica implementada por el frmInstalar, otra genérica implementada por SistemaOperativo. (aparece en el diagrama de clases)
-
-**Tests unitarios:** en el proyecto TestEntidades hay pruebas para los constructores y equals de las tres clases hijas.
-
-**Task:** utilizado en los métodos para agregar, modificar y eliminar elementos de la base de datos, para que la aplicación pueda seguir su normal funcionamiento incluso cuando dicha tarea se demora. 
-
-**Eventos propios:** si el usuario quiere modificar o eliminar un SO pero no seleccionó ninguno, se lanza un evento y se avisa al usuario que le faltó seleccionar un SO. 
-
-**Delegados:** se aplica en los métodos de ordenamiento de la clase Computadora y con el evento propio. 
+## Propósito
+Este proyecto fue desarrollado como parte del segundo parcial de la materia Programación II en la Universidad Tecnológica Nacional (UTN).
 
 
 ## Diagrama de clases de los Sistemas Operativos.
